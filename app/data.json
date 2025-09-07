@@ -1,614 +1,6792 @@
 [
   {
-    "id": 1,
-    "header": "Cover page",
-    "type": "Cover page",
-    "status": "In Process",
-    "target": "18",
-    "limit": "5",
-    "reviewer": "Eddie Lake"
-  },
-  {
-    "id": 2,
-    "header": "Table of contents",
-    "type": "Table of contents",
-    "status": "Done",
-    "target": "29",
-    "limit": "24",
-    "reviewer": "Eddie Lake"
-  },
-  {
-    "id": 3,
-    "header": "Executive summary",
-    "type": "Narrative",
-    "status": "Done",
-    "target": "10",
-    "limit": "13",
-    "reviewer": "Eddie Lake"
-  },
-  {
-    "id": 4,
-    "header": "Technical approach",
-    "type": "Narrative",
-    "status": "Done",
-    "target": "27",
-    "limit": "23",
-    "reviewer": "Jamik Tashpulatov"
-  },
-  {
-    "id": 5,
-    "header": "Design",
-    "type": "Narrative",
-    "status": "In Process",
-    "target": "2",
-    "limit": "16",
-    "reviewer": "Jamik Tashpulatov"
-  },
-  {
-    "id": 6,
-    "header": "Capabilities",
-    "type": "Narrative",
-    "status": "In Process",
-    "target": "20",
-    "limit": "8",
-    "reviewer": "Jamik Tashpulatov"
-  },
-  {
-    "id": 7,
-    "header": "Integration with existing systems",
-    "type": "Narrative",
-    "status": "In Process",
-    "target": "19",
-    "limit": "21",
-    "reviewer": "Jamik Tashpulatov"
-  },
-  {
-    "id": 8,
-    "header": "Innovation and Advantages",
-    "type": "Narrative",
-    "status": "Done",
-    "target": "25",
-    "limit": "26",
-    "reviewer": "Assign reviewer"
-  },
-  {
-    "id": 9,
-    "header": "Overview of EMR's Innovative Solutions",
-    "type": "Technical content",
-    "status": "Done",
-    "target": "7",
-    "limit": "23",
-    "reviewer": "Assign reviewer"
-  },
-  {
-    "id": 10,
-    "header": "Advanced Algorithms and Machine Learning",
-    "type": "Narrative",
-    "status": "Done",
-    "target": "30",
-    "limit": "28",
-    "reviewer": "Assign reviewer"
-  },
-  {
-    "id": 11,
-    "header": "Adaptive Communication Protocols",
-    "type": "Narrative",
-    "status": "Done",
-    "target": "9",
-    "limit": "31",
-    "reviewer": "Assign reviewer"
-  },
-  {
-    "id": 12,
-    "header": "Advantages Over Current Technologies",
-    "type": "Narrative",
-    "status": "Done",
-    "target": "12",
-    "limit": "0",
-    "reviewer": "Assign reviewer"
-  },
-  {
-    "id": 13,
-    "header": "Past Performance",
-    "type": "Narrative",
-    "status": "Done",
-    "target": "22",
-    "limit": "33",
-    "reviewer": "Assign reviewer"
-  },
-  {
-    "id": 14,
-    "header": "Customer Feedback and Satisfaction Levels",
-    "type": "Narrative",
-    "status": "Done",
-    "target": "15",
-    "limit": "34",
-    "reviewer": "Assign reviewer"
-  },
-  {
-    "id": 15,
-    "header": "Implementation Challenges and Solutions",
-    "type": "Narrative",
-    "status": "Done",
-    "target": "3",
-    "limit": "35",
-    "reviewer": "Assign reviewer"
-  },
-  {
-    "id": 16,
-    "header": "Security Measures and Data Protection Policies",
-    "type": "Narrative",
-    "status": "In Process",
-    "target": "6",
-    "limit": "36",
-    "reviewer": "Assign reviewer"
-  },
-  {
-    "id": 17,
-    "header": "Scalability and Future Proofing",
-    "type": "Narrative",
-    "status": "Done",
-    "target": "4",
-    "limit": "37",
-    "reviewer": "Assign reviewer"
-  },
-  {
-    "id": 18,
-    "header": "Cost-Benefit Analysis",
-    "type": "Plain language",
-    "status": "Done",
-    "target": "14",
-    "limit": "38",
-    "reviewer": "Assign reviewer"
-  },
-  {
-    "id": 19,
-    "header": "User Training and Onboarding Experience",
-    "type": "Narrative",
-    "status": "Done",
-    "target": "17",
-    "limit": "39",
-    "reviewer": "Assign reviewer"
-  },
-  {
-    "id": 20,
-    "header": "Future Development Roadmap",
-    "type": "Narrative",
-    "status": "Done",
-    "target": "11",
-    "limit": "40",
-    "reviewer": "Assign reviewer"
-  },
-  {
-    "id": 21,
-    "header": "System Architecture Overview",
-    "type": "Technical content",
-    "status": "In Process",
-    "target": "24",
-    "limit": "18",
-    "reviewer": "Maya Johnson"
-  },
-  {
-    "id": 22,
-    "header": "Risk Management Plan",
-    "type": "Narrative",
-    "status": "Done",
-    "target": "15",
-    "limit": "22",
-    "reviewer": "Carlos Rodriguez"
-  },
-  {
-    "id": 23,
-    "header": "Compliance Documentation",
-    "type": "Legal",
-    "status": "In Process",
-    "target": "31",
-    "limit": "27",
-    "reviewer": "Sarah Chen"
-  },
-  {
-    "id": 24,
-    "header": "API Documentation",
-    "type": "Technical content",
-    "status": "Done",
-    "target": "8",
-    "limit": "12",
-    "reviewer": "Raj Patel"
-  },
-  {
-    "id": 25,
-    "header": "User Interface Mockups",
-    "type": "Visual",
-    "status": "In Process",
-    "target": "19",
-    "limit": "25",
-    "reviewer": "Leila Ahmadi"
-  },
-  {
-    "id": 26,
-    "header": "Database Schema",
-    "type": "Technical content",
-    "status": "Done",
-    "target": "22",
-    "limit": "20",
-    "reviewer": "Thomas Wilson"
-  },
-  {
-    "id": 27,
-    "header": "Testing Methodology",
-    "type": "Technical content",
-    "status": "In Process",
-    "target": "17",
-    "limit": "14",
-    "reviewer": "Assign reviewer"
-  },
-  {
-    "id": 28,
-    "header": "Deployment Strategy",
-    "type": "Narrative",
-    "status": "Done",
-    "target": "26",
-    "limit": "30",
-    "reviewer": "Eddie Lake"
-  },
-  {
-    "id": 29,
-    "header": "Budget Breakdown",
-    "type": "Financial",
-    "status": "In Process",
-    "target": "13",
-    "limit": "16",
-    "reviewer": "Jamik Tashpulatov"
-  },
-  {
-    "id": 30,
-    "header": "Market Analysis",
-    "type": "Research",
-    "status": "Done",
-    "target": "29",
-    "limit": "32",
-    "reviewer": "Sophia Martinez"
-  },
-  {
-    "id": 31,
-    "header": "Competitor Comparison",
-    "type": "Research",
-    "status": "In Process",
-    "target": "21",
-    "limit": "19",
-    "reviewer": "Assign reviewer"
-  },
-  {
-    "id": 32,
-    "header": "Maintenance Plan",
-    "type": "Technical content",
-    "status": "Done",
-    "target": "16",
-    "limit": "23",
-    "reviewer": "Alex Thompson"
-  },
-  {
-    "id": 33,
-    "header": "User Personas",
-    "type": "Research",
-    "status": "In Process",
-    "target": "27",
-    "limit": "24",
-    "reviewer": "Nina Patel"
-  },
-  {
-    "id": 34,
-    "header": "Accessibility Compliance",
-    "type": "Legal",
-    "status": "Done",
-    "target": "18",
-    "limit": "21",
-    "reviewer": "Assign reviewer"
-  },
-  {
-    "id": 35,
-    "header": "Performance Metrics",
-    "type": "Technical content",
-    "status": "In Process",
-    "target": "23",
-    "limit": "26",
-    "reviewer": "David Kim"
-  },
-  {
-    "id": 36,
-    "header": "Disaster Recovery Plan",
-    "type": "Technical content",
-    "status": "Done",
-    "target": "14",
-    "limit": "17",
-    "reviewer": "Jamik Tashpulatov"
-  },
-  {
-    "id": 37,
-    "header": "Third-party Integrations",
-    "type": "Technical content",
-    "status": "In Process",
-    "target": "25",
-    "limit": "28",
-    "reviewer": "Eddie Lake"
-  },
-  {
-    "id": 38,
-    "header": "User Feedback Summary",
-    "type": "Research",
-    "status": "Done",
-    "target": "20",
-    "limit": "15",
-    "reviewer": "Assign reviewer"
-  },
-  {
-    "id": 39,
-    "header": "Localization Strategy",
-    "type": "Narrative",
-    "status": "In Process",
-    "target": "12",
-    "limit": "19",
-    "reviewer": "Maria Garcia"
-  },
-  {
-    "id": 40,
-    "header": "Mobile Compatibility",
-    "type": "Technical content",
-    "status": "Done",
-    "target": "28",
-    "limit": "31",
-    "reviewer": "James Wilson"
-  },
-  {
-    "id": 41,
-    "header": "Data Migration Plan",
-    "type": "Technical content",
-    "status": "In Process",
-    "target": "19",
-    "limit": "22",
-    "reviewer": "Assign reviewer"
-  },
-  {
-    "id": 42,
-    "header": "Quality Assurance Protocols",
-    "type": "Technical content",
-    "status": "Done",
-    "target": "30",
-    "limit": "33",
-    "reviewer": "Priya Singh"
-  },
-  {
-    "id": 43,
-    "header": "Stakeholder Analysis",
-    "type": "Research",
-    "status": "In Process",
-    "target": "11",
-    "limit": "14",
-    "reviewer": "Eddie Lake"
-  },
-  {
-    "id": 44,
-    "header": "Environmental Impact Assessment",
-    "type": "Research",
-    "status": "Done",
-    "target": "24",
-    "limit": "27",
-    "reviewer": "Assign reviewer"
-  },
-  {
-    "id": 45,
-    "header": "Intellectual Property Rights",
-    "type": "Legal",
-    "status": "In Process",
-    "target": "17",
-    "limit": "20",
-    "reviewer": "Sarah Johnson"
-  },
-  {
-    "id": 46,
-    "header": "Customer Support Framework",
-    "type": "Narrative",
-    "status": "Done",
-    "target": "22",
-    "limit": "25",
-    "reviewer": "Jamik Tashpulatov"
-  },
-  {
-    "id": 47,
-    "header": "Version Control Strategy",
-    "type": "Technical content",
-    "status": "In Process",
-    "target": "15",
-    "limit": "18",
-    "reviewer": "Assign reviewer"
-  },
-  {
-    "id": 48,
-    "header": "Continuous Integration Pipeline",
-    "type": "Technical content",
-    "status": "Done",
-    "target": "26",
-    "limit": "29",
-    "reviewer": "Michael Chen"
-  },
-  {
-    "id": 49,
-    "header": "Regulatory Compliance",
-    "type": "Legal",
-    "status": "In Process",
-    "target": "13",
-    "limit": "16",
-    "reviewer": "Assign reviewer"
-  },
-  {
-    "id": 50,
-    "header": "User Authentication System",
-    "type": "Technical content",
-    "status": "Done",
-    "target": "28",
-    "limit": "31",
-    "reviewer": "Eddie Lake"
-  },
-  {
-    "id": 51,
-    "header": "Data Analytics Framework",
-    "type": "Technical content",
-    "status": "In Process",
-    "target": "21",
-    "limit": "24",
-    "reviewer": "Jamik Tashpulatov"
-  },
-  {
-    "id": 52,
-    "header": "Cloud Infrastructure",
-    "type": "Technical content",
-    "status": "Done",
-    "target": "16",
-    "limit": "19",
-    "reviewer": "Assign reviewer"
-  },
-  {
-    "id": 53,
-    "header": "Network Security Measures",
-    "type": "Technical content",
-    "status": "In Process",
-    "target": "29",
-    "limit": "32",
-    "reviewer": "Lisa Wong"
-  },
-  {
-    "id": 54,
-    "header": "Project Timeline",
-    "type": "Planning",
-    "status": "Done",
-    "target": "14",
-    "limit": "17",
-    "reviewer": "Eddie Lake"
-  },
-  {
-    "id": 55,
-    "header": "Resource Allocation",
-    "type": "Planning",
-    "status": "In Process",
-    "target": "27",
-    "limit": "30",
-    "reviewer": "Assign reviewer"
-  },
-  {
-    "id": 56,
-    "header": "Team Structure and Roles",
-    "type": "Planning",
-    "status": "Done",
-    "target": "20",
-    "limit": "23",
-    "reviewer": "Jamik Tashpulatov"
-  },
-  {
-    "id": 57,
-    "header": "Communication Protocols",
-    "type": "Planning",
-    "status": "In Process",
-    "target": "15",
-    "limit": "18",
-    "reviewer": "Assign reviewer"
-  },
-  {
-    "id": 58,
-    "header": "Success Metrics",
-    "type": "Planning",
-    "status": "Done",
-    "target": "30",
-    "limit": "33",
-    "reviewer": "Eddie Lake"
-  },
-  {
-    "id": 59,
-    "header": "Internationalization Support",
-    "type": "Technical content",
-    "status": "In Process",
-    "target": "23",
-    "limit": "26",
-    "reviewer": "Jamik Tashpulatov"
-  },
-  {
-    "id": 60,
-    "header": "Backup and Recovery Procedures",
-    "type": "Technical content",
-    "status": "Done",
-    "target": "18",
-    "limit": "21",
-    "reviewer": "Assign reviewer"
-  },
-  {
-    "id": 61,
-    "header": "Monitoring and Alerting System",
-    "type": "Technical content",
-    "status": "In Process",
-    "target": "25",
-    "limit": "28",
-    "reviewer": "Daniel Park"
-  },
-  {
-    "id": 62,
-    "header": "Code Review Guidelines",
-    "type": "Technical content",
-    "status": "Done",
-    "target": "12",
-    "limit": "15",
-    "reviewer": "Eddie Lake"
-  },
-  {
-    "id": 63,
-    "header": "Documentation Standards",
-    "type": "Technical content",
-    "status": "In Process",
-    "target": "27",
-    "limit": "30",
-    "reviewer": "Jamik Tashpulatov"
-  },
-  {
-    "id": 64,
-    "header": "Release Management Process",
-    "type": "Planning",
-    "status": "Done",
-    "target": "22",
-    "limit": "25",
-    "reviewer": "Assign reviewer"
-  },
-  {
-    "id": 65,
-    "header": "Feature Prioritization Matrix",
-    "type": "Planning",
-    "status": "In Process",
-    "target": "19",
-    "limit": "22",
-    "reviewer": "Emma Davis"
-  },
-  {
-    "id": 66,
-    "header": "Technical Debt Assessment",
-    "type": "Technical content",
-    "status": "Done",
-    "target": "24",
-    "limit": "27",
-    "reviewer": "Eddie Lake"
-  },
-  {
-    "id": 67,
-    "header": "Capacity Planning",
-    "type": "Planning",
-    "status": "In Process",
-    "target": "21",
-    "limit": "24",
-    "reviewer": "Jamik Tashpulatov"
-  },
-  {
-    "id": 68,
-    "header": "Service Level Agreements",
-    "type": "Legal",
-    "status": "Done",
-    "target": "26",
-    "limit": "29",
-    "reviewer": "Assign reviewer"
+    "Order No.": 1964321433965019100,
+    "Type": "BUY",
+    "Fiat Amount": 24960,
+    "Price": 80.9,
+    "Coin Amount": 308.529,
+    "Counterparty": "IID555",
+    "Status": "Completed",
+    "Time": "2025-09-06 13:35:00"
+  },
+  {
+    "Order No.": 1963963234391781400,
+    "Type": "SELL",
+    "Fiat Amount": 10700,
+    "Price": 84,
+    "Coin Amount": 127.381,
+    "Counterparty": "ZolotayaScaha",
+    "Status": "Completed",
+    "Time": "2025-09-05 13:51:39"
+  },
+  {
+    "Order No.": 1963957611779334100,
+    "Type": "SELL",
+    "Fiat Amount": 35000,
+    "Price": 83.2,
+    "Coin Amount": 420.6731,
+    "Counterparty": "Mansur S",
+    "Status": "Completed",
+    "Time": "2025-09-05 13:29:18"
+  },
+  {
+    "Order No.": 1963892334491750400,
+    "Type": "SELL",
+    "Fiat Amount": 19516,
+    "Price": 85.06,
+    "Coin Amount": 229.4381,
+    "Counterparty": "ZolotayaScaha",
+    "Status": "Completed",
+    "Time": "2025-09-05 09:09:55"
+  },
+  {
+    "Order No.": 1963817220789809200,
+    "Type": "SELL",
+    "Fiat Amount": 12000,
+    "Price": 83.31,
+    "Coin Amount": 144.0404,
+    "Counterparty": "ZolotayaScaha",
+    "Status": "Completed",
+    "Time": "2025-09-05 04:11:27"
+  },
+  {
+    "Order No.": 1963643225189441500,
+    "Type": "SELL",
+    "Fiat Amount": 23400,
+    "Price": 83,
+    "Coin Amount": 281.9278,
+    "Counterparty": "Mansur S",
+    "Status": "Completed",
+    "Time": "2025-09-04 16:40:03"
+  },
+  {
+    "Order No.": 1963641840574156800,
+    "Type": "SELL",
+    "Fiat Amount": 20000,
+    "Price": 83.32,
+    "Coin Amount": 240.0385,
+    "Counterparty": "Irina M",
+    "Status": "Completed",
+    "Time": "2025-09-04 16:34:33"
+  },
+  {
+    "Order No.": 1963626209056198700,
+    "Type": "SELL",
+    "Fiat Amount": 40000,
+    "Price": 83.99,
+    "Coin Amount": 476.2472,
+    "Counterparty": "huszz",
+    "Status": "Canceled",
+    "Time": "2025-09-04 15:32:26"
+  },
+  {
+    "Order No.": 1963267488704983000,
+    "Type": "SELL",
+    "Fiat Amount": 60000,
+    "Price": 83,
+    "Coin Amount": 722.8916,
+    "Counterparty": "tulpar",
+    "Status": "Completed",
+    "Time": "2025-09-03 15:47:00"
+  },
+  {
+    "Order No.": 1963255087849029600,
+    "Type": "SELL",
+    "Fiat Amount": 30000,
+    "Price": 83,
+    "Coin Amount": 361.4458,
+    "Counterparty": "Kings bit",
+    "Status": "Completed",
+    "Time": "2025-09-03 14:57:44"
+  },
+  {
+    "Order No.": 1962779070271660000,
+    "Type": "BUY",
+    "Fiat Amount": 10065,
+    "Price": 80.1,
+    "Coin Amount": 125.6554,
+    "Counterparty": "AzazeL",
+    "Status": "Canceled",
+    "Time": "2025-09-02 07:26:12"
+  },
+  {
+    "Order No.": 1962776131831849000,
+    "Type": "BUY",
+    "Fiat Amount": 18500,
+    "Price": 79.99,
+    "Coin Amount": 231.2789,
+    "Counterparty": "megan_fox",
+    "Status": "Completed",
+    "Time": "2025-09-02 07:14:32"
+  },
+  {
+    "Order No.": 1962774555959042000,
+    "Type": "BUY",
+    "Fiat Amount": 20000,
+    "Price": 79.99,
+    "Coin Amount": 250.0313,
+    "Counterparty": "Mag1cpie",
+    "Status": "Completed",
+    "Time": "2025-09-02 07:08:16"
+  },
+  {
+    "Order No.": 1962772332428624000,
+    "Type": "BUY",
+    "Fiat Amount": 19000,
+    "Price": 79.5,
+    "Coin Amount": 238.9937,
+    "Counterparty": "sdafeqawdfads",
+    "Status": "Completed",
+    "Time": "2025-09-02 06:59:26"
+  },
+  {
+    "Order No.": 1962771729166344200,
+    "Type": "BUY",
+    "Fiat Amount": 10000,
+    "Price": 79.4,
+    "Coin Amount": 125.9446,
+    "Counterparty": "Halamadridboy??",
+    "Status": "Completed",
+    "Time": "2025-09-02 06:57:02"
+  },
+  {
+    "Order No.": 1962559927239520300,
+    "Type": "SELL",
+    "Fiat Amount": 19750,
+    "Price": 83.02,
+    "Coin Amount": 237.8945,
+    "Counterparty": "Irina M",
+    "Status": "Completed",
+    "Time": "2025-09-01 16:55:24"
+  },
+  {
+    "Order No.": 1962182416648536000,
+    "Type": "BUY",
+    "Fiat Amount": 17460,
+    "Price": 79.6,
+    "Coin Amount": 219.3467,
+    "Counterparty": "IvanP771",
+    "Status": "Canceled",
+    "Time": "2025-08-31 15:55:19"
+  },
+  {
+    "Order No.": 1962182141542219800,
+    "Type": "BUY",
+    "Fiat Amount": 16000,
+    "Price": 79.5,
+    "Coin Amount": 201.2579,
+    "Counterparty": "StandFox",
+    "Status": "Completed",
+    "Time": "2025-08-31 15:54:13"
+  },
+  {
+    "Order No.": 1962171464748900400,
+    "Type": "BUY",
+    "Fiat Amount": 20000,
+    "Price": 79.69,
+    "Coin Amount": 250.9725,
+    "Counterparty": "sunshineCypto",
+    "Status": "Canceled",
+    "Time": "2025-08-31 15:11:48"
+  },
+  {
+    "Order No.": 1962170458993639400,
+    "Type": "BUY",
+    "Fiat Amount": 14600,
+    "Price": 79.9,
+    "Coin Amount": 182.7284,
+    "Counterparty": "enji",
+    "Status": "Completed",
+    "Time": "2025-08-31 15:07:48"
+  },
+  {
+    "Order No.": 1962149346695463000,
+    "Type": "BUY",
+    "Fiat Amount": 17000,
+    "Price": 79.92,
+    "Coin Amount": 212.7127,
+    "Counterparty": "??",
+    "Status": "Completed",
+    "Time": "2025-08-31 13:43:54"
+  },
+  {
+    "Order No.": 1962147681102807000,
+    "Type": "BUY",
+    "Fiat Amount": 30000,
+    "Price": 79.98,
+    "Coin Amount": 375.0938,
+    "Counterparty": "BobSon",
+    "Status": "Completed",
+    "Time": "2025-08-31 13:37:17"
+  },
+  {
+    "Order No.": 1962145867085021200,
+    "Type": "BUY",
+    "Fiat Amount": 25000,
+    "Price": 79.7,
+    "Coin Amount": 313.6763,
+    "Counterparty": "???????????????",
+    "Status": "Completed",
+    "Time": "2025-08-31 13:30:05"
+  },
+  {
+    "Order No.": 1962141308502507500,
+    "Type": "BUY",
+    "Fiat Amount": 26576,
+    "Price": 80,
+    "Coin Amount": 332.2,
+    "Counterparty": "Pitupichnik",
+    "Status": "Completed",
+    "Time": "2025-08-31 13:11:58"
+  },
+  {
+    "Order No.": 1962075834344620000,
+    "Type": "SELL",
+    "Fiat Amount": 24900,
+    "Price": 83.55,
+    "Coin Amount": 298.0252,
+    "Counterparty": "TimExc",
+    "Status": "Completed",
+    "Time": "2025-08-31 08:51:48"
+  },
+  {
+    "Order No.": 1961727627016904700,
+    "Type": "SELL",
+    "Fiat Amount": 17200,
+    "Price": 84.9,
+    "Coin Amount": 202.5913,
+    "Counterparty": "Kings bit",
+    "Status": "Completed",
+    "Time": "2025-08-30 09:48:09"
+  },
+  {
+    "Order No.": 1960578583324979200,
+    "Type": "SELL",
+    "Fiat Amount": 20000,
+    "Price": 85.25,
+    "Coin Amount": 234.6042,
+    "Counterparty": "Bobrito bandito",
+    "Status": "Canceled",
+    "Time": "2025-08-27 05:42:15"
+  },
+  {
+    "Order No.": 1960391944111440000,
+    "Type": "SELL",
+    "Fiat Amount": 5000,
+    "Price": 87.05,
+    "Coin Amount": 57.4383,
+    "Counterparty": "????? ?????",
+    "Status": "Canceled",
+    "Time": "2025-08-26 17:20:37"
+  },
+  {
+    "Order No.": 1960287712750387200,
+    "Type": "SELL",
+    "Fiat Amount": 10000,
+    "Price": 86.31,
+    "Coin Amount": 115.8615,
+    "Counterparty": "Super T",
+    "Status": "Completed",
+    "Time": "2025-08-26 10:26:26"
+  },
+  {
+    "Order No.": 1960265036596396000,
+    "Type": "SELL",
+    "Fiat Amount": 10000,
+    "Price": 83,
+    "Coin Amount": 120.4819,
+    "Counterparty": "FonDip",
+    "Status": "Completed",
+    "Time": "2025-08-26 08:56:20"
+  },
+  {
+    "Order No.": 1960232047726227500,
+    "Type": "SELL",
+    "Fiat Amount": 25000,
+    "Price": 83.33,
+    "Coin Amount": 300.012,
+    "Counterparty": "Love is�.??",
+    "Status": "Completed",
+    "Time": "2025-08-26 06:45:15"
+  },
+  {
+    "Order No.": 1960226000061632500,
+    "Type": "SELL",
+    "Fiat Amount": 10000,
+    "Price": 84.85,
+    "Coin Amount": 117.855,
+    "Counterparty": "ZolotayaScaha",
+    "Status": "Canceled",
+    "Time": "2025-08-26 06:21:13"
+  },
+  {
+    "Order No.": 1960223612997939200,
+    "Type": "SELL",
+    "Fiat Amount": 10000,
+    "Price": 83.52,
+    "Coin Amount": 119.7318,
+    "Counterparty": "ZolotayaScaha",
+    "Status": "Completed",
+    "Time": "2025-08-26 06:11:44"
+  },
+  {
+    "Order No.": 1960223501554888700,
+    "Type": "SELL",
+    "Fiat Amount": 23000,
+    "Price": 83.23,
+    "Coin Amount": 276.3427,
+    "Counterparty": "Love is�.??",
+    "Status": "Completed",
+    "Time": "2025-08-26 06:11:17"
+  },
+  {
+    "Order No.": 1960218846951583700,
+    "Type": "SELL",
+    "Fiat Amount": 12000,
+    "Price": 85.61,
+    "Coin Amount": 140.1705,
+    "Counterparty": "ZolotayaScaha",
+    "Status": "Completed",
+    "Time": "2025-08-26 05:52:47"
+  },
+  {
+    "Order No.": 1960207678135255000,
+    "Type": "SELL",
+    "Fiat Amount": 18500,
+    "Price": 84.52,
+    "Coin Amount": 218.8831,
+    "Counterparty": "ZolotayaScaha",
+    "Status": "Canceled",
+    "Time": "2025-08-26 05:08:25"
+  },
+  {
+    "Order No.": 1960017093794672600,
+    "Type": "SELL",
+    "Fiat Amount": 30000,
+    "Price": 86.3,
+    "Coin Amount": 347.6246,
+    "Counterparty": "?????????",
+    "Status": "Canceled",
+    "Time": "2025-08-25 16:31:06"
+  },
+  {
+    "Order No.": 1960002546002227200,
+    "Type": "SELL",
+    "Fiat Amount": 15000,
+    "Price": 84.18,
+    "Coin Amount": 178.1896,
+    "Counterparty": "cryptop ??",
+    "Status": "Completed",
+    "Time": "2025-08-25 15:33:17"
+  },
+  {
+    "Order No.": 1959997538705621000,
+    "Type": "SELL",
+    "Fiat Amount": 30000,
+    "Price": 86,
+    "Coin Amount": 348.8372,
+    "Counterparty": "WindyWeather",
+    "Status": "Canceled",
+    "Time": "2025-08-25 15:13:23"
+  },
+  {
+    "Order No.": 1959977456468045800,
+    "Type": "SELL",
+    "Fiat Amount": 25000,
+    "Price": 84.3,
+    "Coin Amount": 296.5599,
+    "Counterparty": "Kings bit",
+    "Status": "Completed",
+    "Time": "2025-08-25 13:53:35"
+  },
+  {
+    "Order No.": 1959943854374383600,
+    "Type": "SELL",
+    "Fiat Amount": 30000,
+    "Price": 84.5,
+    "Coin Amount": 355.0296,
+    "Counterparty": "??????????????",
+    "Status": "Canceled",
+    "Time": "2025-08-25 11:40:04"
+  },
+  {
+    "Order No.": 1959935319779033000,
+    "Type": "BUY",
+    "Fiat Amount": 10500,
+    "Price": 80.8,
+    "Coin Amount": 129.9505,
+    "Counterparty": "katran900",
+    "Status": "Completed",
+    "Time": "2025-08-25 11:06:09"
+  },
+  {
+    "Order No.": 1959933478913781800,
+    "Type": "BUY",
+    "Fiat Amount": 12606,
+    "Price": 81,
+    "Coin Amount": 155.6296,
+    "Counterparty": "abdullah777",
+    "Status": "Completed",
+    "Time": "2025-08-25 10:58:50"
+  },
+  {
+    "Order No.": 1959931572541702100,
+    "Type": "BUY",
+    "Fiat Amount": 32000,
+    "Price": 80.8,
+    "Coin Amount": 396.0396,
+    "Counterparty": "Temirlan07",
+    "Status": "Completed",
+    "Time": "2025-08-25 10:51:16"
+  },
+  {
+    "Order No.": 1959929612104937500,
+    "Type": "BUY",
+    "Fiat Amount": 25000,
+    "Price": 80.9,
+    "Coin Amount": 309.0235,
+    "Counterparty": "_Lavanda@",
+    "Status": "Completed",
+    "Time": "2025-08-25 10:43:29"
+  },
+  {
+    "Order No.": 1959619620661751800,
+    "Type": "BUY",
+    "Fiat Amount": 10380,
+    "Price": 79.5,
+    "Coin Amount": 130.566,
+    "Counterparty": "???????????????",
+    "Status": "Completed",
+    "Time": "2025-08-24 14:11:41"
+  },
+  {
+    "Order No.": 1959604298214928400,
+    "Type": "SELL",
+    "Fiat Amount": 10000,
+    "Price": 86,
+    "Coin Amount": 116.2791,
+    "Counterparty": "ZolotayaScaha",
+    "Status": "Canceled",
+    "Time": "2025-08-24 13:10:48"
+  },
+  {
+    "Order No.": 1959518570010124300,
+    "Type": "SELL",
+    "Fiat Amount": 35000,
+    "Price": 85.82,
+    "Coin Amount": 407.8303,
+    "Counterparty": "ZolotayaScaha",
+    "Status": "Completed",
+    "Time": "2025-08-24 07:30:08"
+  },
+  {
+    "Order No.": 1959272220383961000,
+    "Type": "BUY",
+    "Fiat Amount": 14020,
+    "Price": 79.89,
+    "Coin Amount": 175.4913,
+    "Counterparty": "BILLIGANS_X",
+    "Status": "Completed",
+    "Time": "2025-08-23 15:11:14"
+  },
+  {
+    "Order No.": 1959271433129877500,
+    "Type": "BUY",
+    "Fiat Amount": 13000,
+    "Price": 79.6,
+    "Coin Amount": 163.3166,
+    "Counterparty": "qqept",
+    "Status": "Completed",
+    "Time": "2025-08-23 15:08:06"
+  },
+  {
+    "Order No.": 1958771600370966500,
+    "Type": "SELL",
+    "Fiat Amount": 16000,
+    "Price": 85.72,
+    "Coin Amount": 186.6543,
+    "Counterparty": "ZolotayaScaha",
+    "Status": "Completed",
+    "Time": "2025-08-22 06:01:57"
+  },
+  {
+    "Order No.": 1958566935664939000,
+    "Type": "SELL",
+    "Fiat Amount": 11000,
+    "Price": 83.5,
+    "Coin Amount": 131.7366,
+    "Counterparty": "Mansur S",
+    "Status": "Completed",
+    "Time": "2025-08-21 16:28:41"
+  },
+  {
+    "Order No.": 1958566258994983000,
+    "Type": "BUY",
+    "Fiat Amount": 13135,
+    "Price": 79.7,
+    "Coin Amount": 164.8056,
+    "Counterparty": "n3mqp",
+    "Status": "Completed",
+    "Time": "2025-08-21 16:26:00"
+  },
+  {
+    "Order No.": 1958216452483375000,
+    "Type": "SELL",
+    "Fiat Amount": 50000,
+    "Price": 83.73,
+    "Coin Amount": 597.1576,
+    "Counterparty": "Love is�.??",
+    "Status": "Completed",
+    "Time": "2025-08-20 17:15:59"
+  },
+  {
+    "Order No.": 1958212578450665500,
+    "Type": "BUY",
+    "Fiat Amount": 13432,
+    "Price": 80.5,
+    "Coin Amount": 166.8572,
+    "Counterparty": "??QUEEN??",
+    "Status": "Completed",
+    "Time": "2025-08-20 17:00:36"
+  },
+  {
+    "Order No.": 1958210248707911700,
+    "Type": "BUY",
+    "Fiat Amount": 16570,
+    "Price": 80.7,
+    "Coin Amount": 205.3284,
+    "Counterparty": "BROM-Ex",
+    "Status": "Completed",
+    "Time": "2025-08-20 16:51:20"
+  },
+  {
+    "Order No.": 1958202203977744400,
+    "Type": "BUY",
+    "Fiat Amount": 20010,
+    "Price": 80.58,
+    "Coin Amount": 248.3247,
+    "Counterparty": "Ariel_??2??",
+    "Status": "Completed",
+    "Time": "2025-08-20 16:19:22"
+  },
+  {
+    "Order No.": 1958197141387595800,
+    "Type": "BUY",
+    "Fiat Amount": 20000,
+    "Price": 80,
+    "Coin Amount": 250,
+    "Counterparty": "spider_trade_gg",
+    "Status": "Completed",
+    "Time": "2025-08-20 15:59:15"
+  },
+  {
+    "Order No.": 1958194253272576000,
+    "Type": "BUY",
+    "Fiat Amount": 25200,
+    "Price": 80.2,
+    "Coin Amount": 314.2145,
+    "Counterparty": "GRITHER-TEAM.1",
+    "Status": "Completed",
+    "Time": "2025-08-20 15:47:47"
+  },
+  {
+    "Order No.": 1958188098536730600,
+    "Type": "BUY",
+    "Fiat Amount": 22660,
+    "Price": 79.44,
+    "Coin Amount": 285.2468,
+    "Counterparty": "1EIGHT1",
+    "Status": "Completed",
+    "Time": "2025-08-20 15:23:19"
+  },
+  {
+    "Order No.": 1958119245063184400,
+    "Type": "BUY",
+    "Fiat Amount": 18020,
+    "Price": 80.09,
+    "Coin Amount": 224.9969,
+    "Counterparty": "Alexandr137",
+    "Status": "Canceled",
+    "Time": "2025-08-20 10:49:43"
+  },
+  {
+    "Order No.": 1958116629800214500,
+    "Type": "BUY",
+    "Fiat Amount": 19954,
+    "Price": 79.9,
+    "Coin Amount": 249.7372,
+    "Counterparty": "n3mqp",
+    "Status": "Completed",
+    "Time": "2025-08-20 10:39:20"
+  },
+  {
+    "Order No.": 1957837353706713000,
+    "Type": "SELL",
+    "Fiat Amount": 15000,
+    "Price": 84.5,
+    "Coin Amount": 177.5148,
+    "Counterparty": "FonDip",
+    "Status": "Completed",
+    "Time": "2025-08-19 16:09:35"
+  },
+  {
+    "Order No.": 1957836753590214700,
+    "Type": "SELL",
+    "Fiat Amount": 15500,
+    "Price": 83.55,
+    "Coin Amount": 185.5177,
+    "Counterparty": "TuzBtc",
+    "Status": "Completed",
+    "Time": "2025-08-19 16:07:12"
+  },
+  {
+    "Order No.": 1957836106619957200,
+    "Type": "SELL",
+    "Fiat Amount": 10001,
+    "Price": 85.31,
+    "Coin Amount": 117.2313,
+    "Counterparty": "!077!",
+    "Status": "Completed",
+    "Time": "2025-08-19 16:04:38"
+  },
+  {
+    "Order No.": 1957480507521458200,
+    "Type": "SELL",
+    "Fiat Amount": 25000,
+    "Price": 84.77,
+    "Coin Amount": 294.9157,
+    "Counterparty": "Montero??",
+    "Status": "Canceled",
+    "Time": "2025-08-18 16:31:36"
+  },
+  {
+    "Order No.": 1957465530438410200,
+    "Type": "SELL",
+    "Fiat Amount": 10001,
+    "Price": 85,
+    "Coin Amount": 117.6589,
+    "Counterparty": "!077!",
+    "Status": "Completed",
+    "Time": "2025-08-18 15:32:06"
+  },
+  {
+    "Order No.": 1957464143464034300,
+    "Type": "SELL",
+    "Fiat Amount": 10000,
+    "Price": 86.4,
+    "Coin Amount": 115.7408,
+    "Counterparty": "ZolotayaScaha",
+    "Status": "Completed",
+    "Time": "2025-08-18 15:26:35"
+  },
+  {
+    "Order No.": 1957439240752279600,
+    "Type": "SELL",
+    "Fiat Amount": 40000,
+    "Price": 86.5,
+    "Coin Amount": 462.4278,
+    "Counterparty": "Lemon??",
+    "Status": "Canceled",
+    "Time": "2025-08-18 13:47:38"
+  },
+  {
+    "Order No.": 1957434642103165000,
+    "Type": "SELL",
+    "Fiat Amount": 10500,
+    "Price": 86.2,
+    "Coin Amount": 121.8098,
+    "Counterparty": "ZolotayaScaha",
+    "Status": "Completed",
+    "Time": "2025-08-18 13:29:21"
+  },
+  {
+    "Order No.": 1957410823316680700,
+    "Type": "SELL",
+    "Fiat Amount": 10000,
+    "Price": 84,
+    "Coin Amount": 119.0477,
+    "Counterparty": "????? ?????",
+    "Status": "Completed",
+    "Time": "2025-08-18 11:54:42"
+  },
+  {
+    "Order No.": 1957409126976372700,
+    "Type": "SELL",
+    "Fiat Amount": 20000,
+    "Price": 85.7,
+    "Coin Amount": 233.3723,
+    "Counterparty": "Work_Evreday",
+    "Status": "Canceled",
+    "Time": "2025-08-18 11:47:58"
+  },
+  {
+    "Order No.": 1957407990492135400,
+    "Type": "SELL",
+    "Fiat Amount": 10000,
+    "Price": 86.01,
+    "Coin Amount": 116.2656,
+    "Counterparty": "Koks228",
+    "Status": "Completed",
+    "Time": "2025-08-18 11:43:27"
+  },
+  {
+    "Order No.": 1957107062069678000,
+    "Type": "SELL",
+    "Fiat Amount": 10000,
+    "Price": 85.1,
+    "Coin Amount": 117.5089,
+    "Counterparty": "FonDip",
+    "Status": "Completed",
+    "Time": "2025-08-17 15:47:40"
+  },
+  {
+    "Order No.": 1957089588867649500,
+    "Type": "SELL",
+    "Fiat Amount": 10000,
+    "Price": 85,
+    "Coin Amount": 117.6471,
+    "Counterparty": "??CrYpTo_CaR??",
+    "Status": "Canceled",
+    "Time": "2025-08-17 14:38:14"
+  },
+  {
+    "Order No.": 1957053699398746000,
+    "Type": "SELL",
+    "Fiat Amount": 10000,
+    "Price": 85.31,
+    "Coin Amount": 117.2196,
+    "Counterparty": "Koks228",
+    "Status": "Completed",
+    "Time": "2025-08-17 12:15:37"
+  },
+  {
+    "Order No.": 1957050751910330400,
+    "Type": "BUY",
+    "Fiat Amount": 16000,
+    "Price": 79.8,
+    "Coin Amount": 200.5013,
+    "Counterparty": "Gold-exchange",
+    "Status": "Completed",
+    "Time": "2025-08-17 12:03:55"
+  },
+  {
+    "Order No.": 1955579275258863600,
+    "Type": "SELL",
+    "Fiat Amount": 20000,
+    "Price": 86.99,
+    "Coin Amount": 229.9115,
+    "Counterparty": "CriptoMost",
+    "Status": "Canceled",
+    "Time": "2025-08-13 10:36:47"
+  },
+  {
+    "Order No.": 1955526581021515800,
+    "Type": "SELL",
+    "Fiat Amount": 15000,
+    "Price": 86.53,
+    "Coin Amount": 173.3503,
+    "Counterparty": "DannyStorm",
+    "Status": "Canceled",
+    "Time": "2025-08-13 07:07:24"
+  },
+  {
+    "Order No.": 1955299383617609700,
+    "Type": "BUY",
+    "Fiat Amount": 10000,
+    "Price": 79,
+    "Coin Amount": 126.5823,
+    "Counterparty": "Chuch4riki_team",
+    "Status": "Completed",
+    "Time": "2025-08-12 16:04:36"
+  },
+  {
+    "Order No.": 1955221422937448400,
+    "Type": "BUY",
+    "Fiat Amount": 16215,
+    "Price": 78.55,
+    "Coin Amount": 206.4291,
+    "Counterparty": "Gleb123",
+    "Status": "Completed",
+    "Time": "2025-08-12 10:54:49"
+  },
+  {
+    "Order No.": 1954918489392337000,
+    "Type": "BUY",
+    "Fiat Amount": 10007,
+    "Price": 78.8,
+    "Coin Amount": 126.9924,
+    "Counterparty": "ExTudor",
+    "Status": "Completed",
+    "Time": "2025-08-11 14:51:04"
+  },
+  {
+    "Order No.": 1953467739487936500,
+    "Type": "SELL",
+    "Fiat Amount": 22000,
+    "Price": 83.82,
+    "Coin Amount": 262.4672,
+    "Counterparty": "Irina M",
+    "Status": "Completed",
+    "Time": "2025-08-07 14:46:18"
+  },
+  {
+    "Order No.": 1953464408895987700,
+    "Type": "SELL",
+    "Fiat Amount": 15000,
+    "Price": 82.7,
+    "Coin Amount": 181.3785,
+    "Counterparty": "TheGoldenCoin",
+    "Status": "Canceled",
+    "Time": "2025-08-07 14:33:04"
+  },
+  {
+    "Order No.": 1953456869219840000,
+    "Type": "SELL",
+    "Fiat Amount": 35550,
+    "Price": 84.3,
+    "Coin Amount": 421.7082,
+    "Counterparty": "Ferrari_Engine",
+    "Status": "Completed",
+    "Time": "2025-08-07 14:03:06"
+  },
+  {
+    "Order No.": 1953455022681170000,
+    "Type": "SELL",
+    "Fiat Amount": 45000.01,
+    "Price": 83.01,
+    "Coin Amount": 542.1035,
+    "Counterparty": "INVESTMENTS",
+    "Status": "Canceled",
+    "Time": "2025-08-07 13:55:46"
+  },
+  {
+    "Order No.": 1953452970756350000,
+    "Type": "SELL",
+    "Fiat Amount": 25000,
+    "Price": 83,
+    "Coin Amount": 301.2049,
+    "Counterparty": "Kings bit",
+    "Status": "Canceled",
+    "Time": "2025-08-07 13:47:37"
+  },
+  {
+    "Order No.": 1953451750436921300,
+    "Type": "SELL",
+    "Fiat Amount": 17150,
+    "Price": 83,
+    "Coin Amount": 206.6266,
+    "Counterparty": "Ignition",
+    "Status": "Completed",
+    "Time": "2025-08-07 13:42:46"
+  },
+  {
+    "Order No.": 1953087557294420000,
+    "Type": "SELL",
+    "Fiat Amount": 40829,
+    "Price": 82.9,
+    "Coin Amount": 492.5091,
+    "Counterparty": "Gatti209",
+    "Status": "Canceled",
+    "Time": "2025-08-06 13:35:35"
+  },
+  {
+    "Order No.": 1953041303517917200,
+    "Type": "SELL",
+    "Fiat Amount": 10000.01,
+    "Price": 84.01,
+    "Coin Amount": 119.0336,
+    "Counterparty": "P2PRodger",
+    "Status": "Canceled",
+    "Time": "2025-08-06 10:31:48"
+  },
+  {
+    "Order No.": 1953040592784248800,
+    "Type": "SELL",
+    "Fiat Amount": 45000,
+    "Price": 83.5,
+    "Coin Amount": 538.9222,
+    "Counterparty": "Mikailov077",
+    "Status": "Canceled",
+    "Time": "2025-08-06 10:28:58"
+  },
+  {
+    "Order No.": 1952744469582499800,
+    "Type": "SELL",
+    "Fiat Amount": 23300,
+    "Price": 83.21,
+    "Coin Amount": 280.0145,
+    "Counterparty": "FLEXchange",
+    "Status": "Completed",
+    "Time": "2025-08-05 14:52:17"
+  },
+  {
+    "Order No.": 1952743476560732200,
+    "Type": "SELL",
+    "Fiat Amount": 10743.42,
+    "Price": 84.04,
+    "Coin Amount": 127.837,
+    "Counterparty": "tyler1",
+    "Status": "Canceled",
+    "Time": "2025-08-05 14:48:20"
+  },
+  {
+    "Order No.": 1952742834232434700,
+    "Type": "SELL",
+    "Fiat Amount": 10000,
+    "Price": 84.01,
+    "Coin Amount": 119.0335,
+    "Counterparty": "GRS99",
+    "Status": "Completed",
+    "Time": "2025-08-05 14:45:47"
+  },
+  {
+    "Order No.": 1952741263956320300,
+    "Type": "BUY",
+    "Fiat Amount": 15000.01,
+    "Price": 80.9,
+    "Coin Amount": 185.4143,
+    "Counterparty": "??Badger??",
+    "Status": "Completed",
+    "Time": "2025-08-05 14:39:33"
+  },
+  {
+    "Order No.": 1952320050019233800,
+    "Type": "BUY",
+    "Fiat Amount": 11715,
+    "Price": 80.47,
+    "Coin Amount": 145.5823,
+    "Counterparty": "MVG",
+    "Status": "Completed",
+    "Time": "2025-08-04 10:45:47"
+  },
+  {
+    "Order No.": 1952318677727449000,
+    "Type": "BUY",
+    "Fiat Amount": 18600,
+    "Price": 80.25,
+    "Coin Amount": 231.7758,
+    "Counterparty": "enji",
+    "Status": "Completed",
+    "Time": "2025-08-04 10:40:20"
+  },
+  {
+    "Order No.": 1952317397463277600,
+    "Type": "BUY",
+    "Fiat Amount": 25000,
+    "Price": 80.79,
+    "Coin Amount": 309.4443,
+    "Counterparty": "ALEX_EXCHANGE",
+    "Status": "Completed",
+    "Time": "2025-08-04 10:35:15"
+  },
+  {
+    "Order No.": 1951541937820295200,
+    "Type": "BUY",
+    "Fiat Amount": 40000,
+    "Price": 81.1,
+    "Coin Amount": 493.2183,
+    "Counterparty": "MaximusGlad",
+    "Status": "Canceled",
+    "Time": "2025-08-02 07:13:51"
+  },
+  {
+    "Order No.": 1950903302672113700,
+    "Type": "SELL",
+    "Fiat Amount": 10500,
+    "Price": 86,
+    "Coin Amount": 122.0931,
+    "Counterparty": "ZolotayaScaha",
+    "Status": "Completed",
+    "Time": "2025-07-31 12:56:09"
+  },
+  {
+    "Order No.": 1944794984922185700,
+    "Type": "BUY",
+    "Fiat Amount": 10902,
+    "Price": 78.89,
+    "Coin Amount": 138.1925,
+    "Counterparty": "qqept",
+    "Status": "Completed",
+    "Time": "2025-07-14 16:23:52"
+  },
+  {
+    "Order No.": 1944792508013531100,
+    "Type": "BUY",
+    "Fiat Amount": 35500,
+    "Price": 78.99,
+    "Coin Amount": 449.424,
+    "Counterparty": "sunshineCypto",
+    "Status": "Completed",
+    "Time": "2025-07-14 16:14:02"
+  },
+  {
+    "Order No.": 1944468621915865000,
+    "Type": "BUY",
+    "Fiat Amount": 10000,
+    "Price": 78.3,
+    "Coin Amount": 127.714,
+    "Counterparty": "Fersegno",
+    "Status": "Completed",
+    "Time": "2025-07-13 18:47:01"
+  },
+  {
+    "Order No.": 1944466156126912500,
+    "Type": "BUY",
+    "Fiat Amount": 19506,
+    "Price": 78.35,
+    "Coin Amount": 248.9598,
+    "Counterparty": "the_lwf",
+    "Status": "Completed",
+    "Time": "2025-07-13 18:37:13"
+  },
+  {
+    "Order No.": 1943901449623613400,
+    "Type": "BUY",
+    "Fiat Amount": 16012,
+    "Price": 78.1,
+    "Coin Amount": 205.0193,
+    "Counterparty": "BT6",
+    "Status": "Completed",
+    "Time": "2025-07-12 05:13:17"
+  },
+  {
+    "Order No.": 1943008200089546800,
+    "Type": "SELL",
+    "Fiat Amount": 34500,
+    "Price": 83.51,
+    "Coin Amount": 413.1242,
+    "Counterparty": "Abdulla717",
+    "Status": "Completed",
+    "Time": "2025-07-09 18:03:50"
+  },
+  {
+    "Order No.": 1942974471587102700,
+    "Type": "BUY",
+    "Fiat Amount": 10000,
+    "Price": 78.7,
+    "Coin Amount": 127.0649,
+    "Counterparty": "?KriptoAuditor",
+    "Status": "Completed",
+    "Time": "2025-07-09 15:49:48"
+  },
+  {
+    "Order No.": 1942971842401472500,
+    "Type": "BUY",
+    "Fiat Amount": 15000,
+    "Price": 78.19,
+    "Coin Amount": 191.8404,
+    "Counterparty": "MrMag1c",
+    "Status": "Completed",
+    "Time": "2025-07-09 15:39:21"
+  },
+  {
+    "Order No.": 1942965123475226600,
+    "Type": "SELL",
+    "Fiat Amount": 15500,
+    "Price": 83.4,
+    "Coin Amount": 185.8514,
+    "Counterparty": "vorrrrr213",
+    "Status": "Completed",
+    "Time": "2025-07-09 15:12:39"
+  },
+  {
+    "Order No.": 1942961816421236700,
+    "Type": "SELL",
+    "Fiat Amount": 21540,
+    "Price": 83.57,
+    "Coin Amount": 257.748,
+    "Counterparty": "Sherry_L",
+    "Status": "Canceled",
+    "Time": "2025-07-09 14:59:31"
+  },
+  {
+    "Order No.": 1942957347814613000,
+    "Type": "SELL",
+    "Fiat Amount": 24541,
+    "Price": 82.6,
+    "Coin Amount": 297.1066,
+    "Counterparty": "ZolotayaScaha",
+    "Status": "Completed",
+    "Time": "2025-07-09 14:41:45"
+  },
+  {
+    "Order No.": 1942956367578972200,
+    "Type": "SELL",
+    "Fiat Amount": 15663,
+    "Price": 83,
+    "Coin Amount": 188.7109,
+    "Counterparty": "ZolotayaScaha",
+    "Status": "Canceled",
+    "Time": "2025-07-09 14:37:52"
+  },
+  {
+    "Order No.": 1942261283136258000,
+    "Type": "SELL",
+    "Fiat Amount": 35000.02,
+    "Price": 82.1,
+    "Coin Amount": 426.3097,
+    "Counterparty": "DimaSio",
+    "Status": "Canceled",
+    "Time": "2025-07-07 16:35:51"
+  },
+  {
+    "Order No.": 1942259840702099500,
+    "Type": "SELL",
+    "Fiat Amount": 24000,
+    "Price": 82.55,
+    "Coin Amount": 290.7329,
+    "Counterparty": "Abdulla717",
+    "Status": "Canceled",
+    "Time": "2025-07-07 16:30:07"
+  },
+  {
+    "Order No.": 1942256318259163100,
+    "Type": "SELL",
+    "Fiat Amount": 38700.01,
+    "Price": 82,
+    "Coin Amount": 471.9514,
+    "Counterparty": "ARTUR_PRIME",
+    "Status": "Completed",
+    "Time": "2025-07-07 16:16:07"
+  },
+  {
+    "Order No.": 1942250474513895400,
+    "Type": "SELL",
+    "Fiat Amount": 10000,
+    "Price": 81.82,
+    "Coin Amount": 122.2196,
+    "Counterparty": "Irina M",
+    "Status": "Completed",
+    "Time": "2025-07-07 15:52:54"
+  },
+  {
+    "Order No.": 1942249722336776200,
+    "Type": "SELL",
+    "Fiat Amount": 30000,
+    "Price": 82.5,
+    "Coin Amount": 363.6364,
+    "Counterparty": "??DRAGON_P2P",
+    "Status": "Canceled",
+    "Time": "2025-07-07 15:49:54"
+  },
+  {
+    "Order No.": 1942248918130503700,
+    "Type": "SELL",
+    "Fiat Amount": 18500,
+    "Price": 81,
+    "Coin Amount": 228.3951,
+    "Counterparty": "Trc_erc20",
+    "Status": "Canceled",
+    "Time": "2025-07-07 15:46:43"
+  },
+  {
+    "Order No.": 1942247040177823700,
+    "Type": "BUY",
+    "Fiat Amount": 10000,
+    "Price": 78,
+    "Coin Amount": 128.2052,
+    "Counterparty": "YABLOKO",
+    "Status": "Completed",
+    "Time": "2025-07-07 15:39:15"
+  },
+  {
+    "Order No.": 1942245724248920000,
+    "Type": "BUY",
+    "Fiat Amount": 15575,
+    "Price": 77.9,
+    "Coin Amount": 199.9359,
+    "Counterparty": "KKTeam_Jr",
+    "Status": "Completed",
+    "Time": "2025-07-07 15:34:01"
+  },
+  {
+    "Order No.": 1942243156700008400,
+    "Type": "BUY",
+    "Fiat Amount": 17000,
+    "Price": 77.8,
+    "Coin Amount": 218.509,
+    "Counterparty": "reshka",
+    "Status": "Completed",
+    "Time": "2025-07-07 15:23:49"
+  },
+  {
+    "Order No.": 1942241632709562400,
+    "Type": "BUY",
+    "Fiat Amount": 20479,
+    "Price": 77.8,
+    "Coin Amount": 263.2263,
+    "Counterparty": "AlexMilovsky",
+    "Status": "Completed",
+    "Time": "2025-07-07 15:17:46"
+  },
+  {
+    "Order No.": 1942184720860864500,
+    "Type": "BUY",
+    "Fiat Amount": 15000,
+    "Price": 78,
+    "Coin Amount": 192.3077,
+    "Counterparty": "??Lirika??",
+    "Status": "Completed",
+    "Time": "2025-07-07 11:31:37"
+  },
+  {
+    "Order No.": 1942181805445636000,
+    "Type": "BUY",
+    "Fiat Amount": 15000,
+    "Price": 77.99,
+    "Coin Amount": 192.3324,
+    "Counterparty": "Jack_MediaP2...",
+    "Status": "Completed",
+    "Time": "2025-07-07 11:20:02"
+  },
+  {
+    "Order No.": 1942180974441623600,
+    "Type": "BUY",
+    "Fiat Amount": 18300,
+    "Price": 78.3,
+    "Coin Amount": 233.7165,
+    "Counterparty": "JolySpace_CHNG",
+    "Status": "Completed",
+    "Time": "2025-07-07 11:16:44"
+  },
+  {
+    "Order No.": 1940834779636973600,
+    "Type": "SELL",
+    "Fiat Amount": 62000.01,
+    "Price": 82,
+    "Coin Amount": 756.0977,
+    "Counterparty": "AAlexeev",
+    "Status": "Completed",
+    "Time": "2025-07-03 18:07:26"
+  },
+  {
+    "Order No.": 1940789388697030700,
+    "Type": "SELL",
+    "Fiat Amount": 52200,
+    "Price": 81.91,
+    "Coin Amount": 637.2849,
+    "Counterparty": "NineEleven",
+    "Status": "Canceled",
+    "Time": "2025-07-03 15:07:04"
+  },
+  {
+    "Order No.": 1940785251304894500,
+    "Type": "SELL",
+    "Fiat Amount": 49000,
+    "Price": 81.01,
+    "Coin Amount": 604.8636,
+    "Counterparty": "DevochkaPay",
+    "Status": "Completed",
+    "Time": "2025-07-03 14:50:37"
+  },
+  {
+    "Order No.": 1940769342158827500,
+    "Type": "BUY",
+    "Fiat Amount": 15430,
+    "Price": 77.5,
+    "Coin Amount": 199.0968,
+    "Counterparty": "Fastrade??",
+    "Status": "Completed",
+    "Time": "2025-07-03 13:47:24"
+  },
+  {
+    "Order No.": 1940595412418621400,
+    "Type": "BUY",
+    "Fiat Amount": 16000,
+    "Price": 76.88,
+    "Coin Amount": 208.1166,
+    "Counterparty": "kostik112_47",
+    "Status": "Completed",
+    "Time": "2025-07-03 02:16:16"
+  },
+  {
+    "Order No.": 1940377487353540600,
+    "Type": "BUY",
+    "Fiat Amount": 10670,
+    "Price": 76.74,
+    "Coin Amount": 139.041,
+    "Counterparty": "nekinu",
+    "Status": "Completed",
+    "Time": "2025-07-02 11:50:19"
+  },
+  {
+    "Order No.": 1940374581599576000,
+    "Type": "BUY",
+    "Fiat Amount": 10870,
+    "Price": 77.4,
+    "Coin Amount": 140.4393,
+    "Counterparty": "??Mr.Pickle??",
+    "Status": "Completed",
+    "Time": "2025-07-02 11:38:46"
+  },
+  {
+    "Order No.": 1940372959613673500,
+    "Type": "BUY",
+    "Fiat Amount": 15000,
+    "Price": 77,
+    "Coin Amount": 194.8052,
+    "Counterparty": "KIWI??",
+    "Status": "Completed",
+    "Time": "2025-07-02 11:32:19"
+  },
+  {
+    "Order No.": 1940371803547000800,
+    "Type": "BUY",
+    "Fiat Amount": 10000,
+    "Price": 76.8,
+    "Coin Amount": 130.2084,
+    "Counterparty": "AzeCRYPYO",
+    "Status": "Completed",
+    "Time": "2025-07-02 11:27:44"
+  },
+  {
+    "Order No.": 1940370896426291200,
+    "Type": "BUY",
+    "Fiat Amount": 15000,
+    "Price": 76.74,
+    "Coin Amount": 195.4653,
+    "Counterparty": "Jack_MediaP2...",
+    "Status": "Completed",
+    "Time": "2025-07-02 11:24:07"
+  },
+  {
+    "Order No.": 1938974904739606500,
+    "Type": "BUY",
+    "Fiat Amount": 10000,
+    "Price": 77.6,
+    "Coin Amount": 128.866,
+    "Counterparty": "Lunev20",
+    "Status": "Completed",
+    "Time": "2025-06-28 14:56:57"
+  },
+  {
+    "Order No.": 1938917058495275000,
+    "Type": "BUY",
+    "Fiat Amount": 10000,
+    "Price": 77.9,
+    "Coin Amount": 128.3698,
+    "Counterparty": "JACKMACK",
+    "Status": "Completed",
+    "Time": "2025-06-28 11:07:05"
+  },
+  {
+    "Order No.": 1938916260357017600,
+    "Type": "BUY",
+    "Fiat Amount": 10165,
+    "Price": 77.88,
+    "Coin Amount": 130.5214,
+    "Counterparty": "TaiskiiRembo",
+    "Status": "Completed",
+    "Time": "2025-06-28 11:03:55"
+  },
+  {
+    "Order No.": 1938668182910201900,
+    "Type": "SELL",
+    "Fiat Amount": 10000,
+    "Price": 83.76,
+    "Coin Amount": 119.3888,
+    "Counterparty": "???????",
+    "Status": "Canceled",
+    "Time": "2025-06-27 18:38:09"
+  },
+  {
+    "Order No.": 1938666256069288000,
+    "Type": "SELL",
+    "Fiat Amount": 11500,
+    "Price": 83.01,
+    "Coin Amount": 138.5376,
+    "Counterparty": "Abdulla717",
+    "Status": "Completed",
+    "Time": "2025-06-27 18:30:29"
+  },
+  {
+    "Order No.": 1938621218708435000,
+    "Type": "SELL",
+    "Fiat Amount": 10000,
+    "Price": 82.61,
+    "Coin Amount": 121.0508,
+    "Counterparty": "foxylady",
+    "Status": "Canceled",
+    "Time": "2025-06-27 15:31:32"
+  },
+  {
+    "Order No.": 1938610735316668400,
+    "Type": "SELL",
+    "Fiat Amount": 16800,
+    "Price": 83.51,
+    "Coin Amount": 201.1736,
+    "Counterparty": "asezkmi7898",
+    "Status": "Canceled",
+    "Time": "2025-06-27 14:49:52"
+  },
+  {
+    "Order No.": 1938600535167799300,
+    "Type": "SELL",
+    "Fiat Amount": 15000,
+    "Price": 83.51,
+    "Coin Amount": 179.6193,
+    "Counterparty": "??DRAGON_P2P",
+    "Status": "Completed",
+    "Time": "2025-06-27 14:09:20"
+  },
+  {
+    "Order No.": 1938599852240019500,
+    "Type": "SELL",
+    "Fiat Amount": 15000,
+    "Price": 82.3,
+    "Coin Amount": 182.2601,
+    "Counterparty": "????????????",
+    "Status": "Canceled",
+    "Time": "2025-06-27 14:06:37"
+  },
+  {
+    "Order No.": 1938598279744868400,
+    "Type": "SELL",
+    "Fiat Amount": 17000.01,
+    "Price": 82.3,
+    "Coin Amount": 206.5615,
+    "Counterparty": "arsen8090",
+    "Status": "Completed",
+    "Time": "2025-06-27 14:00:23"
+  },
+  {
+    "Order No.": 1938596324782792700,
+    "Type": "SELL",
+    "Fiat Amount": 14700.01,
+    "Price": 83,
+    "Coin Amount": 177.1086,
+    "Counterparty": "ARTUR_PRIME",
+    "Status": "Completed",
+    "Time": "2025-06-27 13:52:37"
+  },
+  {
+    "Order No.": 1937186597210054700,
+    "Type": "BUY",
+    "Fiat Amount": 13300,
+    "Price": 78,
+    "Coin Amount": 170.5129,
+    "Counterparty": "BASH44",
+    "Status": "Completed",
+    "Time": "2025-06-23 16:30:51"
+  },
+  {
+    "Order No.": 1937148069951725600,
+    "Type": "BUY",
+    "Fiat Amount": 13000,
+    "Price": 78,
+    "Coin Amount": 166.6667,
+    "Counterparty": "Magomedrasulovv",
+    "Status": "Completed",
+    "Time": "2025-06-23 13:57:46"
+  },
+  {
+    "Order No.": 1937142845318287400,
+    "Type": "BUY",
+    "Fiat Amount": 15320,
+    "Price": 79.19,
+    "Coin Amount": 193.4588,
+    "Counterparty": "_????????????_",
+    "Status": "Completed",
+    "Time": "2025-06-23 13:37:00"
+  },
+  {
+    "Order No.": 1937141840967114800,
+    "Type": "BUY",
+    "Fiat Amount": 11415,
+    "Price": 78.6,
+    "Coin Amount": 145.2291,
+    "Counterparty": "gadji_trade",
+    "Status": "Completed",
+    "Time": "2025-06-23 13:33:00"
+  },
+  {
+    "Order No.": 1937140957266645000,
+    "Type": "BUY",
+    "Fiat Amount": 10000,
+    "Price": 78.65,
+    "Coin Amount": 127.1456,
+    "Counterparty": "katrinq471",
+    "Status": "Completed",
+    "Time": "2025-06-23 13:29:30"
+  },
+  {
+    "Order No.": 1937119905475231700,
+    "Type": "SELL",
+    "Fiat Amount": 25000,
+    "Price": 82.62,
+    "Coin Amount": 302.5902,
+    "Counterparty": "Pitwopishe",
+    "Status": "Completed",
+    "Time": "2025-06-23 12:05:51"
+  },
+  {
+    "Order No.": 1937119247572406300,
+    "Type": "SELL",
+    "Fiat Amount": 16000,
+    "Price": 82.4,
+    "Coin Amount": 194.1748,
+    "Counterparty": "CrownExChange??",
+    "Status": "Completed",
+    "Time": "2025-06-23 12:03:14"
+  },
+  {
+    "Order No.": 1937116988162433000,
+    "Type": "SELL",
+    "Fiat Amount": 27200,
+    "Price": 82.4,
+    "Coin Amount": 330.0971,
+    "Counterparty": "Gatti209",
+    "Status": "Completed",
+    "Time": "2025-06-23 11:54:15"
+  },
+  {
+    "Order No.": 1937115023788544000,
+    "Type": "SELL",
+    "Fiat Amount": 28400.01,
+    "Price": 83,
+    "Coin Amount": 342.1688,
+    "Counterparty": "ARTUR_PRIME",
+    "Status": "Completed",
+    "Time": "2025-06-23 11:46:27"
+  },
+  {
+    "Order No.": 1936497224713920500,
+    "Type": "SELL",
+    "Fiat Amount": 26441,
+    "Price": 82,
+    "Coin Amount": 322.4513,
+    "Counterparty": "Blackzilla",
+    "Status": "Canceled",
+    "Time": "2025-06-21 18:51:32"
+  },
+  {
+    "Order No.": 1936494284939468800,
+    "Type": "SELL",
+    "Fiat Amount": 30000,
+    "Price": 81.75,
+    "Coin Amount": 366.9725,
+    "Counterparty": "Brad_Pitt_9905",
+    "Status": "Canceled",
+    "Time": "2025-06-21 18:39:51"
+  },
+  {
+    "Order No.": 1936492518420009000,
+    "Type": "SELL",
+    "Fiat Amount": 24072,
+    "Price": 81.6,
+    "Coin Amount": 295,
+    "Counterparty": "meison228",
+    "Status": "Completed",
+    "Time": "2025-06-21 18:32:50"
+  },
+  {
+    "Order No.": 1936491570575896600,
+    "Type": "SELL",
+    "Fiat Amount": 18000.01,
+    "Price": 83,
+    "Coin Amount": 216.8676,
+    "Counterparty": "ARTUR_PRIME",
+    "Status": "Completed",
+    "Time": "2025-06-21 18:29:04"
+  },
+  {
+    "Order No.": 1936490886328299500,
+    "Type": "SELL",
+    "Fiat Amount": 26441,
+    "Price": 82,
+    "Coin Amount": 322.4513,
+    "Counterparty": "Blackzilla",
+    "Status": "Canceled",
+    "Time": "2025-06-21 18:26:21"
+  },
+  {
+    "Order No.": 1935336792696254500,
+    "Type": "BUY",
+    "Fiat Amount": 19400,
+    "Price": 79,
+    "Coin Amount": 245.5697,
+    "Counterparty": "GARK1414",
+    "Status": "Completed",
+    "Time": "2025-06-18 14:00:23"
+  },
+  {
+    "Order No.": 1935335647997272000,
+    "Type": "BUY",
+    "Fiat Amount": 12180,
+    "Price": 78.8,
+    "Coin Amount": 154.5686,
+    "Counterparty": "katran900",
+    "Status": "Canceled",
+    "Time": "2025-06-18 13:55:51"
+  },
+  {
+    "Order No.": 1935328540261916700,
+    "Type": "BUY",
+    "Fiat Amount": 8000,
+    "Price": 77.88,
+    "Coin Amount": 102.7222,
+    "Counterparty": "????? VB",
+    "Status": "Canceled",
+    "Time": "2025-06-18 13:27:36"
+  },
+  {
+    "Order No.": 1935327618345664500,
+    "Type": "BUY",
+    "Fiat Amount": 10000,
+    "Price": 78.5,
+    "Coin Amount": 127.3886,
+    "Counterparty": "guru_P2P",
+    "Status": "Completed",
+    "Time": "2025-06-18 13:23:56"
+  },
+  {
+    "Order No.": 1935324310870593500,
+    "Type": "BUY",
+    "Fiat Amount": 10380,
+    "Price": 77.9,
+    "Coin Amount": 133.2478,
+    "Counterparty": "Sokol_Sh",
+    "Status": "Completed",
+    "Time": "2025-06-18 13:10:48"
+  },
+  {
+    "Order No.": 1935323488678539300,
+    "Type": "BUY",
+    "Fiat Amount": 12075,
+    "Price": 77.7,
+    "Coin Amount": 155.4055,
+    "Counterparty": "Timalegko",
+    "Status": "Completed",
+    "Time": "2025-06-18 13:07:32"
+  },
+  {
+    "Order No.": 1935322477888069600,
+    "Type": "BUY",
+    "Fiat Amount": 30000,
+    "Price": 78.69,
+    "Coin Amount": 381.2429,
+    "Counterparty": "MVG",
+    "Status": "Completed",
+    "Time": "2025-06-18 13:03:31"
+  },
+  {
+    "Order No.": 1934980789830262800,
+    "Type": "BUY",
+    "Fiat Amount": 18780,
+    "Price": 77.97,
+    "Coin Amount": 240.8619,
+    "Counterparty": "??MANGO??",
+    "Status": "Completed",
+    "Time": "2025-06-17 14:25:46"
+  },
+  {
+    "Order No.": 1934978124195881000,
+    "Type": "BUY",
+    "Fiat Amount": 10458,
+    "Price": 77.25,
+    "Coin Amount": 135.3787,
+    "Counterparty": "sunshineCypto",
+    "Status": "Completed",
+    "Time": "2025-06-17 14:15:10"
+  },
+  {
+    "Order No.": 1934634098727719000,
+    "Type": "BUY",
+    "Fiat Amount": 10000,
+    "Price": 77.6,
+    "Coin Amount": 128.866,
+    "Counterparty": "bijotrade19",
+    "Status": "Completed",
+    "Time": "2025-06-16 15:28:08"
+  },
+  {
+    "Order No.": 1934633553275261000,
+    "Type": "BUY",
+    "Fiat Amount": 14000,
+    "Price": 77.59,
+    "Coin Amount": 180.4357,
+    "Counterparty": "KARAMELKA",
+    "Status": "Completed",
+    "Time": "2025-06-16 15:25:58"
+  },
+  {
+    "Order No.": 1934630025084027000,
+    "Type": "SELL",
+    "Fiat Amount": 30000,
+    "Price": 82.31,
+    "Coin Amount": 364.4758,
+    "Counterparty": "Bashmachnik",
+    "Status": "Completed",
+    "Time": "2025-06-16 15:11:57"
+  },
+  {
+    "Order No.": 1934628827982463000,
+    "Type": "SELL",
+    "Fiat Amount": 25000,
+    "Price": 82.35,
+    "Coin Amount": 303.5823,
+    "Counterparty": "dkraw",
+    "Status": "Completed",
+    "Time": "2025-06-16 15:07:12"
+  },
+  {
+    "Order No.": 1934626045558722600,
+    "Type": "SELL",
+    "Fiat Amount": 27500,
+    "Price": 81.6,
+    "Coin Amount": 337.0099,
+    "Counterparty": "arres",
+    "Status": "Completed",
+    "Time": "2025-06-16 14:56:08"
+  },
+  {
+    "Order No.": 1934624684509061000,
+    "Type": "SELL",
+    "Fiat Amount": 14500.01,
+    "Price": 81.25,
+    "Coin Amount": 178.4617,
+    "Counterparty": "TimExc",
+    "Status": "Completed",
+    "Time": "2025-06-16 14:50:44"
+  },
+  {
+    "Order No.": 1934624068441788400,
+    "Type": "SELL",
+    "Fiat Amount": 11800,
+    "Price": 82.5,
+    "Coin Amount": 143.0304,
+    "Counterparty": "??Salman717",
+    "Status": "Completed",
+    "Time": "2025-06-16 14:48:17"
+  },
+  {
+    "Order No.": 1934623818845241300,
+    "Type": "SELL",
+    "Fiat Amount": 15000,
+    "Price": 81.2,
+    "Coin Amount": 184.7291,
+    "Counterparty": "Pitwopishe",
+    "Status": "Canceled",
+    "Time": "2025-06-16 14:47:17"
+  },
+  {
+    "Order No.": 1933519893649346600,
+    "Type": "BUY",
+    "Fiat Amount": 19000.1,
+    "Price": 79.34,
+    "Coin Amount": 239.477,
+    "Counterparty": "3beyn",
+    "Status": "Completed",
+    "Time": "2025-06-13 13:40:41"
+  },
+  {
+    "Order No.": 1933518277181362200,
+    "Type": "BUY",
+    "Fiat Amount": 14600.1,
+    "Price": 79.19,
+    "Coin Amount": 184.368,
+    "Counterparty": "3beyn",
+    "Status": "Completed",
+    "Time": "2025-06-13 13:34:16"
+  },
+  {
+    "Order No.": 1933514905630523400,
+    "Type": "BUY",
+    "Fiat Amount": 15000.01,
+    "Price": 79.3,
+    "Coin Amount": 189.1553,
+    "Counterparty": "boyhollow",
+    "Status": "Completed",
+    "Time": "2025-06-13 13:20:52"
+  },
+  {
+    "Order No.": 1933512499699568600,
+    "Type": "SELL",
+    "Fiat Amount": 14000,
+    "Price": 82.5,
+    "Coin Amount": 169.697,
+    "Counterparty": "Mansur S",
+    "Status": "Completed",
+    "Time": "2025-06-13 13:11:18"
+  },
+  {
+    "Order No.": 1933510736274243600,
+    "Type": "SELL",
+    "Fiat Amount": 19000.01,
+    "Price": 82.6,
+    "Coin Amount": 230.0244,
+    "Counterparty": "arsen8090",
+    "Status": "Completed",
+    "Time": "2025-06-13 13:04:18"
+  },
+  {
+    "Order No.": 1933507289051172900,
+    "Type": "BUY",
+    "Fiat Amount": 12000,
+    "Price": 79.05,
+    "Coin Amount": 151.8027,
+    "Counterparty": "?777?",
+    "Status": "Completed",
+    "Time": "2025-06-13 12:50:36"
+  },
+  {
+    "Order No.": 1933505991242940400,
+    "Type": "BUY",
+    "Fiat Amount": 12000,
+    "Price": 79.2,
+    "Coin Amount": 151.5152,
+    "Counterparty": "KaDu",
+    "Status": "Completed",
+    "Time": "2025-06-13 12:45:26"
+  },
+  {
+    "Order No.": 1933503312453214200,
+    "Type": "BUY",
+    "Fiat Amount": 17100,
+    "Price": 79.18,
+    "Coin Amount": 215.9637,
+    "Counterparty": "BITMAKERBOB",
+    "Status": "Completed",
+    "Time": "2025-06-13 12:34:48"
+  },
+  {
+    "Order No.": 1933501371135234000,
+    "Type": "BUY",
+    "Fiat Amount": 10000,
+    "Price": 79,
+    "Coin Amount": 126.5823,
+    "Counterparty": "popkorn_am",
+    "Status": "Completed",
+    "Time": "2025-06-13 12:27:05"
+  },
+  {
+    "Order No.": 1933499550068129800,
+    "Type": "SELL",
+    "Fiat Amount": 25624,
+    "Price": 84.3,
+    "Coin Amount": 303.9621,
+    "Counterparty": "FGStore",
+    "Status": "Completed",
+    "Time": "2025-06-13 12:19:51"
+  },
+  {
+    "Order No.": 1933498448105791500,
+    "Type": "SELL",
+    "Fiat Amount": 35000.01,
+    "Price": 82.8,
+    "Coin Amount": 422.7055,
+    "Counterparty": "amrlv",
+    "Status": "Completed",
+    "Time": "2025-06-13 12:15:28"
+  },
+  {
+    "Order No.": 1932832925705658400,
+    "Type": "BUY",
+    "Fiat Amount": 10000,
+    "Price": 78.89,
+    "Coin Amount": 126.7588,
+    "Counterparty": "sunshineCypto",
+    "Status": "Completed",
+    "Time": "2025-06-11 16:10:55"
+  },
+  {
+    "Order No.": 1932831177949233200,
+    "Type": "BUY",
+    "Fiat Amount": 10000,
+    "Price": 78.79,
+    "Coin Amount": 126.9197,
+    "Counterparty": "sunshineCypto",
+    "Status": "Completed",
+    "Time": "2025-06-11 16:03:58"
+  },
+  {
+    "Order No.": 1932829699787247600,
+    "Type": "BUY",
+    "Fiat Amount": 10000,
+    "Price": 79.2,
+    "Coin Amount": 126.2627,
+    "Counterparty": "kostik112_47",
+    "Status": "Completed",
+    "Time": "2025-06-11 15:58:06"
+  },
+  {
+    "Order No.": 1932828000462966800,
+    "Type": "BUY",
+    "Fiat Amount": 13407,
+    "Price": 79.2,
+    "Coin Amount": 169.2804,
+    "Counterparty": "davalka21",
+    "Status": "Canceled",
+    "Time": "2025-06-11 15:51:21"
+  },
+  {
+    "Order No.": 1932824765236449300,
+    "Type": "BUY",
+    "Fiat Amount": 20000,
+    "Price": 78.99,
+    "Coin Amount": 253.1967,
+    "Counterparty": "????? VB",
+    "Status": "Canceled",
+    "Time": "2025-06-11 15:38:30"
+  },
+  {
+    "Order No.": 1932822470098030600,
+    "Type": "BUY",
+    "Fiat Amount": 10001,
+    "Price": 78.91,
+    "Coin Amount": 126.7394,
+    "Counterparty": "Natalia_",
+    "Status": "Completed",
+    "Time": "2025-06-11 15:29:22"
+  },
+  {
+    "Order No.": 1932819197851668500,
+    "Type": "BUY",
+    "Fiat Amount": 20000,
+    "Price": 78.88,
+    "Coin Amount": 253.5497,
+    "Counterparty": "spotlightBT",
+    "Status": "Completed",
+    "Time": "2025-06-11 15:16:22"
+  },
+  {
+    "Order No.": 1932813650870943700,
+    "Type": "SELL",
+    "Fiat Amount": 21000,
+    "Price": 82.29,
+    "Coin Amount": 255.1951,
+    "Counterparty": "lama98",
+    "Status": "Completed",
+    "Time": "2025-06-11 14:54:20"
+  },
+  {
+    "Order No.": 1932808577568194600,
+    "Type": "SELL",
+    "Fiat Amount": 14000,
+    "Price": 83.01,
+    "Coin Amount": 168.6544,
+    "Counterparty": "MazeratiEx",
+    "Status": "Canceled",
+    "Time": "2025-06-11 14:34:10"
+  },
+  {
+    "Order No.": 1932806104721391600,
+    "Type": "SELL",
+    "Fiat Amount": 13000,
+    "Price": 83.4,
+    "Coin Amount": 155.8753,
+    "Counterparty": "ZolotayaScaha",
+    "Status": "Completed",
+    "Time": "2025-06-11 14:24:21"
+  },
+  {
+    "Order No.": 1932802731964104700,
+    "Type": "SELL",
+    "Fiat Amount": 20000.01,
+    "Price": 83,
+    "Coin Amount": 240.964,
+    "Counterparty": "Timur11",
+    "Status": "Completed",
+    "Time": "2025-06-11 14:10:56"
+  },
+  {
+    "Order No.": 1932470926020329500,
+    "Type": "BUY",
+    "Fiat Amount": 10227,
+    "Price": 78,
+    "Coin Amount": 131.1154,
+    "Counterparty": "GAD777",
+    "Status": "Completed",
+    "Time": "2025-06-10 16:12:28"
+  },
+  {
+    "Order No.": 1932470168934338600,
+    "Type": "BUY",
+    "Fiat Amount": 22580,
+    "Price": 78,
+    "Coin Amount": 289.4872,
+    "Counterparty": "Fiat_003",
+    "Status": "Completed",
+    "Time": "2025-06-10 16:09:27"
+  },
+  {
+    "Order No.": 1931421378524889000,
+    "Type": "BUY",
+    "Fiat Amount": 14725,
+    "Price": 78.2,
+    "Coin Amount": 188.2993,
+    "Counterparty": "LORD25",
+    "Status": "Completed",
+    "Time": "2025-06-07 18:41:56"
+  },
+  {
+    "Order No.": 1931421284224127000,
+    "Type": "BUY",
+    "Fiat Amount": 10000,
+    "Price": 78.2,
+    "Coin Amount": 127.8773,
+    "Counterparty": "petrovich56",
+    "Status": "Completed",
+    "Time": "2025-06-07 18:41:34"
+  },
+  {
+    "Order No.": 1931344315975135200,
+    "Type": "SELL",
+    "Fiat Amount": 25000.01,
+    "Price": 81.1,
+    "Coin Amount": 308.2616,
+    "Counterparty": "amrlv",
+    "Status": "Completed",
+    "Time": "2025-06-07 13:35:43"
+  },
+  {
+    "Order No.": 1931342864947740700,
+    "Type": "BUY",
+    "Fiat Amount": 10000,
+    "Price": 78.3,
+    "Coin Amount": 127.714,
+    "Counterparty": "Lunev20",
+    "Status": "Completed",
+    "Time": "2025-06-07 13:29:57"
+  },
+  {
+    "Order No.": 1931342156726243300,
+    "Type": "BUY",
+    "Fiat Amount": 10000,
+    "Price": 78.4,
+    "Coin Amount": 127.5511,
+    "Counterparty": "penetratixn",
+    "Status": "Completed",
+    "Time": "2025-06-07 13:27:08"
+  },
+  {
+    "Order No.": 1931339769983402000,
+    "Type": "BUY",
+    "Fiat Amount": 15000,
+    "Price": 78.25,
+    "Coin Amount": 191.6933,
+    "Counterparty": "sunshineCypto",
+    "Status": "Completed",
+    "Time": "2025-06-07 13:17:39"
+  },
+  {
+    "Order No.": 1929913141911588900,
+    "Type": "SELL",
+    "Fiat Amount": 14020,
+    "Price": 81.81,
+    "Coin Amount": 171.3727,
+    "Counterparty": "kozanostra",
+    "Status": "Completed",
+    "Time": "2025-06-03 14:48:44"
+  },
+  {
+    "Order No.": 1929910766789910500,
+    "Type": "SELL",
+    "Fiat Amount": 15000.01,
+    "Price": 81.05,
+    "Coin Amount": 185.0711,
+    "Counterparty": "Revelly",
+    "Status": "Completed",
+    "Time": "2025-06-03 14:39:18"
+  },
+  {
+    "Order No.": 1929908165958447000,
+    "Type": "SELL",
+    "Fiat Amount": 18900,
+    "Price": 81.35,
+    "Coin Amount": 232.3295,
+    "Counterparty": "Raxman011",
+    "Status": "Completed",
+    "Time": "2025-06-03 14:28:58"
+  },
+  {
+    "Order No.": 1929521008956477400,
+    "Type": "BUY",
+    "Fiat Amount": 16406,
+    "Price": 77.9,
+    "Coin Amount": 210.6034,
+    "Counterparty": "Chillchepp",
+    "Status": "Completed",
+    "Time": "2025-06-02 12:50:33"
+  },
+  {
+    "Order No.": 1927042512542691300,
+    "Type": "BUY",
+    "Fiat Amount": 17100,
+    "Price": 78,
+    "Coin Amount": 219.2308,
+    "Counterparty": "GARIK1212",
+    "Status": "Completed",
+    "Time": "2025-05-26 16:41:53"
+  },
+  {
+    "Order No.": 1927040593461903400,
+    "Type": "BUY",
+    "Fiat Amount": 18574,
+    "Price": 78.15,
+    "Coin Amount": 237.6712,
+    "Counterparty": "andrujkee",
+    "Status": "Completed",
+    "Time": "2025-05-26 16:34:15"
+  },
+  {
+    "Order No.": 1925538795019075600,
+    "Type": "SELL",
+    "Fiat Amount": 44000,
+    "Price": 82.5,
+    "Coin Amount": 533.3334,
+    "Counterparty": "TJ | | Crypto",
+    "Status": "Completed",
+    "Time": "2025-05-22 13:06:39"
+  },
+  {
+    "Order No.": 1925533762473971700,
+    "Type": "SELL",
+    "Fiat Amount": 20000,
+    "Price": 82.2,
+    "Coin Amount": 243.3091,
+    "Counterparty": "kozanostra",
+    "Status": "Completed",
+    "Time": "2025-05-22 12:46:39"
+  },
+  {
+    "Order No.": 1925533180666810400,
+    "Type": "SELL",
+    "Fiat Amount": 30000,
+    "Price": 81.66,
+    "Coin Amount": 367.377,
+    "Counterparty": "isa v zakone",
+    "Status": "Completed",
+    "Time": "2025-05-22 12:44:20"
+  },
+  {
+    "Order No.": 1925532477280624600,
+    "Type": "SELL",
+    "Fiat Amount": 19000,
+    "Price": 83.55,
+    "Coin Amount": 227.4088,
+    "Counterparty": "Pchelacrypto",
+    "Status": "Completed",
+    "Time": "2025-05-22 12:41:33"
+  },
+  {
+    "Order No.": 1925531710198755300,
+    "Type": "SELL",
+    "Fiat Amount": 16200.01,
+    "Price": 82.8,
+    "Coin Amount": 195.6523,
+    "Counterparty": "Nekky5",
+    "Status": "Canceled",
+    "Time": "2025-05-22 12:38:30"
+  },
+  {
+    "Order No.": 1925194178180665300,
+    "Type": "BUY",
+    "Fiat Amount": 17800,
+    "Price": 79.4,
+    "Coin Amount": 224.1814,
+    "Counterparty": "??????_?????",
+    "Status": "Completed",
+    "Time": "2025-05-21 14:17:16"
+  },
+  {
+    "Order No.": 1925184974052774000,
+    "Type": "BUY",
+    "Fiat Amount": 8176,
+    "Price": 79.79,
+    "Coin Amount": 102.469,
+    "Counterparty": "SANYA-777",
+    "Status": "Completed",
+    "Time": "2025-05-21 13:40:41"
+  },
+  {
+    "Order No.": 1925182303714480000,
+    "Type": "BUY",
+    "Fiat Amount": 15830.01,
+    "Price": 79.98,
+    "Coin Amount": 197.9247,
+    "Counterparty": "crypto women",
+    "Status": "Completed",
+    "Time": "2025-05-21 13:30:05"
+  },
+  {
+    "Order No.": 1925176266338324500,
+    "Type": "BUY",
+    "Fiat Amount": 17500,
+    "Price": 79.9,
+    "Coin Amount": 219.0238,
+    "Counterparty": "name_Sasha",
+    "Status": "Completed",
+    "Time": "2025-05-21 13:06:05"
+  },
+  {
+    "Order No.": 1925169294523416600,
+    "Type": "SELL",
+    "Fiat Amount": 44000.01,
+    "Price": 84,
+    "Coin Amount": 523.8097,
+    "Counterparty": "spotX??",
+    "Status": "Canceled",
+    "Time": "2025-05-21 12:38:23"
+  },
+  {
+    "Order No.": 1925168029115609000,
+    "Type": "BUY",
+    "Fiat Amount": 12762,
+    "Price": 79.42,
+    "Coin Amount": 160.6901,
+    "Counterparty": "java_exchange",
+    "Status": "Completed",
+    "Time": "2025-05-21 12:33:21"
+  },
+  {
+    "Order No.": 1925163281182904300,
+    "Type": "BUY",
+    "Fiat Amount": 10500,
+    "Price": 79.5,
+    "Coin Amount": 132.0755,
+    "Counterparty": "katrinq471",
+    "Status": "Completed",
+    "Time": "2025-05-21 12:14:29"
+  },
+  {
+    "Order No.": 1925162436396437500,
+    "Type": "BUY",
+    "Fiat Amount": 10000,
+    "Price": 79.4,
+    "Coin Amount": 125.9446,
+    "Counterparty": "Nadi555",
+    "Status": "Completed",
+    "Time": "2025-05-21 12:11:08"
+  },
+  {
+    "Order No.": 1924857683712180200,
+    "Type": "SELL",
+    "Fiat Amount": 33000.01,
+    "Price": 83.5,
+    "Coin Amount": 395.2098,
+    "Counterparty": "nisht9k",
+    "Status": "Completed",
+    "Time": "2025-05-20 16:00:09"
+  },
+  {
+    "Order No.": 1924853874770346000,
+    "Type": "SELL",
+    "Fiat Amount": 38000.01,
+    "Price": 84,
+    "Coin Amount": 452.3811,
+    "Counterparty": "nisht9k",
+    "Status": "Completed",
+    "Time": "2025-05-20 15:45:01"
+  },
+  {
+    "Order No.": 1924851370483548200,
+    "Type": "SELL",
+    "Fiat Amount": 34000,
+    "Price": 83,
+    "Coin Amount": 409.6386,
+    "Counterparty": "tehnoponchik",
+    "Status": "Completed",
+    "Time": "2025-05-20 15:35:04"
+  },
+  {
+    "Order No.": 1924832760566087700,
+    "Type": "SELL",
+    "Fiat Amount": 50000,
+    "Price": 83.5,
+    "Coin Amount": 598.8024,
+    "Counterparty": "Ruslaann",
+    "Status": "Canceled",
+    "Time": "2025-05-20 14:21:07"
+  },
+  {
+    "Order No.": 1924829794974969900,
+    "Type": "SELL",
+    "Fiat Amount": 52000.01,
+    "Price": 84,
+    "Coin Amount": 619.0478,
+    "Counterparty": "spotX??",
+    "Status": "Canceled",
+    "Time": "2025-05-20 14:09:20"
+  },
+  {
+    "Order No.": 1924828797234565000,
+    "Type": "BUY",
+    "Fiat Amount": 10000,
+    "Price": 79.9,
+    "Coin Amount": 125.1565,
+    "Counterparty": "penetratixn",
+    "Status": "Completed",
+    "Time": "2025-05-20 14:05:22"
+  },
+  {
+    "Order No.": 1924826852976038000,
+    "Type": "BUY",
+    "Fiat Amount": 10000,
+    "Price": 79.8,
+    "Coin Amount": 125.3133,
+    "Counterparty": "Halamadridboy??",
+    "Status": "Completed",
+    "Time": "2025-05-20 13:57:39"
+  },
+  {
+    "Order No.": 1924814197007298600,
+    "Type": "BUY",
+    "Fiat Amount": 10000,
+    "Price": 79.9,
+    "Coin Amount": 125.1565,
+    "Counterparty": "penetratixn",
+    "Status": "Completed",
+    "Time": "2025-05-20 13:07:21"
+  },
+  {
+    "Order No.": 1924813379211505700,
+    "Type": "BUY",
+    "Fiat Amount": 10000,
+    "Price": 79.9,
+    "Coin Amount": 125.1565,
+    "Counterparty": "CorsairMonkey",
+    "Status": "Completed",
+    "Time": "2025-05-20 13:04:06"
+  },
+  {
+    "Order No.": 1924812213948285000,
+    "Type": "BUY",
+    "Fiat Amount": 16150,
+    "Price": 79.85,
+    "Coin Amount": 202.2543,
+    "Counterparty": "alex138",
+    "Status": "Completed",
+    "Time": "2025-05-20 12:59:28"
+  },
+  {
+    "Order No.": 1924457661035085800,
+    "Type": "BUY",
+    "Fiat Amount": 15000,
+    "Price": 80.27,
+    "Coin Amount": 186.8694,
+    "Counterparty": "????? VB",
+    "Status": "Completed",
+    "Time": "2025-05-19 13:30:36"
+  },
+  {
+    "Order No.": 1924456009416745000,
+    "Type": "BUY",
+    "Fiat Amount": 10410,
+    "Price": 80,
+    "Coin Amount": 130.125,
+    "Counterparty": "magashkaa",
+    "Status": "Canceled",
+    "Time": "2025-05-19 13:24:03"
+  },
+  {
+    "Order No.": 1924454970824216600,
+    "Type": "BUY",
+    "Fiat Amount": 12001,
+    "Price": 80.2,
+    "Coin Amount": 149.6385,
+    "Counterparty": "MEDIArr",
+    "Status": "Completed",
+    "Time": "2025-05-19 13:19:55"
+  },
+  {
+    "Order No.": 1924454271482650600,
+    "Type": "SELL",
+    "Fiat Amount": 24000,
+    "Price": 83.15,
+    "Coin Amount": 288.635,
+    "Counterparty": "Revelly",
+    "Status": "Completed",
+    "Time": "2025-05-19 13:17:08"
+  },
+  {
+    "Order No.": 1924453223230247000,
+    "Type": "BUY",
+    "Fiat Amount": 15000,
+    "Price": 80,
+    "Coin Amount": 187.5,
+    "Counterparty": "VipExchangers",
+    "Status": "Completed",
+    "Time": "2025-05-19 13:12:58"
+  },
+  {
+    "Order No.": 1924451548990439400,
+    "Type": "BUY",
+    "Fiat Amount": 11000,
+    "Price": 79.79,
+    "Coin Amount": 137.8619,
+    "Counterparty": "BT6",
+    "Status": "Completed",
+    "Time": "2025-05-19 13:06:19"
+  },
+  {
+    "Order No.": 1924451363945263000,
+    "Type": "BUY",
+    "Fiat Amount": 9690,
+    "Price": 80.2,
+    "Coin Amount": 120.823,
+    "Counterparty": "ohavisen",
+    "Status": "Completed",
+    "Time": "2025-05-19 13:05:35"
+  },
+  {
+    "Order No.": 1924426837296611300,
+    "Type": "SELL",
+    "Fiat Amount": 50000,
+    "Price": 83.3,
+    "Coin Amount": 600.2401,
+    "Counterparty": "SkinnRaha",
+    "Status": "Completed",
+    "Time": "2025-05-19 11:28:08"
+  },
+  {
+    "Order No.": 1924425346049568800,
+    "Type": "BUY",
+    "Fiat Amount": 20000,
+    "Price": 79.9,
+    "Coin Amount": 250.3129,
+    "Counterparty": "Lunev20",
+    "Status": "Completed",
+    "Time": "2025-05-19 11:22:12"
+  },
+  {
+    "Order No.": 1924425105845264400,
+    "Type": "BUY",
+    "Fiat Amount": 10000,
+    "Price": 80,
+    "Coin Amount": 125,
+    "Counterparty": "katrinq471",
+    "Status": "Completed",
+    "Time": "2025-05-19 11:21:15"
+  },
+  {
+    "Order No.": 1924424395202666500,
+    "Type": "BUY",
+    "Fiat Amount": 9963,
+    "Price": 79.69,
+    "Coin Amount": 125.022,
+    "Counterparty": "sshkn",
+    "Status": "Completed",
+    "Time": "2025-05-19 11:18:25"
+  },
+  {
+    "Order No.": 1923414291637670000,
+    "Type": "SELL",
+    "Fiat Amount": 35000,
+    "Price": 84.5,
+    "Coin Amount": 414.2012,
+    "Counterparty": "YLin17",
+    "Status": "Completed",
+    "Time": "2025-05-16 16:24:38"
+  },
+  {
+    "Order No.": 1923347738104135700,
+    "Type": "BUY",
+    "Fiat Amount": 10451,
+    "Price": 80.2,
+    "Coin Amount": 130.3118,
+    "Counterparty": "_tt_",
+    "Status": "Completed",
+    "Time": "2025-05-16 12:00:10"
+  },
+  {
+    "Order No.": 1923344129089945600,
+    "Type": "BUY",
+    "Fiat Amount": 15000,
+    "Price": 80.3,
+    "Coin Amount": 186.7996,
+    "Counterparty": "Anton Berlin",
+    "Status": "Completed",
+    "Time": "2025-05-16 11:45:50"
+  },
+  {
+    "Order No.": 1923340505869521000,
+    "Type": "SELL",
+    "Fiat Amount": 24000,
+    "Price": 83.6,
+    "Coin Amount": 287.0814,
+    "Counterparty": "SexInstructor",
+    "Status": "Completed",
+    "Time": "2025-05-16 11:31:26"
+  },
+  {
+    "Order No.": 1923339136715653000,
+    "Type": "BUY",
+    "Fiat Amount": 33223,
+    "Price": 80.44,
+    "Coin Amount": 413.016,
+    "Counterparty": "Sahara1",
+    "Status": "Completed",
+    "Time": "2025-05-16 11:25:59"
+  },
+  {
+    "Order No.": 1923338091842269200,
+    "Type": "BUY",
+    "Fiat Amount": 10000,
+    "Price": 80.38,
+    "Coin Amount": 124.4091,
+    "Counterparty": "usman9",
+    "Status": "Completed",
+    "Time": "2025-05-16 11:21:50"
+  },
+  {
+    "Order No.": 1922995913286553600,
+    "Type": "SELL",
+    "Fiat Amount": 38000,
+    "Price": 83.9,
+    "Coin Amount": 452.9202,
+    "Counterparty": "Boosty77",
+    "Status": "Completed",
+    "Time": "2025-05-15 12:42:09"
+  },
+  {
+    "Order No.": 1922994265358270500,
+    "Type": "SELL",
+    "Fiat Amount": 35000,
+    "Price": 84.2,
+    "Coin Amount": 415.677,
+    "Counterparty": "JolySpace_CHNG",
+    "Status": "Canceled",
+    "Time": "2025-05-15 12:35:36"
+  },
+  {
+    "Order No.": 1922993138319130600,
+    "Type": "BUY",
+    "Fiat Amount": 11070,
+    "Price": 81.4,
+    "Coin Amount": 135.9951,
+    "Counterparty": "ya russkiy",
+    "Status": "Completed",
+    "Time": "2025-05-15 12:31:07"
+  },
+  {
+    "Order No.": 1922673934618394600,
+    "Type": "BUY",
+    "Fiat Amount": 9360,
+    "Price": 80.7,
+    "Coin Amount": 115.9852,
+    "Counterparty": "barakhtyanskiyy",
+    "Status": "Completed",
+    "Time": "2025-05-14 15:22:43"
+  },
+  {
+    "Order No.": 1922671956486148000,
+    "Type": "BUY",
+    "Fiat Amount": 14630,
+    "Price": 80.49,
+    "Coin Amount": 181.7618,
+    "Counterparty": "cryptoNika",
+    "Status": "Completed",
+    "Time": "2025-05-14 15:14:51"
+  },
+  {
+    "Order No.": 1922670687071842300,
+    "Type": "SELL",
+    "Fiat Amount": 14200,
+    "Price": 84.31,
+    "Coin Amount": 168.4261,
+    "Counterparty": "ZolotayaScaha",
+    "Status": "Completed",
+    "Time": "2025-05-14 15:09:49"
+  },
+  {
+    "Order No.": 1922669686608515000,
+    "Type": "SELL",
+    "Fiat Amount": 20000,
+    "Price": 84.31,
+    "Coin Amount": 237.2198,
+    "Counterparty": "ZolotayaScaha",
+    "Status": "Completed",
+    "Time": "2025-05-14 15:05:50"
+  },
+  {
+    "Order No.": 1922659473683796000,
+    "Type": "SELL",
+    "Fiat Amount": 45000,
+    "Price": 84.2,
+    "Coin Amount": 534.4419,
+    "Counterparty": "BTC mama",
+    "Status": "Canceled",
+    "Time": "2025-05-14 14:25:15"
+  },
+  {
+    "Order No.": 1922649166455701500,
+    "Type": "BUY",
+    "Fiat Amount": 10000,
+    "Price": 80.1,
+    "Coin Amount": 124.844,
+    "Counterparty": "bijotrade19",
+    "Status": "Completed",
+    "Time": "2025-05-14 13:44:18"
+  },
+  {
+    "Order No.": 1922647915620524000,
+    "Type": "BUY",
+    "Fiat Amount": 17298,
+    "Price": 80.54,
+    "Coin Amount": 214.7753,
+    "Counterparty": "frozenjpg",
+    "Status": "Completed",
+    "Time": "2025-05-14 13:39:19"
+  },
+  {
+    "Order No.": 1922647239528722400,
+    "Type": "BUY",
+    "Fiat Amount": 10000,
+    "Price": 80.5,
+    "Coin Amount": 124.2237,
+    "Counterparty": "kmaiqq",
+    "Status": "Completed",
+    "Time": "2025-05-14 13:36:38"
+  },
+  {
+    "Order No.": 1922355022113042400,
+    "Type": "SELL",
+    "Fiat Amount": 40000.02,
+    "Price": 83.6,
+    "Coin Amount": 478.4692,
+    "Counterparty": "DimaSio",
+    "Status": "Completed",
+    "Time": "2025-05-13 18:15:28"
+  },
+  {
+    "Order No.": 1922326003367981000,
+    "Type": "BUY",
+    "Fiat Amount": 13650,
+    "Price": 80.5,
+    "Coin Amount": 169.5653,
+    "Counterparty": "venol",
+    "Status": "Completed",
+    "Time": "2025-05-13 16:20:10"
+  },
+  {
+    "Order No.": 1922323535783370800,
+    "Type": "SELL",
+    "Fiat Amount": 63300,
+    "Price": 84.1,
+    "Coin Amount": 752.6754,
+    "Counterparty": "viktor.sp",
+    "Status": "Completed",
+    "Time": "2025-05-13 16:10:21"
+  },
+  {
+    "Order No.": 1922317250627190800,
+    "Type": "BUY",
+    "Fiat Amount": 18000,
+    "Price": 81.19,
+    "Coin Amount": 221.7022,
+    "Counterparty": "Junga",
+    "Status": "Completed",
+    "Time": "2025-05-13 15:45:23"
+  },
+  {
+    "Order No.": 1922299293856362500,
+    "Type": "BUY",
+    "Fiat Amount": 11425,
+    "Price": 81,
+    "Coin Amount": 141.0494,
+    "Counterparty": "YBWlovehas",
+    "Status": "Completed",
+    "Time": "2025-05-13 14:34:02"
+  },
+  {
+    "Order No.": 1922298116786987000,
+    "Type": "BUY",
+    "Fiat Amount": 10000,
+    "Price": 80.5,
+    "Coin Amount": 124.2237,
+    "Counterparty": "kmaiqq",
+    "Status": "Completed",
+    "Time": "2025-05-13 14:29:21"
+  },
+  {
+    "Order No.": 1922296030848270300,
+    "Type": "BUY",
+    "Fiat Amount": 16000,
+    "Price": 80.49,
+    "Coin Amount": 198.7825,
+    "Counterparty": "GARIK1212",
+    "Status": "Completed",
+    "Time": "2025-05-13 14:21:04"
+  },
+  {
+    "Order No.": 1922294495806595000,
+    "Type": "BUY",
+    "Fiat Amount": 11000,
+    "Price": 80.55,
+    "Coin Amount": 136.5612,
+    "Counterparty": "Dragon-Alfa",
+    "Status": "Completed",
+    "Time": "2025-05-13 14:14:58"
+  },
+  {
+    "Order No.": 1922292301526200300,
+    "Type": "BUY",
+    "Fiat Amount": 17180,
+    "Price": 81.09,
+    "Coin Amount": 211.8634,
+    "Counterparty": "MVG",
+    "Status": "Completed",
+    "Time": "2025-05-13 14:06:14"
+  },
+  {
+    "Order No.": 1922290256258338800,
+    "Type": "BUY",
+    "Fiat Amount": 12000,
+    "Price": 80.85,
+    "Coin Amount": 148.4231,
+    "Counterparty": "ruslan90",
+    "Status": "Completed",
+    "Time": "2025-05-13 13:58:07"
+  },
+  {
+    "Order No.": 1921970167894413300,
+    "Type": "SELL",
+    "Fiat Amount": 50000,
+    "Price": 84.55,
+    "Coin Amount": 591.3661,
+    "Counterparty": "Shmel777",
+    "Status": "Completed",
+    "Time": "2025-05-12 16:46:12"
+  },
+  {
+    "Order No.": 1921961898875220000,
+    "Type": "SELL",
+    "Fiat Amount": 25000,
+    "Price": 84.45,
+    "Coin Amount": 296.0332,
+    "Counterparty": "EasyFlowEx",
+    "Status": "Canceled",
+    "Time": "2025-05-12 16:13:20"
+  },
+  {
+    "Order No.": 1921961425576476700,
+    "Type": "SELL",
+    "Fiat Amount": 20000,
+    "Price": 84.4,
+    "Coin Amount": 236.9669,
+    "Counterparty": "poplopnom456hhh",
+    "Status": "Canceled",
+    "Time": "2025-05-12 16:11:27"
+  },
+  {
+    "Order No.": 1921957539289030700,
+    "Type": "SELL",
+    "Fiat Amount": 19000.01,
+    "Price": 84.5,
+    "Coin Amount": 224.8522,
+    "Counterparty": "spotX??",
+    "Status": "Completed",
+    "Time": "2025-05-12 15:56:01"
+  },
+  {
+    "Order No.": 1921952052077305900,
+    "Type": "BUY",
+    "Fiat Amount": 10000,
+    "Price": 80.9,
+    "Coin Amount": 123.6094,
+    "Counterparty": "LORD25",
+    "Status": "Completed",
+    "Time": "2025-05-12 15:34:13"
+  },
+  {
+    "Order No.": 1921949857106964500,
+    "Type": "BUY",
+    "Fiat Amount": 10000,
+    "Price": 80.89,
+    "Coin Amount": 123.6247,
+    "Counterparty": "CorsairMonkey",
+    "Status": "Completed",
+    "Time": "2025-05-12 15:25:29"
+  },
+  {
+    "Order No.": 1921948691115610000,
+    "Type": "BUY",
+    "Fiat Amount": 15000,
+    "Price": 80.9,
+    "Coin Amount": 185.4141,
+    "Counterparty": "destroyermsc",
+    "Status": "Completed",
+    "Time": "2025-05-12 15:20:51"
+  },
+  {
+    "Order No.": 1921941034373546000,
+    "Type": "SELL",
+    "Fiat Amount": 30000,
+    "Price": 84.3,
+    "Coin Amount": 355.8719,
+    "Counterparty": "roooom",
+    "Status": "Canceled",
+    "Time": "2025-05-12 14:50:26"
+  },
+  {
+    "Order No.": 1921936931811557400,
+    "Type": "SELL",
+    "Fiat Amount": 60000,
+    "Price": 84.61,
+    "Coin Amount": 709.1361,
+    "Counterparty": "MERCHANT_BEST",
+    "Status": "Completed",
+    "Time": "2025-05-12 14:34:08"
+  },
+  {
+    "Order No.": 1921931637511155700,
+    "Type": "SELL",
+    "Fiat Amount": 52000,
+    "Price": 84.5,
+    "Coin Amount": 615.3847,
+    "Counterparty": "Mamay05",
+    "Status": "Canceled",
+    "Time": "2025-05-12 14:13:05"
+  },
+  {
+    "Order No.": 1921931188939657200,
+    "Type": "SELL",
+    "Fiat Amount": 17000.01,
+    "Price": 84.2,
+    "Coin Amount": 201.9004,
+    "Counterparty": "spotX??",
+    "Status": "Completed",
+    "Time": "2025-05-12 14:11:19"
+  },
+  {
+    "Order No.": 1921532911437811700,
+    "Type": "BUY",
+    "Fiat Amount": 10000,
+    "Price": 81.89,
+    "Coin Amount": 122.1151,
+    "Counterparty": "??Big_Whale??",
+    "Status": "Completed",
+    "Time": "2025-05-11 11:48:42"
+  },
+  {
+    "Order No.": 1921526502756380700,
+    "Type": "BUY",
+    "Fiat Amount": 16725,
+    "Price": 81.84,
+    "Coin Amount": 204.3622,
+    "Counterparty": "Alexandr137",
+    "Status": "Completed",
+    "Time": "2025-05-11 11:23:14"
+  },
+  {
+    "Order No.": 1921178750640607200,
+    "Type": "BUY",
+    "Fiat Amount": 10000,
+    "Price": 81.8,
+    "Coin Amount": 122.2494,
+    "Counterparty": "Kapochka",
+    "Status": "Completed",
+    "Time": "2025-05-10 12:21:23"
+  },
+  {
+    "Order No.": 1921177300973060000,
+    "Type": "BUY",
+    "Fiat Amount": 6500,
+    "Price": 81.78,
+    "Coin Amount": 79.4816,
+    "Counterparty": "Forrest Gump",
+    "Status": "Completed",
+    "Time": "2025-05-10 12:15:38"
+  },
+  {
+    "Order No.": 1921172818654593000,
+    "Type": "BUY",
+    "Fiat Amount": 11840,
+    "Price": 81.7,
+    "Coin Amount": 144.9205,
+    "Counterparty": "Kapochka",
+    "Status": "Completed",
+    "Time": "2025-05-10 11:57:49"
+  },
+  {
+    "Order No.": 1921172025476378600,
+    "Type": "BUY",
+    "Fiat Amount": 10000,
+    "Price": 81.6,
+    "Coin Amount": 122.5491,
+    "Counterparty": "petrovich56",
+    "Status": "Completed",
+    "Time": "2025-05-10 11:54:40"
+  },
+  {
+    "Order No.": 1921171371794518000,
+    "Type": "BUY",
+    "Fiat Amount": 10000,
+    "Price": 81.6,
+    "Coin Amount": 122.5491,
+    "Counterparty": "Nadi555",
+    "Status": "Completed",
+    "Time": "2025-05-10 11:52:04"
+  },
+  {
+    "Order No.": 1920841365931856000,
+    "Type": "SELL",
+    "Fiat Amount": 14000,
+    "Price": 84.2,
+    "Coin Amount": 166.2708,
+    "Counterparty": "Mansur S",
+    "Status": "Completed",
+    "Time": "2025-05-09 14:00:45"
+  },
+  {
+    "Order No.": 1920839945027457000,
+    "Type": "BUY",
+    "Fiat Amount": 10000,
+    "Price": 82.35,
+    "Coin Amount": 121.433,
+    "Counterparty": "Name222",
+    "Status": "Completed",
+    "Time": "2025-05-09 13:55:06"
+  },
+  {
+    "Order No.": 1920837813647245300,
+    "Type": "BUY",
+    "Fiat Amount": 30000,
+    "Price": 82.3,
+    "Coin Amount": 364.5201,
+    "Counterparty": "Name222",
+    "Status": "Completed",
+    "Time": "2025-05-09 13:46:37"
+  },
+  {
+    "Order No.": 1920837638384435200,
+    "Type": "BUY",
+    "Fiat Amount": 10000,
+    "Price": 82.25,
+    "Coin Amount": 121.5806,
+    "Counterparty": "CorsairMonkey",
+    "Status": "Completed",
+    "Time": "2025-05-09 13:45:56"
+  },
+  {
+    "Order No.": 1920196223260696600,
+    "Type": "SELL",
+    "Fiat Amount": 29750,
+    "Price": 84.72,
+    "Coin Amount": 351.1568,
+    "Counterparty": "babymilo",
+    "Status": "Completed",
+    "Time": "2025-05-07 19:17:10"
+  },
+  {
+    "Order No.": 1920192540292591600,
+    "Type": "SELL",
+    "Fiat Amount": 20000,
+    "Price": 85,
+    "Coin Amount": 235.2942,
+    "Counterparty": "FAST_OBMEN228",
+    "Status": "Completed",
+    "Time": "2025-05-07 19:02:32"
+  },
+  {
+    "Order No.": 1920186457737728000,
+    "Type": "SELL",
+    "Fiat Amount": 15000,
+    "Price": 84.9,
+    "Coin Amount": 176.6785,
+    "Counterparty": "foxylady",
+    "Status": "Canceled",
+    "Time": "2025-05-07 18:38:22"
+  },
+  {
+    "Order No.": 1920183970608029700,
+    "Type": "SELL",
+    "Fiat Amount": 15000,
+    "Price": 84.9,
+    "Coin Amount": 176.6785,
+    "Counterparty": "foxylady",
+    "Status": "Completed",
+    "Time": "2025-05-07 18:28:29"
+  },
+  {
+    "Order No.": 1920183064158707700,
+    "Type": "SELL",
+    "Fiat Amount": 38500,
+    "Price": 85,
+    "Coin Amount": 452.9412,
+    "Counterparty": "viktor.sp",
+    "Status": "Completed",
+    "Time": "2025-05-07 18:24:53"
+  },
+  {
+    "Order No.": 1920124462191403000,
+    "Type": "BUY",
+    "Fiat Amount": 18300,
+    "Price": 82.15,
+    "Coin Amount": 222.7633,
+    "Counterparty": "sunshineCypto",
+    "Status": "Completed",
+    "Time": "2025-05-07 14:32:01"
+  },
+  {
+    "Order No.": 1920108603724787700,
+    "Type": "BUY",
+    "Fiat Amount": 10000,
+    "Price": 81.79,
+    "Coin Amount": 122.2644,
+    "Counterparty": "Junga",
+    "Status": "Completed",
+    "Time": "2025-05-07 13:29:00"
+  },
+  {
+    "Order No.": 1920106446580269000,
+    "Type": "BUY",
+    "Fiat Amount": 5454,
+    "Price": 81.3,
+    "Coin Amount": 67.0849,
+    "Counterparty": "????? VB",
+    "Status": "Canceled",
+    "Time": "2025-05-07 13:20:26"
+  },
+  {
+    "Order No.": 1920104171623334000,
+    "Type": "BUY",
+    "Fiat Amount": 10000,
+    "Price": 81.5,
+    "Coin Amount": 122.6994,
+    "Counterparty": "Boris0707",
+    "Status": "Completed",
+    "Time": "2025-05-07 13:11:24"
+  },
+  {
+    "Order No.": 1920094263119265800,
+    "Type": "BUY",
+    "Fiat Amount": 10045,
+    "Price": 81.48,
+    "Coin Amount": 123.2818,
+    "Counterparty": "BT6",
+    "Status": "Completed",
+    "Time": "2025-05-07 12:32:01"
+  },
+  {
+    "Order No.": 1920093665535537200,
+    "Type": "SELL",
+    "Fiat Amount": 35000,
+    "Price": 85,
+    "Coin Amount": 411.7648,
+    "Counterparty": "traderr95",
+    "Status": "Completed",
+    "Time": "2025-05-07 12:29:39"
+  },
+  {
+    "Order No.": 1920092578709307400,
+    "Type": "BUY",
+    "Fiat Amount": 25681,
+    "Price": 81.3,
+    "Coin Amount": 315.8795,
+    "Counterparty": "n3mqp",
+    "Status": "Completed",
+    "Time": "2025-05-07 12:25:20"
+  },
+  {
+    "Order No.": 1920091815692095500,
+    "Type": "SELL",
+    "Fiat Amount": 28000,
+    "Price": 84.01,
+    "Coin Amount": 333.2937,
+    "Counterparty": "CriptiPapa",
+    "Status": "Completed",
+    "Time": "2025-05-07 12:22:18"
+  },
+  {
+    "Order No.": 1920090006076952600,
+    "Type": "BUY",
+    "Fiat Amount": 9000,
+    "Price": 81.25,
+    "Coin Amount": 110.7693,
+    "Counterparty": "gmm033",
+    "Status": "Completed",
+    "Time": "2025-05-07 12:15:06"
+  },
+  {
+    "Order No.": 1920084354494013400,
+    "Type": "BUY",
+    "Fiat Amount": 14021,
+    "Price": 81.39,
+    "Coin Amount": 172.2694,
+    "Counterparty": "??H1TMAN??",
+    "Status": "Completed",
+    "Time": "2025-05-07 11:52:39"
+  },
+  {
+    "Order No.": 1920083447797956600,
+    "Type": "BUY",
+    "Fiat Amount": 10669,
+    "Price": 81.39,
+    "Coin Amount": 131.0849,
+    "Counterparty": "KARAMELKA",
+    "Status": "Completed",
+    "Time": "2025-05-07 11:49:03"
+  },
+  {
+    "Order No.": 1919805388056457200,
+    "Type": "SELL",
+    "Fiat Amount": 10000,
+    "Price": 84.36,
+    "Coin Amount": 118.5396,
+    "Counterparty": "????? ?????",
+    "Status": "Completed",
+    "Time": "2025-05-06 17:24:08"
+  },
+  {
+    "Order No.": 1919800887157371000,
+    "Type": "SELL",
+    "Fiat Amount": 24000,
+    "Price": 84.12,
+    "Coin Amount": 285.3068,
+    "Counterparty": "Irina M",
+    "Status": "Completed",
+    "Time": "2025-05-06 17:06:15"
+  },
+  {
+    "Order No.": 1919794238953267200,
+    "Type": "BUY",
+    "Fiat Amount": 10000,
+    "Price": 80.9,
+    "Coin Amount": 123.6094,
+    "Counterparty": "????? VB",
+    "Status": "Completed",
+    "Time": "2025-05-06 16:39:50"
+  },
+  {
+    "Order No.": 1919793726112456700,
+    "Type": "BUY",
+    "Fiat Amount": 9999,
+    "Price": 80.8,
+    "Coin Amount": 123.75,
+    "Counterparty": "Team_BT2",
+    "Status": "Canceled",
+    "Time": "2025-05-06 16:37:48"
+  },
+  {
+    "Order No.": 1919784781289414700,
+    "Type": "SELL",
+    "Fiat Amount": 5000,
+    "Price": 84.3,
+    "Coin Amount": 59.312,
+    "Counterparty": "cryptoblade",
+    "Status": "Completed",
+    "Time": "2025-05-06 16:02:15"
+  },
+  {
+    "Order No.": 1919783997669044200,
+    "Type": "BUY",
+    "Fiat Amount": 10000,
+    "Price": 80.95,
+    "Coin Amount": 123.5331,
+    "Counterparty": "kmaiqq",
+    "Status": "Completed",
+    "Time": "2025-05-06 15:59:08"
+  },
+  {
+    "Order No.": 1919780198984089600,
+    "Type": "BUY",
+    "Fiat Amount": 14830.01,
+    "Price": 81,
+    "Coin Amount": 183.0866,
+    "Counterparty": "Timur11",
+    "Status": "Canceled",
+    "Time": "2025-05-06 15:44:02"
+  },
+  {
+    "Order No.": 1919778988809433000,
+    "Type": "BUY",
+    "Fiat Amount": 10000,
+    "Price": 81,
+    "Coin Amount": 123.4568,
+    "Counterparty": "Bennet1337",
+    "Status": "Completed",
+    "Time": "2025-05-06 15:39:14"
+  },
+  {
+    "Order No.": 1919777519360098300,
+    "Type": "BUY",
+    "Fiat Amount": 10000,
+    "Price": 81,
+    "Coin Amount": 123.4568,
+    "Counterparty": "Ho.Okah B0sss",
+    "Status": "Completed",
+    "Time": "2025-05-06 15:33:24"
+  },
+  {
+    "Order No.": 1919776709897781200,
+    "Type": "BUY",
+    "Fiat Amount": 13000,
+    "Price": 81,
+    "Coin Amount": 160.4939,
+    "Counterparty": "MiLLionerka",
+    "Status": "Completed",
+    "Time": "2025-05-06 15:30:11"
+  },
+  {
+    "Order No.": 1919775136483868700,
+    "Type": "SELL",
+    "Fiat Amount": 49000,
+    "Price": 84.3,
+    "Coin Amount": 581.2575,
+    "Counterparty": "SALVADOOR",
+    "Status": "Completed",
+    "Time": "2025-05-06 15:23:55"
+  },
+  {
+    "Order No.": 1919774482159739000,
+    "Type": "BUY",
+    "Fiat Amount": 10000.1,
+    "Price": 80.98,
+    "Coin Amount": 123.4886,
+    "Counterparty": "3beyn",
+    "Status": "Completed",
+    "Time": "2025-05-06 15:21:20"
+  },
+  {
+    "Order No.": 1919772441702146000,
+    "Type": "BUY",
+    "Fiat Amount": 14061,
+    "Price": 80.8,
+    "Coin Amount": 174.0223,
+    "Counterparty": "Banana1234",
+    "Status": "Completed",
+    "Time": "2025-05-06 15:13:13"
+  },
+  {
+    "Order No.": 1919772128516763600,
+    "Type": "BUY",
+    "Fiat Amount": 10000,
+    "Price": 80.95,
+    "Coin Amount": 123.5331,
+    "Counterparty": "BASH44",
+    "Status": "Completed",
+    "Time": "2025-05-06 15:11:58"
+  },
+  {
+    "Order No.": 1919770371188199400,
+    "Type": "SELL",
+    "Fiat Amount": 13000,
+    "Price": 84.4,
+    "Coin Amount": 154.0285,
+    "Counterparty": "vadmikss",
+    "Status": "Completed",
+    "Time": "2025-05-06 15:04:59"
+  },
+  {
+    "Order No.": 1919768714190790700,
+    "Type": "SELL",
+    "Fiat Amount": 30000,
+    "Price": 83.81,
+    "Coin Amount": 357.9526,
+    "Counterparty": "Vadim crypto",
+    "Status": "Completed",
+    "Time": "2025-05-06 14:58:24"
+  },
+  {
+    "Order No.": 1919586703938289700,
+    "Type": "BUY",
+    "Fiat Amount": 7000,
+    "Price": 81,
+    "Coin Amount": 86.4198,
+    "Counterparty": "BT6",
+    "Status": "Canceled",
+    "Time": "2025-05-06 02:55:10"
+  },
+  {
+    "Order No.": 1919584664256950300,
+    "Type": "BUY",
+    "Fiat Amount": 4002,
+    "Price": 80.44,
+    "Coin Amount": 49.7514,
+    "Counterparty": "MoneyPrinting",
+    "Status": "Completed",
+    "Time": "2025-05-06 02:47:03"
+  },
+  {
+    "Order No.": 1919582740101537800,
+    "Type": "BUY",
+    "Fiat Amount": 12080,
+    "Price": 81,
+    "Coin Amount": 149.1359,
+    "Counterparty": "Dadtut",
+    "Status": "Completed",
+    "Time": "2025-05-06 02:39:25"
+  },
+  {
+    "Order No.": 1919425124292808700,
+    "Type": "BUY",
+    "Fiat Amount": 15000,
+    "Price": 81.5,
+    "Coin Amount": 184.0491,
+    "Counterparty": "Larik174",
+    "Status": "Completed",
+    "Time": "2025-05-05 16:13:06"
+  },
+  {
+    "Order No.": 1919423146235920400,
+    "Type": "BUY",
+    "Fiat Amount": 9500,
+    "Price": 81.75,
+    "Coin Amount": 116.208,
+    "Counterparty": "MediaTeam_WN",
+    "Status": "Completed",
+    "Time": "2025-05-05 16:05:15"
+  },
+  {
+    "Order No.": 1919419482190327800,
+    "Type": "BUY",
+    "Fiat Amount": 14000,
+    "Price": 81,
+    "Coin Amount": 172.8396,
+    "Counterparty": "poHuH",
+    "Status": "Completed",
+    "Time": "2025-05-05 15:50:41"
+  },
+  {
+    "Order No.": 1919417599453925400,
+    "Type": "BUY",
+    "Fiat Amount": 23000.01,
+    "Price": 81.7,
+    "Coin Amount": 281.5179,
+    "Counterparty": "2P2BAR",
+    "Status": "Canceled",
+    "Time": "2025-05-05 15:43:12"
+  },
+  {
+    "Order No.": 1919415983973257200,
+    "Type": "BUY",
+    "Fiat Amount": 36900,
+    "Price": 81.5,
+    "Coin Amount": 452.7608,
+    "Counterparty": "Bastion",
+    "Status": "Canceled",
+    "Time": "2025-05-05 15:36:47"
+  },
+  {
+    "Order No.": 1919373295810171000,
+    "Type": "SELL",
+    "Fiat Amount": 60000,
+    "Price": 84.5,
+    "Coin Amount": 710.0592,
+    "Counterparty": "BTC mama",
+    "Status": "Completed",
+    "Time": "2025-05-05 12:47:09"
+  },
+  {
+    "Order No.": 1919369881066537000,
+    "Type": "SELL",
+    "Fiat Amount": 57000,
+    "Price": 84.5,
+    "Coin Amount": 674.5563,
+    "Counterparty": "MokiAce",
+    "Status": "Canceled",
+    "Time": "2025-05-05 12:33:35"
+  },
+  {
+    "Order No.": 1919368123633811500,
+    "Type": "BUY",
+    "Fiat Amount": 10000,
+    "Price": 81.49,
+    "Coin Amount": 122.7145,
+    "Counterparty": "GARIK1212",
+    "Status": "Completed",
+    "Time": "2025-05-05 12:26:36"
+  },
+  {
+    "Order No.": 1919366333103415300,
+    "Type": "BUY",
+    "Fiat Amount": 10000,
+    "Price": 81.71,
+    "Coin Amount": 122.3841,
+    "Counterparty": "??Mrs_Mag1c",
+    "Status": "Completed",
+    "Time": "2025-05-05 12:19:29"
+  },
+  {
+    "Order No.": 1919365906665783300,
+    "Type": "BUY",
+    "Fiat Amount": 12000,
+    "Price": 81.7,
+    "Coin Amount": 146.8789,
+    "Counterparty": "BT6",
+    "Status": "Canceled",
+    "Time": "2025-05-05 12:17:48"
+  },
+  {
+    "Order No.": 1919363510921506800,
+    "Type": "BUY",
+    "Fiat Amount": 5250,
+    "Price": 81.47,
+    "Coin Amount": 64.4409,
+    "Counterparty": "????? VB",
+    "Status": "Completed",
+    "Time": "2025-05-05 12:08:16"
+  },
+  {
+    "Order No.": 1919361952828170200,
+    "Type": "BUY",
+    "Fiat Amount": 15000,
+    "Price": 81.9,
+    "Coin Amount": 183.1502,
+    "Counterparty": "BT6",
+    "Status": "Completed",
+    "Time": "2025-05-05 12:02:05"
+  },
+  {
+    "Order No.": 1919361454107185200,
+    "Type": "BUY",
+    "Fiat Amount": 10625,
+    "Price": 81.39,
+    "Coin Amount": 130.5443,
+    "Counterparty": "Bulbozavr",
+    "Status": "Completed",
+    "Time": "2025-05-05 12:00:06"
+  },
+  {
+    "Order No.": 1919359045145067500,
+    "Type": "BUY",
+    "Fiat Amount": 16871,
+    "Price": 81.9,
+    "Coin Amount": 205.9952,
+    "Counterparty": "BT6",
+    "Status": "Completed",
+    "Time": "2025-05-05 11:50:32"
+  },
+  {
+    "Order No.": 1919356695427608600,
+    "Type": "BUY",
+    "Fiat Amount": 30000,
+    "Price": 81.89,
+    "Coin Amount": 366.3451,
+    "Counterparty": "BITMAKERBOB",
+    "Status": "Canceled",
+    "Time": "2025-05-05 11:41:11"
+  },
+  {
+    "Order No.": 1919355668070592500,
+    "Type": "BUY",
+    "Fiat Amount": 13564,
+    "Price": 81.5,
+    "Coin Amount": 166.4295,
+    "Counterparty": "mugaga",
+    "Status": "Canceled",
+    "Time": "2025-05-05 11:37:06"
+  },
+  {
+    "Order No.": 1919353097245003800,
+    "Type": "SELL",
+    "Fiat Amount": 48750.1,
+    "Price": 84.2,
+    "Coin Amount": 578.9799,
+    "Counterparty": "AnnyND",
+    "Status": "Completed",
+    "Time": "2025-05-05 11:26:54"
+  },
+  {
+    "Order No.": 1919349693379690500,
+    "Type": "SELL",
+    "Fiat Amount": 25590,
+    "Price": 84.4,
+    "Coin Amount": 303.1991,
+    "Counterparty": "????? ?????",
+    "Status": "Completed",
+    "Time": "2025-05-05 11:13:22"
+  },
+  {
+    "Order No.": 1919348705930993700,
+    "Type": "SELL",
+    "Fiat Amount": 37000,
+    "Price": 84.2,
+    "Coin Amount": 439.43,
+    "Counterparty": "Friman",
+    "Status": "Canceled",
+    "Time": "2025-05-05 11:09:27"
+  },
+  {
+    "Order No.": 1919345956164157400,
+    "Type": "BUY",
+    "Fiat Amount": 33500,
+    "Price": 81.98,
+    "Coin Amount": 408.6363,
+    "Counterparty": "BITMAKERBOB",
+    "Status": "Completed",
+    "Time": "2025-05-05 10:58:31"
+  },
+  {
+    "Order No.": 1919343933981147100,
+    "Type": "BUY",
+    "Fiat Amount": 13000,
+    "Price": 82,
+    "Coin Amount": 158.5366,
+    "Counterparty": "BILLIGANS_X",
+    "Status": "Completed",
+    "Time": "2025-05-05 10:50:29"
+  },
+  {
+    "Order No.": 1918701030562816000,
+    "Type": "BUY",
+    "Fiat Amount": 18400,
+    "Price": 81.28,
+    "Coin Amount": 226.378,
+    "Counterparty": "??Big_Whale??",
+    "Status": "Completed",
+    "Time": "2025-05-03 16:15:49"
+  },
+  {
+    "Order No.": 1918696763547164700,
+    "Type": "BUY",
+    "Fiat Amount": 5818,
+    "Price": 81.35,
+    "Coin Amount": 71.5182,
+    "Counterparty": "????? VB",
+    "Status": "Completed",
+    "Time": "2025-05-03 15:58:51"
+  },
+  {
+    "Order No.": 1918693511735013400,
+    "Type": "SELL",
+    "Fiat Amount": 67000,
+    "Price": 84,
+    "Coin Amount": 797.6191,
+    "Counterparty": "dkyesy",
+    "Status": "Completed",
+    "Time": "2025-05-03 15:45:56"
+  },
+  {
+    "Order No.": 1918687294195413000,
+    "Type": "BUY",
+    "Fiat Amount": 12036,
+    "Price": 81.38,
+    "Coin Amount": 147.8988,
+    "Counterparty": "??beermug??",
+    "Status": "Completed",
+    "Time": "2025-05-03 15:21:14"
+  },
+  {
+    "Order No.": 1918672724878069800,
+    "Type": "SELL",
+    "Fiat Amount": 27000.02,
+    "Price": 84,
+    "Coin Amount": 321.4289,
+    "Counterparty": "DimaSio",
+    "Status": "Completed",
+    "Time": "2025-05-03 14:23:20"
+  },
+  {
+    "Order No.": 1918671078625771500,
+    "Type": "BUY",
+    "Fiat Amount": 11732,
+    "Price": 81.3,
+    "Coin Amount": 144.3051,
+    "Counterparty": "25Fast_Work25",
+    "Status": "Completed",
+    "Time": "2025-05-03 14:16:48"
+  },
+  {
+    "Order No.": 1918669477812068400,
+    "Type": "SELL",
+    "Fiat Amount": 10000,
+    "Price": 84,
+    "Coin Amount": 119.0477,
+    "Counterparty": "name_Sasha",
+    "Status": "Completed",
+    "Time": "2025-05-03 14:10:26"
+  },
+  {
+    "Order No.": 1918666842397450200,
+    "Type": "SELL",
+    "Fiat Amount": 23000,
+    "Price": 84,
+    "Coin Amount": 273.8096,
+    "Counterparty": "vlagenda",
+    "Status": "Canceled",
+    "Time": "2025-05-03 13:59:58"
+  },
+  {
+    "Order No.": 1918666292554645500,
+    "Type": "SELL",
+    "Fiat Amount": 10000,
+    "Price": 83.99,
+    "Coin Amount": 119.0618,
+    "Counterparty": "foxylady",
+    "Status": "Canceled",
+    "Time": "2025-05-03 13:57:47"
+  },
+  {
+    "Order No.": 1918665592992403500,
+    "Type": "SELL",
+    "Fiat Amount": 11400.6,
+    "Price": 83.7,
+    "Coin Amount": 136.2079,
+    "Counterparty": "murat09",
+    "Status": "Canceled",
+    "Time": "2025-05-03 13:55:00"
+  },
+  {
+    "Order No.": 1918661443166380000,
+    "Type": "BUY",
+    "Fiat Amount": 16000,
+    "Price": 81.55,
+    "Coin Amount": 196.1987,
+    "Counterparty": "????? VB",
+    "Status": "Completed",
+    "Time": "2025-05-03 13:38:30"
+  },
+  {
+    "Order No.": 1918658386796167200,
+    "Type": "BUY",
+    "Fiat Amount": 23850,
+    "Price": 81.6,
+    "Coin Amount": 292.2795,
+    "Counterparty": "akhma",
+    "Status": "Completed",
+    "Time": "2025-05-03 13:26:22"
+  },
+  {
+    "Order No.": 1918655011111202800,
+    "Type": "BUY",
+    "Fiat Amount": 12014,
+    "Price": 81.18,
+    "Coin Amount": 147.9922,
+    "Counterparty": "BT6",
+    "Status": "Completed",
+    "Time": "2025-05-03 13:12:57"
+  },
+  {
+    "Order No.": 1918653578025386000,
+    "Type": "BUY",
+    "Fiat Amount": 12971,
+    "Price": 81.3,
+    "Coin Amount": 159.5449,
+    "Counterparty": "25Fast_Work25",
+    "Status": "Completed",
+    "Time": "2025-05-03 13:07:15"
+  },
+  {
+    "Order No.": 1918652310579679200,
+    "Type": "SELL",
+    "Fiat Amount": 10000,
+    "Price": 84,
+    "Coin Amount": 119.0477,
+    "Counterparty": "cryptoprincesss",
+    "Status": "Canceled",
+    "Time": "2025-05-03 13:02:13"
+  },
+  {
+    "Order No.": 1918649414641590300,
+    "Type": "SELL",
+    "Fiat Amount": 15000,
+    "Price": 84,
+    "Coin Amount": 178.5715,
+    "Counterparty": "Mamay05",
+    "Status": "Completed",
+    "Time": "2025-05-03 12:50:43"
+  },
+  {
+    "Order No.": 1918647096760352800,
+    "Type": "SELL",
+    "Fiat Amount": 23483.8,
+    "Price": 84.1,
+    "Coin Amount": 279.2367,
+    "Counterparty": "GREENWICH",
+    "Status": "Canceled",
+    "Time": "2025-05-03 12:41:30"
+  },
+  {
+    "Order No.": 1918644468410441700,
+    "Type": "SELL",
+    "Fiat Amount": 25000,
+    "Price": 84.25,
+    "Coin Amount": 296.736,
+    "Counterparty": "k4ban",
+    "Status": "Completed",
+    "Time": "2025-05-03 12:31:03"
+  },
+  {
+    "Order No.": 1918640829467533300,
+    "Type": "BUY",
+    "Fiat Amount": 5000,
+    "Price": 81.13,
+    "Coin Amount": 61.6295,
+    "Counterparty": "BT6",
+    "Status": "Completed",
+    "Time": "2025-05-03 12:16:36"
+  },
+  {
+    "Order No.": 1918639613973807000,
+    "Type": "BUY",
+    "Fiat Amount": 18715,
+    "Price": 81.59,
+    "Coin Amount": 229.3787,
+    "Counterparty": "Banana1234",
+    "Status": "Completed",
+    "Time": "2025-05-03 12:11:46"
+  },
+  {
+    "Order No.": 1918636611783598000,
+    "Type": "SELL",
+    "Fiat Amount": 25675,
+    "Price": 84.1,
+    "Coin Amount": 305.2914,
+    "Counterparty": "FGStore",
+    "Status": "Completed",
+    "Time": "2025-05-03 11:59:50"
+  },
+  {
+    "Order No.": 1918634378316718000,
+    "Type": "BUY",
+    "Fiat Amount": 15000,
+    "Price": 81.5,
+    "Coin Amount": 184.0491,
+    "Counterparty": "kostik112_47",
+    "Status": "Completed",
+    "Time": "2025-05-03 11:50:58"
+  },
+  {
+    "Order No.": 1918630570102018000,
+    "Type": "BUY",
+    "Fiat Amount": 15932.1,
+    "Price": 81.15,
+    "Coin Amount": 196.3291,
+    "Counterparty": "PAVLYA777",
+    "Status": "Canceled",
+    "Time": "2025-05-03 11:35:50"
+  },
+  {
+    "Order No.": 1918615603188764700,
+    "Type": "SELL",
+    "Fiat Amount": 45000,
+    "Price": 84,
+    "Coin Amount": 535.7143,
+    "Counterparty": "kurbangajiev1",
+    "Status": "Canceled",
+    "Time": "2025-05-03 10:36:21"
+  },
+  {
+    "Order No.": 1918613449229688800,
+    "Type": "BUY",
+    "Fiat Amount": 15000.01,
+    "Price": 81.5,
+    "Coin Amount": 184.0493,
+    "Counterparty": "boyhollow",
+    "Status": "Completed",
+    "Time": "2025-05-03 10:27:48"
+  },
+  {
+    "Order No.": 1918611576765542400,
+    "Type": "BUY",
+    "Fiat Amount": 10000,
+    "Price": 81.5,
+    "Coin Amount": 122.6994,
+    "Counterparty": "kostik112_47",
+    "Status": "Completed",
+    "Time": "2025-05-03 10:20:21"
+  },
+  {
+    "Order No.": 1918289015629856800,
+    "Type": "BUY",
+    "Fiat Amount": 19428,
+    "Price": 81.2,
+    "Coin Amount": 239.2611,
+    "Counterparty": "Valdosi",
+    "Status": "Canceled",
+    "Time": "2025-05-02 12:58:37"
+  },
+  {
+    "Order No.": 1918287583850188800,
+    "Type": "BUY",
+    "Fiat Amount": 10400,
+    "Price": 81.15,
+    "Coin Amount": 128.1578,
+    "Counterparty": "hxele",
+    "Status": "Completed",
+    "Time": "2025-05-02 12:52:55"
+  },
+  {
+    "Order No.": 1918282242354593800,
+    "Type": "SELL",
+    "Fiat Amount": 40000,
+    "Price": 84.01,
+    "Coin Amount": 476.1338,
+    "Counterparty": "El6ukaew",
+    "Status": "Completed",
+    "Time": "2025-05-02 12:31:42"
+  },
+  {
+    "Order No.": 1917979016771354600,
+    "Type": "SELL",
+    "Fiat Amount": 50045,
+    "Price": 84,
+    "Coin Amount": 595.7739,
+    "Counterparty": "Saint_Cripto",
+    "Status": "Canceled",
+    "Time": "2025-05-01 16:26:47"
+  },
+  {
+    "Order No.": 1917973758582190000,
+    "Type": "BUY",
+    "Fiat Amount": 20000,
+    "Price": 81,
+    "Coin Amount": 246.9136,
+    "Counterparty": "attractive2p",
+    "Status": "Completed",
+    "Time": "2025-05-01 16:05:54"
+  },
+  {
+    "Order No.": 1917970645146038300,
+    "Type": "BUY",
+    "Fiat Amount": 10000,
+    "Price": 81.22,
+    "Coin Amount": 123.1224,
+    "Counterparty": "BT6",
+    "Status": "Completed",
+    "Time": "2025-05-01 15:53:31"
+  },
+  {
+    "Order No.": 1917965281524945000,
+    "Type": "BUY",
+    "Fiat Amount": 10000,
+    "Price": 81.38,
+    "Coin Amount": 122.8804,
+    "Counterparty": "Jack_MediaP2...",
+    "Status": "Completed",
+    "Time": "2025-05-01 15:32:12"
+  },
+  {
+    "Order No.": 1917963607118393300,
+    "Type": "SELL",
+    "Fiat Amount": 35550.01,
+    "Price": 83.82,
+    "Coin Amount": 424.1233,
+    "Counterparty": "Jetix",
+    "Status": "Completed",
+    "Time": "2025-05-01 15:25:33"
+  },
+  {
+    "Order No.": 1917956439282995200,
+    "Type": "SELL",
+    "Fiat Amount": 21000,
+    "Price": 84,
+    "Coin Amount": 250,
+    "Counterparty": "isa v zakone",
+    "Status": "Canceled",
+    "Time": "2025-05-01 14:57:04"
+  },
+  {
+    "Order No.": 1917606733716340700,
+    "Type": "BUY",
+    "Fiat Amount": 10000,
+    "Price": 81.2,
+    "Coin Amount": 123.1528,
+    "Counterparty": "StandFox8",
+    "Status": "Completed",
+    "Time": "2025-04-30 15:47:28"
+  },
+  {
+    "Order No.": 1917605511473524700,
+    "Type": "BUY",
+    "Fiat Amount": 18000,
+    "Price": 81.43,
+    "Coin Amount": 221.0488,
+    "Counterparty": "_PED_",
+    "Status": "Completed",
+    "Time": "2025-04-30 15:42:37"
+  },
+  {
+    "Order No.": 1917603097594736600,
+    "Type": "BUY",
+    "Fiat Amount": 10000,
+    "Price": 81.1,
+    "Coin Amount": 123.3046,
+    "Counterparty": "Rodion_p2p",
+    "Status": "Completed",
+    "Time": "2025-04-30 15:33:01"
+  },
+  {
+    "Order No.": 1917590455530467300,
+    "Type": "SELL",
+    "Fiat Amount": 50000,
+    "Price": 84.2,
+    "Coin Amount": 593.8243,
+    "Counterparty": "NineEleven",
+    "Status": "Completed",
+    "Time": "2025-04-30 14:42:47"
+  },
+  {
+    "Order No.": 1917575194277068800,
+    "Type": "BUY",
+    "Fiat Amount": 10000,
+    "Price": 81.15,
+    "Coin Amount": 123.2286,
+    "Counterparty": "Fr1k",
+    "Status": "Completed",
+    "Time": "2025-04-30 13:42:08"
+  },
+  {
+    "Order No.": 1917573089335156700,
+    "Type": "BUY",
+    "Fiat Amount": 11036,
+    "Price": 80.6,
+    "Coin Amount": 136.9231,
+    "Counterparty": "Phoenix.Tut",
+    "Status": "Completed",
+    "Time": "2025-04-30 13:33:47"
+  },
+  {
+    "Order No.": 1917571689811906600,
+    "Type": "BUY",
+    "Fiat Amount": 9500,
+    "Price": 81.1,
+    "Coin Amount": 117.1394,
+    "Counterparty": "GARIK1212",
+    "Status": "Completed",
+    "Time": "2025-04-30 13:28:13"
+  },
+  {
+    "Order No.": 1917571559150452700,
+    "Type": "BUY",
+    "Fiat Amount": 10000,
+    "Price": 81.05,
+    "Coin Amount": 123.3807,
+    "Counterparty": "kmaiqq",
+    "Status": "Completed",
+    "Time": "2025-04-30 13:27:42"
+  },
+  {
+    "Order No.": 1917569960704229400,
+    "Type": "BUY",
+    "Fiat Amount": 10000,
+    "Price": 81,
+    "Coin Amount": 123.4568,
+    "Counterparty": "usman9",
+    "Status": "Canceled",
+    "Time": "2025-04-30 13:21:21"
+  },
+  {
+    "Order No.": 1917559285021069300,
+    "Type": "SELL",
+    "Fiat Amount": 55000,
+    "Price": 83.73,
+    "Coin Amount": 656.8733,
+    "Counterparty": "arsen71",
+    "Status": "Completed",
+    "Time": "2025-04-30 12:38:55"
+  },
+  {
+    "Order No.": 1917554743199592400,
+    "Type": "SELL",
+    "Fiat Amount": 25392,
+    "Price": 83.7,
+    "Coin Amount": 303.3692,
+    "Counterparty": "UpToYou ?",
+    "Status": "Canceled",
+    "Time": "2025-04-30 12:20:52"
+  },
+  {
+    "Order No.": 1917223253212049400,
+    "Type": "BUY",
+    "Fiat Amount": 27000,
+    "Price": 81.5,
+    "Coin Amount": 331.2884,
+    "Counterparty": "honeycard",
+    "Status": "Completed",
+    "Time": "2025-04-29 14:23:39"
+  },
+  {
+    "Order No.": 1917221393889726500,
+    "Type": "BUY",
+    "Fiat Amount": 17520,
+    "Price": 81.6,
+    "Coin Amount": 214.7059,
+    "Counterparty": "wowka_miller",
+    "Status": "Completed",
+    "Time": "2025-04-29 14:16:16"
+  },
+  {
+    "Order No.": 1917219674540916700,
+    "Type": "BUY",
+    "Fiat Amount": 11000,
+    "Price": 81.24,
+    "Coin Amount": 135.4013,
+    "Counterparty": "belfordjordn",
+    "Status": "Canceled",
+    "Time": "2025-04-29 14:09:26"
+  },
+  {
+    "Order No.": 1917218680960372700,
+    "Type": "BUY",
+    "Fiat Amount": 11000,
+    "Price": 81.8,
+    "Coin Amount": 134.4744,
+    "Counterparty": "AzazeL",
+    "Status": "Completed",
+    "Time": "2025-04-29 14:05:29"
+  },
+  {
+    "Order No.": 1917216803930218500,
+    "Type": "SELL",
+    "Fiat Amount": 35250,
+    "Price": 83.51,
+    "Coin Amount": 422.1052,
+    "Counterparty": "EL_NIQUITA",
+    "Status": "Completed",
+    "Time": "2025-04-29 13:58:02"
+  },
+  {
+    "Order No.": 1917212993636606000,
+    "Type": "SELL",
+    "Fiat Amount": 34000,
+    "Price": 83.81,
+    "Coin Amount": 405.6796,
+    "Counterparty": "traderr95",
+    "Status": "Canceled",
+    "Time": "2025-04-29 13:42:53"
+  },
+  {
+    "Order No.": 1917047535387562000,
+    "Type": "BUY",
+    "Fiat Amount": 20000,
+    "Price": 80.85,
+    "Coin Amount": 247.3717,
+    "Counterparty": "Matori",
+    "Status": "Completed",
+    "Time": "2025-04-29 02:45:25"
+  },
+  {
+    "Order No.": 1916814173149171700,
+    "Type": "SELL",
+    "Fiat Amount": 61017.03,
+    "Price": 84.35,
+    "Coin Amount": 723.3792,
+    "Counterparty": "kylll116",
+    "Status": "Canceled",
+    "Time": "2025-04-28 11:18:07"
+  },
+  {
+    "Order No.": 1916703260685971500,
+    "Type": "BUY",
+    "Fiat Amount": 25000,
+    "Price": 81.6,
+    "Coin Amount": 306.3726,
+    "Counterparty": "Xatrig",
+    "Status": "Canceled",
+    "Time": "2025-04-28 03:57:23"
+  },
+  {
+    "Order No.": 1916701549167399000,
+    "Type": "BUY",
+    "Fiat Amount": 14250,
+    "Price": 81.8,
+    "Coin Amount": 174.2054,
+    "Counterparty": "Ismacb",
+    "Status": "Completed",
+    "Time": "2025-04-28 03:50:35"
+  },
+  {
+    "Order No.": 1916502873613258800,
+    "Type": "SELL",
+    "Fiat Amount": 22000,
+    "Price": 84,
+    "Coin Amount": 261.9048,
+    "Counterparty": "MILLIONAIRE0001",
+    "Status": "Completed",
+    "Time": "2025-04-27 14:41:07"
+  },
+  {
+    "Order No.": 1916497563050610700,
+    "Type": "SELL",
+    "Fiat Amount": 50000,
+    "Price": 84,
+    "Coin Amount": 595.2381,
+    "Counterparty": "NUMBERONE.",
+    "Status": "Canceled",
+    "Time": "2025-04-27 14:20:01"
+  },
+  {
+    "Order No.": 1916490396998234000,
+    "Type": "BUY",
+    "Fiat Amount": 11768,
+    "Price": 81.88,
+    "Coin Amount": 143.7226,
+    "Counterparty": "?? ????? ??? ??",
+    "Status": "Completed",
+    "Time": "2025-04-27 13:51:33"
+  },
+  {
+    "Order No.": 1916479625387442200,
+    "Type": "SELL",
+    "Fiat Amount": 12500,
+    "Price": 84.11,
+    "Coin Amount": 148.615,
+    "Counterparty": "Muhammad06.",
+    "Status": "Completed",
+    "Time": "2025-04-27 13:08:45"
+  },
+  {
+    "Order No.": 1916478234572398600,
+    "Type": "SELL",
+    "Fiat Amount": 11340,
+    "Price": 84,
+    "Coin Amount": 135,
+    "Counterparty": "NEFIODOV",
+    "Status": "Canceled",
+    "Time": "2025-04-27 13:03:13"
+  },
+  {
+    "Order No.": 1916476848405872600,
+    "Type": "SELL",
+    "Fiat Amount": 10000,
+    "Price": 84.2,
+    "Coin Amount": 118.7649,
+    "Counterparty": "_xxinokss___EVA",
+    "Status": "Canceled",
+    "Time": "2025-04-27 12:57:42"
+  },
+  {
+    "Order No.": 1916475667785379800,
+    "Type": "SELL",
+    "Fiat Amount": 10000,
+    "Price": 84.01,
+    "Coin Amount": 119.0335,
+    "Counterparty": "bizon",
+    "Status": "Canceled",
+    "Time": "2025-04-27 12:53:01"
+  },
+  {
+    "Order No.": 1916474310821593000,
+    "Type": "SELL",
+    "Fiat Amount": 15000,
+    "Price": 84,
+    "Coin Amount": 178.5715,
+    "Counterparty": "LITVIN",
+    "Status": "Canceled",
+    "Time": "2025-04-27 12:47:37"
+  },
+  {
+    "Order No.": 1916472778937413600,
+    "Type": "SELL",
+    "Fiat Amount": 15121.8,
+    "Price": 84.01,
+    "Coin Amount": 180,
+    "Counterparty": "lilnaaaz",
+    "Status": "Canceled",
+    "Time": "2025-04-27 12:41:32"
+  },
+  {
+    "Order No.": 1916471326443425800,
+    "Type": "BUY",
+    "Fiat Amount": 11000,
+    "Price": 81.9,
+    "Coin Amount": 134.3102,
+    "Counterparty": "madllexx",
+    "Status": "Completed",
+    "Time": "2025-04-27 12:35:46"
+  },
+  {
+    "Order No.": 1916471179983372300,
+    "Type": "BUY",
+    "Fiat Amount": 10000,
+    "Price": 81.8,
+    "Coin Amount": 122.2494,
+    "Counterparty": "petrovich56",
+    "Status": "Completed",
+    "Time": "2025-04-27 12:35:11"
+  },
+  {
+    "Order No.": 1916470596012011500,
+    "Type": "BUY",
+    "Fiat Amount": 10000,
+    "Price": 81.8,
+    "Coin Amount": 122.2494,
+    "Counterparty": "petrovich56",
+    "Status": "Completed",
+    "Time": "2025-04-27 12:32:52"
+  },
+  {
+    "Order No.": 1916469516771455000,
+    "Type": "SELL",
+    "Fiat Amount": 39000,
+    "Price": 84,
+    "Coin Amount": 464.2858,
+    "Counterparty": "Pitupishnik",
+    "Status": "Completed",
+    "Time": "2025-04-27 12:28:34"
+  },
+  {
+    "Order No.": 1916465200211153000,
+    "Type": "SELL",
+    "Fiat Amount": 50000,
+    "Price": 84.15,
+    "Coin Amount": 594.1771,
+    "Counterparty": "BILLIGANS.2",
+    "Status": "Canceled",
+    "Time": "2025-04-27 12:11:25"
+  },
+  {
+    "Order No.": 1916193533516173300,
+    "Type": "BUY",
+    "Fiat Amount": 10000,
+    "Price": 81.65,
+    "Coin Amount": 122.474,
+    "Counterparty": "MaximusGlad",
+    "Status": "Completed",
+    "Time": "2025-04-26 18:11:55"
+  },
+  {
+    "Order No.": 1916164142227558400,
+    "Type": "BUY",
+    "Fiat Amount": 35000,
+    "Price": 81.58,
+    "Coin Amount": 429.0268,
+    "Counterparty": "YuliaSolo",
+    "Status": "Completed",
+    "Time": "2025-04-26 16:15:07"
+  },
+  {
+    "Order No.": 1916158850568933400,
+    "Type": "SELL",
+    "Fiat Amount": 13700,
+    "Price": 84.1,
+    "Coin Amount": 162.9014,
+    "Counterparty": "?ryptoHunter",
+    "Status": "Completed",
+    "Time": "2025-04-26 15:54:06"
+  },
+  {
+    "Order No.": 1916148506665312300,
+    "Type": "SELL",
+    "Fiat Amount": 20000,
+    "Price": 84,
+    "Coin Amount": 238.0953,
+    "Counterparty": "TemaNechik",
+    "Status": "Completed",
+    "Time": "2025-04-26 15:13:00"
+  },
+  {
+    "Order No.": 1916145747813134300,
+    "Type": "SELL",
+    "Fiat Amount": 11250,
+    "Price": 84.26,
+    "Coin Amount": 133.5154,
+    "Counterparty": "mageza",
+    "Status": "Completed",
+    "Time": "2025-04-26 15:02:02"
+  },
+  {
+    "Order No.": 1916126177127862300,
+    "Type": "SELL",
+    "Fiat Amount": 12000,
+    "Price": 84.17,
+    "Coin Amount": 142.5687,
+    "Counterparty": "Muhammad06.",
+    "Status": "Completed",
+    "Time": "2025-04-26 13:44:16"
+  },
+  {
+    "Order No.": 1916125349872480300,
+    "Type": "BUY",
+    "Fiat Amount": 15000,
+    "Price": 81.84,
+    "Coin Amount": 183.2845,
+    "Counterparty": "Aikumka",
+    "Status": "Completed",
+    "Time": "2025-04-26 13:40:59"
+  },
+  {
+    "Order No.": 1916124622564135000,
+    "Type": "BUY",
+    "Fiat Amount": 12000,
+    "Price": 81.88,
+    "Coin Amount": 146.556,
+    "Counterparty": "euph0ria",
+    "Status": "Completed",
+    "Time": "2025-04-26 13:38:05"
+  },
+  {
+    "Order No.": 1916122346507047000,
+    "Type": "SELL",
+    "Fiat Amount": 30000,
+    "Price": 84,
+    "Coin Amount": 357.1429,
+    "Counterparty": "isa v zakone",
+    "Status": "Completed",
+    "Time": "2025-04-26 13:29:03"
+  },
+  {
+    "Order No.": 1916120784081698800,
+    "Type": "BUY",
+    "Fiat Amount": 10000,
+    "Price": 81.9,
+    "Coin Amount": 122.1002,
+    "Counterparty": "Nadi555",
+    "Status": "Completed",
+    "Time": "2025-04-26 13:22:50"
+  },
+  {
+    "Order No.": 1916119398099492900,
+    "Type": "BUY",
+    "Fiat Amount": 10000,
+    "Price": 81.8,
+    "Coin Amount": 122.2494,
+    "Counterparty": "usman9",
+    "Status": "Completed",
+    "Time": "2025-04-26 13:17:20"
+  },
+  {
+    "Order No.": 1916118355652456400,
+    "Type": "BUY",
+    "Fiat Amount": 10000,
+    "Price": 81.8,
+    "Coin Amount": 122.2494,
+    "Counterparty": "usman9",
+    "Status": "Completed",
+    "Time": "2025-04-26 13:13:11"
+  },
+  {
+    "Order No.": 1915794754536497200,
+    "Type": "BUY",
+    "Fiat Amount": 10000,
+    "Price": 82,
+    "Coin Amount": 121.9513,
+    "Counterparty": "BASH44",
+    "Status": "Completed",
+    "Time": "2025-04-25 15:47:18"
+  },
+  {
+    "Order No.": 1915788363162570800,
+    "Type": "BUY",
+    "Fiat Amount": 11000,
+    "Price": 82.19,
+    "Coin Amount": 133.8363,
+    "Counterparty": "Exp1oited",
+    "Status": "Completed",
+    "Time": "2025-04-25 15:21:55"
+  },
+  {
+    "Order No.": 1915714163509395500,
+    "Type": "BUY",
+    "Fiat Amount": 13356,
+    "Price": 81.95,
+    "Coin Amount": 162.9775,
+    "Counterparty": "Gleb123",
+    "Status": "Completed",
+    "Time": "2025-04-25 10:27:04"
+  },
+  {
+    "Order No.": 1914721013369770000,
+    "Type": "SELL",
+    "Fiat Amount": 55000,
+    "Price": 83.25,
+    "Coin Amount": 660.6607,
+    "Counterparty": "ExMazerati",
+    "Status": "Completed",
+    "Time": "2025-04-22 16:40:39"
+  },
+  {
+    "Order No.": 1914712667251470300,
+    "Type": "SELL",
+    "Fiat Amount": 22000,
+    "Price": 83.02,
+    "Coin Amount": 264.9964,
+    "Counterparty": "omar207",
+    "Status": "Canceled",
+    "Time": "2025-04-22 16:07:29"
+  },
+  {
+    "Order No.": 1914710119855464400,
+    "Type": "BUY",
+    "Fiat Amount": 35000,
+    "Price": 81.3,
+    "Coin Amount": 430.5044,
+    "Counterparty": "destroyermsc",
+    "Status": "Completed",
+    "Time": "2025-04-22 15:57:22"
+  },
+  {
+    "Order No.": 1913982701115207700,
+    "Type": "BUY",
+    "Fiat Amount": 10000,
+    "Price": 80.73,
+    "Coin Amount": 123.8697,
+    "Counterparty": "CorsairMonkey",
+    "Status": "Completed",
+    "Time": "2025-04-20 15:46:51"
+  },
+  {
+    "Order No.": 1913982085593907200,
+    "Type": "BUY",
+    "Fiat Amount": 10000,
+    "Price": 80.78,
+    "Coin Amount": 123.7931,
+    "Counterparty": "usman9",
+    "Status": "Completed",
+    "Time": "2025-04-20 15:44:25"
+  },
+  {
+    "Order No.": 1913977375999234000,
+    "Type": "SELL",
+    "Fiat Amount": 47200,
+    "Price": 83.35,
+    "Coin Amount": 566.2868,
+    "Counterparty": "asezkmi7898",
+    "Status": "Completed",
+    "Time": "2025-04-20 15:25:42"
+  },
+  {
+    "Order No.": 1913969155472367600,
+    "Type": "SELL",
+    "Fiat Amount": 29633,
+    "Price": 83.25,
+    "Coin Amount": 355.952,
+    "Counterparty": "??Swappy??",
+    "Status": "Completed",
+    "Time": "2025-04-20 14:53:02"
+  },
+  {
+    "Order No.": 1913965927410724900,
+    "Type": "BUY",
+    "Fiat Amount": 20000,
+    "Price": 81.45,
+    "Coin Amount": 245.5495,
+    "Counterparty": "BILLIGANS.2",
+    "Status": "Completed",
+    "Time": "2025-04-20 14:40:12"
+  },
+  {
+    "Order No.": 1913201657681084400,
+    "Type": "BUY",
+    "Fiat Amount": 10780,
+    "Price": 81.7,
+    "Coin Amount": 131.9462,
+    "Counterparty": "MediaTeam_X",
+    "Status": "Canceled",
+    "Time": "2025-04-18 12:03:16"
+  },
+  {
+    "Order No.": 1913201172281749500,
+    "Type": "BUY",
+    "Fiat Amount": 11000,
+    "Price": 81.65,
+    "Coin Amount": 134.7214,
+    "Counterparty": "honeycard",
+    "Status": "Canceled",
+    "Time": "2025-04-18 12:01:20"
+  },
+  {
+    "Order No.": 1913198713282121700,
+    "Type": "BUY",
+    "Fiat Amount": 14910,
+    "Price": 81.19,
+    "Coin Amount": 183.6434,
+    "Counterparty": "Evgeniy13",
+    "Status": "Completed",
+    "Time": "2025-04-18 11:51:34"
+  },
+  {
+    "Order No.": 1913197033826390000,
+    "Type": "BUY",
+    "Fiat Amount": 14000,
+    "Price": 81.98,
+    "Coin Amount": 170.7734,
+    "Counterparty": "??Mrs_Mag1c",
+    "Status": "Canceled",
+    "Time": "2025-04-18 11:44:54"
+  },
+  {
+    "Order No.": 1913192432086962200,
+    "Type": "BUY",
+    "Fiat Amount": 20000,
+    "Price": 81.89,
+    "Coin Amount": 244.2301,
+    "Counterparty": "sunshineCypto",
+    "Status": "Canceled",
+    "Time": "2025-04-18 11:26:37"
+  },
+  {
+    "Order No.": 1913192131620343800,
+    "Type": "BUY",
+    "Fiat Amount": 19220,
+    "Price": 81.65,
+    "Coin Amount": 235.395,
+    "Counterparty": "Matori",
+    "Status": "Canceled",
+    "Time": "2025-04-18 11:25:25"
+  },
+  {
+    "Order No.": 1913189441211637800,
+    "Type": "BUY",
+    "Fiat Amount": 11500,
+    "Price": 82.39,
+    "Coin Amount": 139.5801,
+    "Counterparty": "ya russkiy",
+    "Status": "Completed",
+    "Time": "2025-04-18 11:14:43"
+  },
+  {
+    "Order No.": 1913185146879803400,
+    "Type": "BUY",
+    "Fiat Amount": 23530,
+    "Price": 81.3,
+    "Coin Amount": 289.4219,
+    "Counterparty": "Sahara1",
+    "Status": "Completed",
+    "Time": "2025-04-18 10:57:40"
+  },
+  {
+    "Order No.": 1913182592535445500,
+    "Type": "BUY",
+    "Fiat Amount": 16500.01,
+    "Price": 81,
+    "Coin Amount": 203.7039,
+    "Counterparty": "Timur11",
+    "Status": "Canceled",
+    "Time": "2025-04-18 10:47:31"
+  },
+  {
+    "Order No.": 1913179561126535200,
+    "Type": "BUY",
+    "Fiat Amount": 20000,
+    "Price": 82.29,
+    "Coin Amount": 243.0429,
+    "Counterparty": "Mag1cpie",
+    "Status": "Completed",
+    "Time": "2025-04-18 10:35:28"
+  },
+  {
+    "Order No.": 1912888542011654100,
+    "Type": "SELL",
+    "Fiat Amount": 98000,
+    "Price": 86,
+    "Coin Amount": 1139.5349,
+    "Counterparty": "MECENAT",
+    "Status": "Completed",
+    "Time": "2025-04-17 15:19:03"
+  },
+  {
+    "Order No.": 1912877116267696000,
+    "Type": "BUY",
+    "Fiat Amount": 30709,
+    "Price": 82,
+    "Coin Amount": 374.5,
+    "Counterparty": "BITMAKERBOB",
+    "Status": "Completed",
+    "Time": "2025-04-17 14:33:39"
+  },
+  {
+    "Order No.": 1912876612960628700,
+    "Type": "BUY",
+    "Fiat Amount": 10000,
+    "Price": 82.3,
+    "Coin Amount": 121.5067,
+    "Counterparty": "Matori",
+    "Status": "Canceled",
+    "Time": "2025-04-17 14:31:39"
+  },
+  {
+    "Order No.": 1912874149097918500,
+    "Type": "SELL",
+    "Fiat Amount": 40000.3,
+    "Price": 84.72,
+    "Coin Amount": 472.1471,
+    "Counterparty": "x. x.",
+    "Status": "Completed",
+    "Time": "2025-04-17 14:21:52"
+  },
+  {
+    "Order No.": 1912868044229718000,
+    "Type": "BUY",
+    "Fiat Amount": 14408,
+    "Price": 82.29,
+    "Coin Amount": 175.0882,
+    "Counterparty": "??Bilbo_Baggins",
+    "Status": "Completed",
+    "Time": "2025-04-17 13:57:36"
+  },
+  {
+    "Order No.": 1912866722552631300,
+    "Type": "BUY",
+    "Fiat Amount": 9000,
+    "Price": 81.7,
+    "Coin Amount": 110.1592,
+    "Counterparty": "GeekEx",
+    "Status": "Completed",
+    "Time": "2025-04-17 13:52:21"
+  },
+  {
+    "Order No.": 1912865629180043300,
+    "Type": "SELL",
+    "Fiat Amount": 25000,
+    "Price": 85.5,
+    "Coin Amount": 292.3977,
+    "Counterparty": "Shmel777",
+    "Status": "Canceled",
+    "Time": "2025-04-17 13:48:01"
+  },
+  {
+    "Order No.": 1912864510423888000,
+    "Type": "SELL",
+    "Fiat Amount": 15000,
+    "Price": 85.1,
+    "Coin Amount": 176.2633,
+    "Counterparty": "buldegron",
+    "Status": "Canceled",
+    "Time": "2025-04-17 13:43:34"
+  },
+  {
+    "Order No.": 1912528664709906400,
+    "Type": "BUY",
+    "Fiat Amount": 12000,
+    "Price": 82.5,
+    "Coin Amount": 145.4546,
+    "Counterparty": "JolySpace_CHNG",
+    "Status": "Completed",
+    "Time": "2025-04-16 15:29:02"
+  },
+  {
+    "Order No.": 1912510542368030700,
+    "Type": "BUY",
+    "Fiat Amount": 10000,
+    "Price": 82.68,
+    "Coin Amount": 120.9483,
+    "Counterparty": "????? VB",
+    "Status": "Completed",
+    "Time": "2025-04-16 14:17:01"
+  },
+  {
+    "Order No.": 1911819315322019800,
+    "Type": "BUY",
+    "Fiat Amount": 10000,
+    "Price": 82.45,
+    "Coin Amount": 121.2857,
+    "Counterparty": "Halamadridboy??",
+    "Status": "Completed",
+    "Time": "2025-04-14 16:30:20"
+  },
+  {
+    "Order No.": 1911811593815806000,
+    "Type": "BUY",
+    "Fiat Amount": 30000,
+    "Price": 82.84,
+    "Coin Amount": 362.1439,
+    "Counterparty": "Jack_MediaP2...",
+    "Status": "Canceled",
+    "Time": "2025-04-14 15:59:39"
+  },
+  {
+    "Order No.": 1911810327685427200,
+    "Type": "BUY",
+    "Fiat Amount": 10000,
+    "Price": 82.39,
+    "Coin Amount": 121.374,
+    "Counterparty": "usman9",
+    "Status": "Completed",
+    "Time": "2025-04-14 15:54:37"
+  },
+  {
+    "Order No.": 1911453896717250600,
+    "Type": "SELL",
+    "Fiat Amount": 50000,
+    "Price": 85.8,
+    "Coin Amount": 582.7506,
+    "Counterparty": "dkraw",
+    "Status": "Completed",
+    "Time": "2025-04-13 16:18:17"
+  },
+  {
+    "Order No.": 1911449885987463200,
+    "Type": "SELL",
+    "Fiat Amount": 60000,
+    "Price": 86,
+    "Coin Amount": 697.6745,
+    "Counterparty": "Mark7772553",
+    "Status": "Canceled",
+    "Time": "2025-04-13 16:02:21"
+  },
+  {
+    "Order No.": 1911440179133452300,
+    "Type": "BUY",
+    "Fiat Amount": 47500,
+    "Price": 83.93,
+    "Coin Amount": 565.9479,
+    "Counterparty": "Junga",
+    "Status": "Completed",
+    "Time": "2025-04-13 15:23:47"
+  },
+  {
+    "Order No.": 1911437149761167400,
+    "Type": "BUY",
+    "Fiat Amount": 20000,
+    "Price": 83.97,
+    "Coin Amount": 238.1804,
+    "Counterparty": "GARIK1212",
+    "Status": "Completed",
+    "Time": "2025-04-13 15:11:45"
+  },
+  {
+    "Order No.": 1911435758787354600,
+    "Type": "SELL",
+    "Fiat Amount": 27300,
+    "Price": 86.4,
+    "Coin Amount": 315.9723,
+    "Counterparty": "UpToYou ?",
+    "Status": "Completed",
+    "Time": "2025-04-13 15:06:13"
+  },
+  {
+    "Order No.": 1911434543031496700,
+    "Type": "BUY",
+    "Fiat Amount": 16000,
+    "Price": 83.69,
+    "Coin Amount": 191.1818,
+    "Counterparty": "Alibekov1881",
+    "Status": "Completed",
+    "Time": "2025-04-13 15:01:23"
+  },
+  {
+    "Order No.": 1911433881725186000,
+    "Type": "BUY",
+    "Fiat Amount": 10000,
+    "Price": 83.6,
+    "Coin Amount": 119.6173,
+    "Counterparty": "glebylik59",
+    "Status": "Completed",
+    "Time": "2025-04-13 14:58:45"
+  },
+  {
+    "Order No.": 1911433199518535700,
+    "Type": "BUY",
+    "Fiat Amount": 20000,
+    "Price": 83.46,
+    "Coin Amount": 239.6358,
+    "Counterparty": "destroyermsc",
+    "Status": "Completed",
+    "Time": "2025-04-13 14:56:03"
+  },
+  {
+    "Order No.": 1910673974525202400,
+    "Type": "SELL",
+    "Fiat Amount": 43100,
+    "Price": 87.82,
+    "Coin Amount": 490.7766,
+    "Counterparty": "GRITHER-TEAM.1",
+    "Status": "Completed",
+    "Time": "2025-04-11 12:39:09"
+  },
+  {
+    "Order No.": 1910672250219868200,
+    "Type": "BUY",
+    "Fiat Amount": 10000,
+    "Price": 85,
+    "Coin Amount": 117.6471,
+    "Counterparty": "sayyyeah",
+    "Status": "Completed",
+    "Time": "2025-04-11 12:32:18"
+  },
+  {
+    "Order No.": 1910670356169764900,
+    "Type": "SELL",
+    "Fiat Amount": 20000,
+    "Price": 87.5,
+    "Coin Amount": 228.5715,
+    "Counterparty": "Irina M",
+    "Status": "Completed",
+    "Time": "2025-04-11 12:24:47"
+  },
+  {
+    "Order No.": 1910665013580783600,
+    "Type": "SELL",
+    "Fiat Amount": 55000,
+    "Price": 88.2,
+    "Coin Amount": 623.5828,
+    "Counterparty": "dkraw",
+    "Status": "Completed",
+    "Time": "2025-04-11 12:03:33"
+  },
+  {
+    "Order No.": 1910663183803768800,
+    "Type": "BUY",
+    "Fiat Amount": 18588,
+    "Price": 85,
+    "Coin Amount": 218.6824,
+    "Counterparty": "Banana1234",
+    "Status": "Completed",
+    "Time": "2025-04-11 11:56:17"
+  },
+  {
+    "Order No.": 1910659636960219100,
+    "Type": "BUY",
+    "Fiat Amount": 17391,
+    "Price": 85.19,
+    "Coin Amount": 204.1437,
+    "Counterparty": "Mwew01",
+    "Status": "Completed",
+    "Time": "2025-04-11 11:42:11"
+  },
+  {
+    "Order No.": 1910654572438704000,
+    "Type": "BUY",
+    "Fiat Amount": 10000,
+    "Price": 85,
+    "Coin Amount": 117.6471,
+    "Counterparty": "kmaiqq",
+    "Status": "Completed",
+    "Time": "2025-04-11 11:22:04"
+  },
+  {
+    "Order No.": 1910651338033549300,
+    "Type": "BUY",
+    "Fiat Amount": 19950,
+    "Price": 85,
+    "Coin Amount": 234.7059,
+    "Counterparty": "MATEMENTS",
+    "Status": "Completed",
+    "Time": "2025-04-11 11:09:12"
+  },
+  {
+    "Order No.": 1910648871402393600,
+    "Type": "SELL",
+    "Fiat Amount": 18966,
+    "Price": 88.5,
+    "Coin Amount": 214.3051,
+    "Counterparty": "vadmikss",
+    "Status": "Completed",
+    "Time": "2025-04-11 10:59:24"
+  },
+  {
+    "Order No.": 1910644507866075100,
+    "Type": "BUY",
+    "Fiat Amount": 25000,
+    "Price": 85.2,
+    "Coin Amount": 293.4273,
+    "Counterparty": "Anjok4",
+    "Status": "Completed",
+    "Time": "2025-04-11 10:42:04"
+  },
+  {
+    "Order No.": 1910641283292868600,
+    "Type": "SELL",
+    "Fiat Amount": 43000,
+    "Price": 87.81,
+    "Coin Amount": 489.6937,
+    "Counterparty": "MILLIONAIRE0001",
+    "Status": "Completed",
+    "Time": "2025-04-11 10:29:15"
+  },
+  {
+    "Order No.": 1908910832953368600,
+    "Type": "BUY",
+    "Fiat Amount": 10000,
+    "Price": 84.29,
+    "Coin Amount": 118.6381,
+    "Counterparty": "usman9",
+    "Status": "Completed",
+    "Time": "2025-04-06 15:53:04"
+  },
+  {
+    "Order No.": 1908127769135263700,
+    "Type": "BUY",
+    "Fiat Amount": 15679,
+    "Price": 84,
+    "Coin Amount": 186.6548,
+    "Counterparty": "???????",
+    "Status": "Completed",
+    "Time": "2025-04-04 12:01:27"
+  },
+  {
+    "Order No.": 1908123695174234000,
+    "Type": "BUY",
+    "Fiat Amount": 11166,
+    "Price": 84.6,
+    "Coin Amount": 131.9859,
+    "Counterparty": "Bastion",
+    "Status": "Completed",
+    "Time": "2025-04-04 11:45:15"
+  },
+  {
+    "Order No.": 1908122445095481300,
+    "Type": "BUY",
+    "Fiat Amount": 10000,
+    "Price": 84.2,
+    "Coin Amount": 118.7649,
+    "Counterparty": "Dollar552",
+    "Status": "Completed",
+    "Time": "2025-04-04 11:40:17"
+  },
+  {
+    "Order No.": 1908119109058158600,
+    "Type": "SELL",
+    "Fiat Amount": 25000,
+    "Price": 87.25,
+    "Coin Amount": 286.533,
+    "Counterparty": "Irina M",
+    "Status": "Completed",
+    "Time": "2025-04-04 11:27:02"
+  },
+  {
+    "Order No.": 1908117602407481300,
+    "Type": "BUY",
+    "Fiat Amount": 15000,
+    "Price": 84.89,
+    "Coin Amount": 176.6993,
+    "Counterparty": "BT6",
+    "Status": "Canceled",
+    "Time": "2025-04-04 11:21:03"
+  },
+  {
+    "Order No.": 1908114635751440400,
+    "Type": "SELL",
+    "Fiat Amount": 12300,
+    "Price": 87,
+    "Coin Amount": 141.3794,
+    "Counterparty": "barakatishko",
+    "Status": "Completed",
+    "Time": "2025-04-04 11:09:16"
+  },
+  {
+    "Order No.": 1907826852540874800,
+    "Type": "SELL",
+    "Fiat Amount": 26190,
+    "Price": 87.3,
+    "Coin Amount": 300,
+    "Counterparty": "DobermanSam",
+    "Status": "Canceled",
+    "Time": "2025-04-03 16:05:43"
+  },
+  {
+    "Order No.": 1907792173031637000,
+    "Type": "BUY",
+    "Fiat Amount": 10010,
+    "Price": 84.19,
+    "Coin Amount": 118.8978,
+    "Counterparty": "OOO_bnal",
+    "Status": "Completed",
+    "Time": "2025-04-03 13:47:54"
+  },
+  {
+    "Order No.": 1907750869045510100,
+    "Type": "BUY",
+    "Fiat Amount": 9000,
+    "Price": 84.3,
+    "Coin Amount": 106.7616,
+    "Counterparty": "kkub1k",
+    "Status": "Completed",
+    "Time": "2025-04-03 11:03:47"
+  },
+  {
+    "Order No.": 1907739732990398500,
+    "Type": "SELL",
+    "Fiat Amount": 78930,
+    "Price": 87.7,
+    "Coin Amount": 900,
+    "Counterparty": "qwerty 1",
+    "Status": "Completed",
+    "Time": "2025-04-03 10:19:32"
+  },
+  {
+    "Order No.": 1907279040369909800,
+    "Type": "BUY",
+    "Fiat Amount": 19400,
+    "Price": 83.63,
+    "Coin Amount": 231.9742,
+    "Counterparty": "LesserAlex",
+    "Status": "Completed",
+    "Time": "2025-04-02 03:48:54"
+  },
+  {
+    "Order No.": 1907120826064609300,
+    "Type": "SELL",
+    "Fiat Amount": 25000,
+    "Price": 86.8,
+    "Coin Amount": 288.0185,
+    "Counterparty": "__muhammad77-77",
+    "Status": "Canceled",
+    "Time": "2025-04-01 17:20:13"
+  },
+  {
+    "Order No.": 1907110748932141000,
+    "Type": "BUY",
+    "Fiat Amount": 12500,
+    "Price": 84,
+    "Coin Amount": 148.8096,
+    "Counterparty": "OOO_bnal",
+    "Status": "Completed",
+    "Time": "2025-04-01 16:40:10"
+  },
+  {
+    "Order No.": 1907099670455947300,
+    "Type": "BUY",
+    "Fiat Amount": 20000,
+    "Price": 84,
+    "Coin Amount": 238.0953,
+    "Counterparty": "BASH44",
+    "Status": "Completed",
+    "Time": "2025-04-01 15:56:09"
+  },
+  {
+    "Order No.": 1907096983259775000,
+    "Type": "SELL",
+    "Fiat Amount": 20000,
+    "Price": 87.25,
+    "Coin Amount": 229.2264,
+    "Counterparty": "Anjok4",
+    "Status": "Completed",
+    "Time": "2025-04-01 15:45:28"
+  },
+  {
+    "Order No.": 1907095303614906400,
+    "Type": "BUY",
+    "Fiat Amount": 10000,
+    "Price": 84.2,
+    "Coin Amount": 118.7649,
+    "Counterparty": "petrovich56",
+    "Status": "Completed",
+    "Time": "2025-04-01 15:38:48"
+  },
+  {
+    "Order No.": 1907065913784250400,
+    "Type": "BUY",
+    "Fiat Amount": 14095,
+    "Price": 84.25,
+    "Coin Amount": 167.2998,
+    "Counterparty": "OG_NES.M1GOS",
+    "Status": "Completed",
+    "Time": "2025-04-01 13:42:01"
+  },
+  {
+    "Order No.": 1906401783282905000,
+    "Type": "SELL",
+    "Fiat Amount": 70000,
+    "Price": 87.1,
+    "Coin Amount": 803.674,
+    "Counterparty": "suggy",
+    "Status": "Completed",
+    "Time": "2025-03-30 17:43:00"
+  },
+  {
+    "Order No.": 1906391173398429700,
+    "Type": "SELL",
+    "Fiat Amount": 54707,
+    "Price": 87,
+    "Coin Amount": 628.8161,
+    "Counterparty": "DobermanSam",
+    "Status": "Canceled",
+    "Time": "2025-03-30 17:00:50"
+  },
+  {
+    "Order No.": 1906375171713593300,
+    "Type": "SELL",
+    "Fiat Amount": 25000,
+    "Price": 87.53,
+    "Coin Amount": 285.6164,
+    "Counterparty": "protopan",
+    "Status": "Completed",
+    "Time": "2025-03-30 15:57:15"
+  },
+  {
+    "Order No.": 1906365441971789800,
+    "Type": "SELL",
+    "Fiat Amount": 15000,
+    "Price": 87.8,
+    "Coin Amount": 170.8429,
+    "Counterparty": "MisterKingKong",
+    "Status": "Completed",
+    "Time": "2025-03-30 15:18:35"
+  },
+  {
+    "Order No.": 1906012139141525500,
+    "Type": "SELL",
+    "Fiat Amount": 90024,
+    "Price": 88,
+    "Coin Amount": 1023,
+    "Counterparty": "?(?po?a?e?)?",
+    "Status": "Canceled",
+    "Time": "2025-03-29 15:54:41"
+  },
+  {
+    "Order No.": 1906010731495194600,
+    "Type": "BUY",
+    "Fiat Amount": 10000,
+    "Price": 83.93,
+    "Coin Amount": 119.147,
+    "Counterparty": "OOO_bnal",
+    "Status": "Completed",
+    "Time": "2025-03-29 15:49:06"
+  },
+  {
+    "Order No.": 1906010117089427500,
+    "Type": "BUY",
+    "Fiat Amount": 10000,
+    "Price": 83.94,
+    "Coin Amount": 119.1328,
+    "Counterparty": "usman9",
+    "Status": "Completed",
+    "Time": "2025-03-29 15:46:39"
+  },
+  {
+    "Order No.": 1906009098032939000,
+    "Type": "BUY",
+    "Fiat Amount": 10000,
+    "Price": 83.91,
+    "Coin Amount": 119.1754,
+    "Counterparty": "Frooyz",
+    "Status": "Completed",
+    "Time": "2025-03-29 15:42:36"
+  },
+  {
+    "Order No.": 1906006046960685000,
+    "Type": "BUY",
+    "Fiat Amount": 34000,
+    "Price": 84,
+    "Coin Amount": 404.762,
+    "Counterparty": "?Frolllooovvv?",
+    "Status": "Completed",
+    "Time": "2025-03-29 15:30:29"
+  },
+  {
+    "Order No.": 1906004791615193000,
+    "Type": "BUY",
+    "Fiat Amount": 10000,
+    "Price": 83.84,
+    "Coin Amount": 119.2749,
+    "Counterparty": "CorsairMonkey",
+    "Status": "Completed",
+    "Time": "2025-03-29 15:25:29"
+  },
+  {
+    "Order No.": 1906004023955652600,
+    "Type": "BUY",
+    "Fiat Amount": 10000,
+    "Price": 83.85,
+    "Coin Amount": 119.2606,
+    "Counterparty": "?Frolllooovvv?",
+    "Status": "Completed",
+    "Time": "2025-03-29 15:22:26"
+  },
+  {
+    "Order No.": 1906002872115339300,
+    "Type": "BUY",
+    "Fiat Amount": 10000,
+    "Price": 83.89,
+    "Coin Amount": 119.2038,
+    "Counterparty": "??GURU_MERCHANT??",
+    "Status": "Completed",
+    "Time": "2025-03-29 15:17:52"
+  },
+  {
+    "Order No.": 1905646672788340700,
+    "Type": "BUY",
+    "Fiat Amount": 14486,
+    "Price": 83.1,
+    "Coin Amount": 174.3201,
+    "Counterparty": "mel_qwe",
+    "Status": "Completed",
+    "Time": "2025-03-28 15:42:27"
+  },
+  {
+    "Order No.": 1905639506261889000,
+    "Type": "SELL",
+    "Fiat Amount": 30000,
+    "Price": 87.5,
+    "Coin Amount": 342.8572,
+    "Counterparty": "Maxim S",
+    "Status": "Completed",
+    "Time": "2025-03-28 15:13:59"
+  },
+  {
+    "Order No.": 1905472499857002500,
+    "Type": "SELL",
+    "Fiat Amount": 30000,
+    "Price": 86,
+    "Coin Amount": 348.8373,
+    "Counterparty": "PopLop_change",
+    "Status": "Completed",
+    "Time": "2025-03-28 04:10:21"
+  },
+  {
+    "Order No.": 1905294486212640800,
+    "Type": "SELL",
+    "Fiat Amount": 29999,
+    "Price": 87,
+    "Coin Amount": 344.8161,
+    "Counterparty": "FastDealsp",
+    "Status": "Completed",
+    "Time": "2025-03-27 16:22:59"
+  },
+  {
+    "Order No.": 1905287626660466700,
+    "Type": "SELL",
+    "Fiat Amount": 23000,
+    "Price": 86.85,
+    "Coin Amount": 264.8245,
+    "Counterparty": "Moon_EX",
+    "Status": "Completed",
+    "Time": "2025-03-27 15:55:44"
+  },
+  {
+    "Order No.": 1905282407480328200,
+    "Type": "BUY",
+    "Fiat Amount": 15710,
+    "Price": 84,
+    "Coin Amount": 187.0239,
+    "Counterparty": "V0VA",
+    "Status": "Completed",
+    "Time": "2025-03-27 15:35:00"
+  },
+  {
+    "Order No.": 1905279756125503500,
+    "Type": "BUY",
+    "Fiat Amount": 41321.01,
+    "Price": 84,
+    "Coin Amount": 491.9168,
+    "Counterparty": "YBWlovehas",
+    "Status": "Completed",
+    "Time": "2025-03-27 15:24:28"
+  },
+  {
+    "Order No.": 1905276791687159800,
+    "Type": "BUY",
+    "Fiat Amount": 10000.01,
+    "Price": 83.58,
+    "Coin Amount": 119.646,
+    "Counterparty": "samosvaal",
+    "Status": "Canceled",
+    "Time": "2025-03-27 15:12:41"
+  },
+  {
+    "Order No.": 1905276276184645600,
+    "Type": "BUY",
+    "Fiat Amount": 25000,
+    "Price": 83.25,
+    "Coin Amount": 300.3004,
+    "Counterparty": "Magnus_777",
+    "Status": "Canceled",
+    "Time": "2025-03-27 15:10:38"
+  },
+  {
+    "Order No.": 1905273974143025200,
+    "Type": "BUY",
+    "Fiat Amount": 10000,
+    "Price": 83.2,
+    "Coin Amount": 120.1924,
+    "Counterparty": "???????????????",
+    "Status": "Completed",
+    "Time": "2025-03-27 15:01:29"
+  },
+  {
+    "Order No.": 1905272006675067000,
+    "Type": "BUY",
+    "Fiat Amount": 6000,
+    "Price": 83.48,
+    "Coin Amount": 71.8736,
+    "Counterparty": "Gulechka",
+    "Status": "Completed",
+    "Time": "2025-03-27 14:53:40"
+  },
+  {
+    "Order No.": 1905268107702677500,
+    "Type": "BUY",
+    "Fiat Amount": 13987,
+    "Price": 83.48,
+    "Coin Amount": 167.5492,
+    "Counterparty": "Aleks003",
+    "Status": "Completed",
+    "Time": "2025-03-27 14:38:10"
+  },
+  {
+    "Order No.": 1905266591389503500,
+    "Type": "BUY",
+    "Fiat Amount": 1490,
+    "Price": 83.2,
+    "Coin Amount": 17.9087,
+    "Counterparty": "ohota.krepkoe??",
+    "Status": "Completed",
+    "Time": "2025-03-27 14:32:09"
+  },
+  {
+    "Order No.": 1905263433311015000,
+    "Type": "BUY",
+    "Fiat Amount": 20000,
+    "Price": 83.2,
+    "Coin Amount": 240.3847,
+    "Counterparty": "???????????????",
+    "Status": "Completed",
+    "Time": "2025-03-27 14:19:36"
+  },
+  {
+    "Order No.": 1905262263361241000,
+    "Type": "BUY",
+    "Fiat Amount": 30070,
+    "Price": 83.5,
+    "Coin Amount": 360.1198,
+    "Counterparty": "LORD25",
+    "Status": "Completed",
+    "Time": "2025-03-27 14:14:57"
+  },
+  {
+    "Order No.": 1904933346347892700,
+    "Type": "SELL",
+    "Fiat Amount": 47600,
+    "Price": 86.51,
+    "Coin Amount": 550.2255,
+    "Counterparty": "Alexandr137",
+    "Status": "Completed",
+    "Time": "2025-03-26 16:27:57"
+  },
+  {
+    "Order No.": 1904927144563478500,
+    "Type": "BUY",
+    "Fiat Amount": 15705,
+    "Price": 83.4,
+    "Coin Amount": 188.3094,
+    "Counterparty": "Ho.Okah B0sss",
+    "Status": "Completed",
+    "Time": "2025-03-26 16:03:18"
+  },
+  {
+    "Order No.": 1904923838553149400,
+    "Type": "BUY",
+    "Fiat Amount": 23703,
+    "Price": 83.38,
+    "Coin Amount": 284.2769,
+    "Counterparty": "belfordjordn",
+    "Status": "Completed",
+    "Time": "2025-03-26 15:50:10"
+  },
+  {
+    "Order No.": 1904922912039891000,
+    "Type": "SELL",
+    "Fiat Amount": 55000,
+    "Price": 87.4,
+    "Coin Amount": 629.2907,
+    "Counterparty": "San4a",
+    "Status": "Completed",
+    "Time": "2025-03-26 15:46:29"
+  },
+  {
+    "Order No.": 1904921376644804600,
+    "Type": "BUY",
+    "Fiat Amount": 20000,
+    "Price": 83.2,
+    "Coin Amount": 240.3847,
+    "Counterparty": "???????????????",
+    "Status": "Completed",
+    "Time": "2025-03-26 15:40:23"
+  },
+  {
+    "Order No.": 1904917598743130000,
+    "Type": "SELL",
+    "Fiat Amount": 37000.01,
+    "Price": 87.3,
+    "Coin Amount": 423.8261,
+    "Counterparty": "spotX??",
+    "Status": "Completed",
+    "Time": "2025-03-26 15:25:22"
+  },
+  {
+    "Order No.": 1904759636723126300,
+    "Type": "BUY",
+    "Fiat Amount": 8000,
+    "Price": 83.27,
+    "Coin Amount": 96.0731,
+    "Counterparty": "??Pon4o??",
+    "Status": "Completed",
+    "Time": "2025-03-26 04:57:41"
+  },
+  {
+    "Order No.": 1904752170171277300,
+    "Type": "BUY",
+    "Fiat Amount": 10000,
+    "Price": 83.2,
+    "Coin Amount": 120.1924,
+    "Counterparty": "Name222",
+    "Status": "Completed",
+    "Time": "2025-03-26 04:28:01"
+  },
+  {
+    "Order No.": 1904729547404939300,
+    "Type": "BUY",
+    "Fiat Amount": 10633,
+    "Price": 83.22,
+    "Coin Amount": 127.7698,
+    "Counterparty": "Clabe9ky",
+    "Status": "Completed",
+    "Time": "2025-03-26 02:58:08"
+  },
+  {
+    "Order No.": 1904559053920014300,
+    "Type": "BUY",
+    "Fiat Amount": 10000,
+    "Price": 84.35,
+    "Coin Amount": 118.5537,
+    "Counterparty": "Halamadridboy??",
+    "Status": "Completed",
+    "Time": "2025-03-25 15:40:39"
+  },
+  {
+    "Order No.": 1904554541614043100,
+    "Type": "SELL",
+    "Fiat Amount": 44000.01,
+    "Price": 88.2,
+    "Coin Amount": 498.8664,
+    "Counterparty": "spotX??",
+    "Status": "Completed",
+    "Time": "2025-03-25 15:22:43"
+  },
+  {
+    "Order No.": 1904545404533268500,
+    "Type": "BUY",
+    "Fiat Amount": 30000,
+    "Price": 84.45,
+    "Coin Amount": 355.2398,
+    "Counterparty": "Halamadridboy??",
+    "Status": "Completed",
+    "Time": "2025-03-25 14:46:24"
+  },
+  {
+    "Order No.": 1904544126948130800,
+    "Type": "BUY",
+    "Fiat Amount": 10000,
+    "Price": 79,
+    "Coin Amount": 126.5823,
+    "Counterparty": "MomentoMori",
+    "Status": "Canceled",
+    "Time": "2025-03-25 14:41:20"
+  },
+  {
+    "Order No.": 1904510095608307700,
+    "Type": "BUY",
+    "Fiat Amount": 24000,
+    "Price": 84.07,
+    "Coin Amount": 285.4764,
+    "Counterparty": "Team_BT2",
+    "Status": "Completed",
+    "Time": "2025-03-25 12:26:06"
+  },
+  {
+    "Order No.": 1904508235001290800,
+    "Type": "BUY",
+    "Fiat Amount": 25000,
+    "Price": 84,
+    "Coin Amount": 297.6191,
+    "Counterparty": "goodmankz",
+    "Status": "Completed",
+    "Time": "2025-03-25 12:18:42"
+  },
+  {
+    "Order No.": 1904506250234593300,
+    "Type": "BUY",
+    "Fiat Amount": 14600,
+    "Price": 84.17,
+    "Coin Amount": 173.4585,
+    "Counterparty": "Ferrari_Engine",
+    "Status": "Completed",
+    "Time": "2025-03-25 12:10:49"
+  },
+  {
+    "Order No.": 1903817556550795300,
+    "Type": "SELL",
+    "Fiat Amount": 24000,
+    "Price": 87.9,
+    "Coin Amount": 273.0376,
+    "Counterparty": "rat22",
+    "Status": "Completed",
+    "Time": "2025-03-23 14:34:12"
+  },
+  {
+    "Order No.": 1903812636622712800,
+    "Type": "BUY",
+    "Fiat Amount": 5000,
+    "Price": 83.8,
+    "Coin Amount": 59.6659,
+    "Counterparty": "best_change3",
+    "Status": "Completed",
+    "Time": "2025-03-23 14:14:39"
+  },
+  {
+    "Order No.": 1903768736762204200,
+    "Type": "SELL",
+    "Fiat Amount": 15000,
+    "Price": 87.8,
+    "Coin Amount": 170.8429,
+    "Counterparty": "??SLADIK ??",
+    "Status": "Completed",
+    "Time": "2025-03-23 11:20:12"
+  },
+  {
+    "Order No.": 1903740306972807200,
+    "Type": "SELL",
+    "Fiat Amount": 80000,
+    "Price": 87.5,
+    "Coin Amount": 914.2858,
+    "Counterparty": "Butterpancakes",
+    "Status": "Canceled",
+    "Time": "2025-03-23 09:27:14"
+  },
+  {
+    "Order No.": 1903706045506216000,
+    "Type": "SELL",
+    "Fiat Amount": 30000,
+    "Price": 87.5,
+    "Coin Amount": 342.8572,
+    "Counterparty": "Sheggi",
+    "Status": "Completed",
+    "Time": "2025-03-23 07:11:06"
+  },
+  {
+    "Order No.": 1903672259127275500,
+    "Type": "BUY",
+    "Fiat Amount": 14000,
+    "Price": 84,
+    "Coin Amount": 166.6667,
+    "Counterparty": "????TommyAnalitik????",
+    "Status": "Completed",
+    "Time": "2025-03-23 04:56:50"
+  },
+  {
+    "Order No.": 1903374790576603100,
+    "Type": "BUY",
+    "Fiat Amount": 20685,
+    "Price": 84.68,
+    "Coin Amount": 244.2726,
+    "Counterparty": "vadmikss",
+    "Status": "Completed",
+    "Time": "2025-03-22 09:14:48"
+  },
+  {
+    "Order No.": 1903373777374687200,
+    "Type": "BUY",
+    "Fiat Amount": 10369,
+    "Price": 84.68,
+    "Coin Amount": 122.4493,
+    "Counterparty": "vadmikss",
+    "Status": "Completed",
+    "Time": "2025-03-22 09:10:47"
+  },
+  {
+    "Order No.": 1903054995369169000,
+    "Type": "SELL",
+    "Fiat Amount": 48613,
+    "Price": 89.75,
+    "Coin Amount": 541.6491,
+    "Counterparty": "TokenGuru",
+    "Status": "Completed",
+    "Time": "2025-03-21 12:04:03"
+  },
+  {
+    "Order No.": 1903049765492334600,
+    "Type": "BUY",
+    "Fiat Amount": 32010,
+    "Price": 85.99,
+    "Coin Amount": 372.2526,
+    "Counterparty": "BT6",
+    "Status": "Completed",
+    "Time": "2025-03-21 11:43:16"
+  },
+  {
+    "Order No.": 1903047141675294700,
+    "Type": "BUY",
+    "Fiat Amount": 10000,
+    "Price": 85.5,
+    "Coin Amount": 116.9591,
+    "Counterparty": "nikolaynes",
+    "Status": "Canceled",
+    "Time": "2025-03-21 11:32:51"
+  },
+  {
+    "Order No.": 1903030098420859000,
+    "Type": "BUY",
+    "Fiat Amount": 10000,
+    "Price": 85.85,
+    "Coin Amount": 116.4823,
+    "Counterparty": "Lunev20",
+    "Status": "Completed",
+    "Time": "2025-03-21 10:25:07"
+  },
+  {
+    "Order No.": 1903013469998735400,
+    "Type": "BUY",
+    "Fiat Amount": 20480,
+    "Price": 86,
+    "Coin Amount": 238.1396,
+    "Counterparty": "danil007-obmen",
+    "Status": "Completed",
+    "Time": "2025-03-21 09:19:03"
+  },
+  {
+    "Order No.": 1903010537952972800,
+    "Type": "BUY",
+    "Fiat Amount": 10000,
+    "Price": 85.9,
+    "Coin Amount": 116.4145,
+    "Counterparty": "???????????????",
+    "Status": "Completed",
+    "Time": "2025-03-21 09:07:24"
+  },
+  {
+    "Order No.": 1902763216681214000,
+    "Type": "BUY",
+    "Fiat Amount": 9280,
+    "Price": 86.1,
+    "Coin Amount": 107.7817,
+    "Counterparty": "Proffin99",
+    "Status": "Completed",
+    "Time": "2025-03-20 16:44:38"
+  },
+  {
+    "Order No.": 1902760697224384500,
+    "Type": "BUY",
+    "Fiat Amount": 10000,
+    "Price": 86,
+    "Coin Amount": 116.2791,
+    "Counterparty": "wertual",
+    "Status": "Completed",
+    "Time": "2025-03-20 16:34:37"
+  },
+  {
+    "Order No.": 1902743127000912000,
+    "Type": "BUY",
+    "Fiat Amount": 14559,
+    "Price": 86.2,
+    "Coin Amount": 168.898,
+    "Counterparty": "BobSon",
+    "Status": "Completed",
+    "Time": "2025-03-20 15:24:48"
+  },
+  {
+    "Order No.": 1902736075378425900,
+    "Type": "BUY",
+    "Fiat Amount": 10000,
+    "Price": 86.2,
+    "Coin Amount": 116.0093,
+    "Counterparty": "Halamadridboy??",
+    "Status": "Completed",
+    "Time": "2025-03-20 14:56:47"
+  },
+  {
+    "Order No.": 1902734772017827800,
+    "Type": "BUY",
+    "Fiat Amount": 17900,
+    "Price": 86.2,
+    "Coin Amount": 207.6567,
+    "Counterparty": "_UMBRELLA_PRO_",
+    "Status": "Completed",
+    "Time": "2025-03-20 14:51:36"
+  },
+  {
+    "Order No.": 1902613063544176600,
+    "Type": "BUY",
+    "Fiat Amount": 10001,
+    "Price": 84.99,
+    "Coin Amount": 117.6727,
+    "Counterparty": "VladislavSev",
+    "Status": "Completed",
+    "Time": "2025-03-20 06:47:58"
+  },
+  {
+    "Order No.": 1902251808989008000,
+    "Type": "BUY",
+    "Fiat Amount": 10000,
+    "Price": 83.17,
+    "Coin Amount": 120.2357,
+    "Counterparty": "Mag1cpie_",
+    "Status": "Completed",
+    "Time": "2025-03-19 06:52:29"
+  },
+  {
+    "Order No.": 1901970611202568200,
+    "Type": "SELL",
+    "Fiat Amount": 97000,
+    "Price": 86.7,
+    "Coin Amount": 1118.8005,
+    "Counterparty": "Fast??",
+    "Status": "Completed",
+    "Time": "2025-03-18 12:15:06"
+  },
+  {
+    "Order No.": 1901969689814536200,
+    "Type": "BUY",
+    "Fiat Amount": 46653,
+    "Price": 84,
+    "Coin Amount": 555.3929,
+    "Counterparty": "Clabe9ky",
+    "Status": "Completed",
+    "Time": "2025-03-18 12:11:26"
+  },
+  {
+    "Order No.": 1901968812847394800,
+    "Type": "BUY",
+    "Fiat Amount": 33000,
+    "Price": 84.18,
+    "Coin Amount": 392.0172,
+    "Counterparty": "Wld_Eg",
+    "Status": "Completed",
+    "Time": "2025-03-18 12:07:57"
+  },
+  {
+    "Order No.": 1901649310359523300,
+    "Type": "SELL",
+    "Fiat Amount": 40598,
+    "Price": 87.51,
+    "Coin Amount": 463.9242,
+    "Counterparty": "PrimeTime",
+    "Status": "Completed",
+    "Time": "2025-03-17 14:58:22"
+  },
+  {
+    "Order No.": 1901597419873276000,
+    "Type": "BUY",
+    "Fiat Amount": 12740,
+    "Price": 85.4,
+    "Coin Amount": 149.1804,
+    "Counterparty": "Sh_Dinka",
+    "Status": "Completed",
+    "Time": "2025-03-17 11:32:10"
+  },
+  {
+    "Order No.": 1901595443143938000,
+    "Type": "BUY",
+    "Fiat Amount": 24000,
+    "Price": 85.26,
+    "Coin Amount": 281.492,
+    "Counterparty": "Rafiki",
+    "Status": "Completed",
+    "Time": "2025-03-17 11:24:19"
+  },
+  {
+    "Order No.": 1901594197068210200,
+    "Type": "BUY",
+    "Fiat Amount": 38000,
+    "Price": 85.19,
+    "Coin Amount": 446.0618,
+    "Counterparty": "TeamBT",
+    "Status": "Canceled",
+    "Time": "2025-03-17 11:19:22"
+  },
+  {
+    "Order No.": 1901591034016284700,
+    "Type": "BUY",
+    "Fiat Amount": 20000.01,
+    "Price": 85.48,
+    "Coin Amount": 233.973,
+    "Counterparty": "??MANGO??",
+    "Status": "Canceled",
+    "Time": "2025-03-17 11:06:48"
+  },
+  {
+    "Order No.": 1901590088235589600,
+    "Type": "BUY",
+    "Fiat Amount": 20000,
+    "Price": 85.35,
+    "Coin Amount": 234.3293,
+    "Counterparty": "d3nnn",
+    "Status": "Canceled",
+    "Time": "2025-03-17 11:03:02"
+  },
+  {
+    "Order No.": 1901588931156246500,
+    "Type": "BUY",
+    "Fiat Amount": 20000,
+    "Price": 85.28,
+    "Coin Amount": 234.5216,
+    "Counterparty": "??ZontiK??",
+    "Status": "Completed",
+    "Time": "2025-03-17 10:58:26"
+  },
+  {
+    "Order No.": 1901562973950996500,
+    "Type": "SELL",
+    "Fiat Amount": 12500,
+    "Price": 88.6,
+    "Coin Amount": 141.0836,
+    "Counterparty": "babymilo",
+    "Status": "Completed",
+    "Time": "2025-03-17 09:15:18"
+  },
+  {
+    "Order No.": 1901499588153417700,
+    "Type": "SELL",
+    "Fiat Amount": 71800,
+    "Price": 87.91,
+    "Coin Amount": 816.7444,
+    "Counterparty": "rheiny",
+    "Status": "Completed",
+    "Time": "2025-03-17 05:03:25"
+  },
+  {
+    "Order No.": 1901498765795819500,
+    "Type": "BUY",
+    "Fiat Amount": 5000,
+    "Price": 85.7,
+    "Coin Amount": 58.3431,
+    "Counterparty": "sublimeboy",
+    "Status": "Completed",
+    "Time": "2025-03-17 05:00:09"
+  },
+  {
+    "Order No.": 1901337684086530000,
+    "Type": "BUY",
+    "Fiat Amount": 20000,
+    "Price": 85.75,
+    "Coin Amount": 233.2362,
+    "Counterparty": "??KATANA??",
+    "Status": "Completed",
+    "Time": "2025-03-16 18:20:04"
+  },
+  {
+    "Order No.": 1901310462176960500,
+    "Type": "SELL",
+    "Fiat Amount": 60000,
+    "Price": 88.62,
+    "Coin Amount": 677.0481,
+    "Counterparty": "Gazret",
+    "Status": "Canceled",
+    "Time": "2025-03-16 16:31:54"
+  },
+  {
+    "Order No.": 1901304186862084000,
+    "Type": "BUY",
+    "Fiat Amount": 29376,
+    "Price": 86.06,
+    "Coin Amount": 341.3433,
+    "Counterparty": "guseinovcom",
+    "Status": "Completed",
+    "Time": "2025-03-16 16:06:58"
+  },
+  {
+    "Order No.": 1901176430219550700,
+    "Type": "SELL",
+    "Fiat Amount": 20200,
+    "Price": 88.45,
+    "Coin Amount": 228.3777,
+    "Counterparty": "avema",
+    "Status": "Completed",
+    "Time": "2025-03-16 07:39:18"
+  },
+  {
+    "Order No.": 1901175055260479500,
+    "Type": "BUY",
+    "Fiat Amount": 10500,
+    "Price": 86,
+    "Coin Amount": 122.0931,
+    "Counterparty": "poHuH",
+    "Status": "Completed",
+    "Time": "2025-03-16 07:33:51"
+  },
+  {
+    "Order No.": 1901172132555014100,
+    "Type": "BUY",
+    "Fiat Amount": 9026,
+    "Price": 85.8,
+    "Coin Amount": 105.1982,
+    "Counterparty": "Ulyaaa",
+    "Status": "Completed",
+    "Time": "2025-03-16 07:22:14"
+  },
+  {
+    "Order No.": 1901169490522226700,
+    "Type": "BUY",
+    "Fiat Amount": 10000,
+    "Price": 85.83,
+    "Coin Amount": 116.5094,
+    "Counterparty": "??KATANA??",
+    "Status": "Completed",
+    "Time": "2025-03-16 07:11:44"
+  },
+  {
+    "Order No.": 1901157889350803500,
+    "Type": "BUY",
+    "Fiat Amount": 6770,
+    "Price": 85.93,
+    "Coin Amount": 78.7851,
+    "Counterparty": "RASKOL",
+    "Status": "Completed",
+    "Time": "2025-03-16 06:25:38"
+  },
+  {
+    "Order No.": 1901153229520109600,
+    "Type": "SELL",
+    "Fiat Amount": 25000,
+    "Price": 88.4,
+    "Coin Amount": 282.8055,
+    "Counterparty": "BILLIGANS.2",
+    "Status": "Completed",
+    "Time": "2025-03-16 06:07:07"
+  },
+  {
+    "Order No.": 1901010442351927300,
+    "Type": "SELL",
+    "Fiat Amount": 29000,
+    "Price": 88.4,
+    "Coin Amount": 328.0543,
+    "Counterparty": "Alanson",
+    "Status": "Canceled",
+    "Time": "2025-03-15 20:39:44"
+  },
+  {
+    "Order No.": 1900912111111913500,
+    "Type": "BUY",
+    "Fiat Amount": 23280,
+    "Price": 86.2,
+    "Coin Amount": 270.0697,
+    "Counterparty": "????? VB",
+    "Status": "Completed",
+    "Time": "2025-03-15 14:09:00"
+  },
+  {
+    "Order No.": 1900753993309880300,
+    "Type": "BUY",
+    "Fiat Amount": 25000,
+    "Price": 86.57,
+    "Coin Amount": 288.7837,
+    "Counterparty": "__Atlantis__",
+    "Status": "Canceled",
+    "Time": "2025-03-15 03:40:42"
+  },
+  {
+    "Order No.": 1900753457288740900,
+    "Type": "BUY",
+    "Fiat Amount": 75000,
+    "Price": 86.6,
+    "Coin Amount": 866.0509,
+    "Counterparty": "Wld_Eg",
+    "Status": "Canceled",
+    "Time": "2025-03-15 03:38:34"
+  },
+  {
+    "Order No.": 1900753020306747400,
+    "Type": "BUY",
+    "Fiat Amount": 23000,
+    "Price": 86.4,
+    "Coin Amount": 266.2038,
+    "Counterparty": "????TommyAnalitik????",
+    "Status": "Canceled",
+    "Time": "2025-03-15 03:36:50"
+  },
+  {
+    "Order No.": 1900620293757866000,
+    "Type": "SELL",
+    "Fiat Amount": 33972,
+    "Price": 89.4,
+    "Coin Amount": 380,
+    "Counterparty": "Business Group",
+    "Status": "Completed",
+    "Time": "2025-03-14 18:49:25"
+  },
+  {
+    "Order No.": 1900606330977812500,
+    "Type": "SELL",
+    "Fiat Amount": 50000,
+    "Price": 90.7,
+    "Coin Amount": 551.268,
+    "Counterparty": "Shmel777",
+    "Status": "Canceled",
+    "Time": "2025-03-14 17:53:56"
+  },
+  {
+    "Order No.": 1900227424020455400,
+    "Type": "BUY",
+    "Fiat Amount": 10016,
+    "Price": 87,
+    "Coin Amount": 115.1265,
+    "Counterparty": "??????Napoleon",
+    "Status": "Completed",
+    "Time": "2025-03-13 16:48:18"
+  },
+  {
+    "Order No.": 1900226728887861200,
+    "Type": "BUY",
+    "Fiat Amount": 20000,
+    "Price": 87.29,
+    "Coin Amount": 229.1214,
+    "Counterparty": "FrontMan",
+    "Status": "Canceled",
+    "Time": "2025-03-13 16:45:32"
+  },
+  {
+    "Order No.": 1900225856798773200,
+    "Type": "BUY",
+    "Fiat Amount": 10016,
+    "Price": 87,
+    "Coin Amount": 115.1265,
+    "Counterparty": "??????Napoleon",
+    "Status": "Completed",
+    "Time": "2025-03-13 16:42:05"
+  },
+  {
+    "Order No.": 1900207189559402500,
+    "Type": "BUY",
+    "Fiat Amount": 11996,
+    "Price": 87.4,
+    "Coin Amount": 137.2541,
+    "Counterparty": "TeamSosedki",
+    "Status": "Completed",
+    "Time": "2025-03-13 15:27:54"
+  },
+  {
+    "Order No.": 1900205256190107600,
+    "Type": "BUY",
+    "Fiat Amount": 5150,
+    "Price": 87,
+    "Coin Amount": 59.1955,
+    "Counterparty": "dzhmlv",
+    "Status": "Completed",
+    "Time": "2025-03-13 15:20:13"
+  },
+  {
+    "Order No.": 1900203595716681700,
+    "Type": "BUY",
+    "Fiat Amount": 10000,
+    "Price": 87.78,
+    "Coin Amount": 113.9212,
+    "Counterparty": "vovann",
+    "Status": "Completed",
+    "Time": "2025-03-13 15:13:37"
+  },
+  {
+    "Order No.": 1900196911276744700,
+    "Type": "BUY",
+    "Fiat Amount": 4800,
+    "Price": 87.3,
+    "Coin Amount": 54.9829,
+    "Counterparty": "hello_nn",
+    "Status": "Canceled",
+    "Time": "2025-03-13 14:47:03"
+  },
+  {
+    "Order No.": 1899478953163108400,
+    "Type": "SELL",
+    "Fiat Amount": 16000.01,
+    "Price": 90.42,
+    "Coin Amount": 176.9522,
+    "Counterparty": "Jetix",
+    "Status": "Completed",
+    "Time": "2025-03-11 15:14:09"
+  },
+  {
+    "Order No.": 1899477587506118700,
+    "Type": "SELL",
+    "Fiat Amount": 31000,
+    "Price": 90.7,
+    "Coin Amount": 341.7862,
+    "Counterparty": "Fast??",
+    "Status": "Completed",
+    "Time": "2025-03-11 15:08:43"
+  },
+  {
+    "Order No.": 1899474730719776800,
+    "Type": "BUY",
+    "Fiat Amount": 5000,
+    "Price": 88.39,
+    "Coin Amount": 56.5675,
+    "Counterparty": "??KATANA??",
+    "Status": "Completed",
+    "Time": "2025-03-11 14:57:22"
+  },
+  {
+    "Order No.": 1899471424699535400,
+    "Type": "BUY",
+    "Fiat Amount": 3750,
+    "Price": 88.59,
+    "Coin Amount": 42.3299,
+    "Counterparty": "Mwow",
+    "Status": "Completed",
+    "Time": "2025-03-11 14:44:14"
+  },
+  {
+    "Order No.": 1899470379864670200,
+    "Type": "BUY",
+    "Fiat Amount": 2803,
+    "Price": 88.39,
+    "Coin Amount": 31.7118,
+    "Counterparty": "ruslan90",
+    "Status": "Completed",
+    "Time": "2025-03-11 14:40:05"
+  },
+  {
+    "Order No.": 1899467491695005700,
+    "Type": "SELL",
+    "Fiat Amount": 25000.01,
+    "Price": 90.8,
+    "Coin Amount": 275.3306,
+    "Counterparty": "Daksher",
+    "Status": "Canceled",
+    "Time": "2025-03-11 14:28:36"
+  },
+  {
+    "Order No.": 1899466004968165400,
+    "Type": "BUY",
+    "Fiat Amount": 4638,
+    "Price": 88.5,
+    "Coin Amount": 52.4068,
+    "Counterparty": "trickster1",
+    "Status": "Completed",
+    "Time": "2025-03-11 14:22:42"
+  },
+  {
+    "Order No.": 1899465203578208300,
+    "Type": "BUY",
+    "Fiat Amount": 23020,
+    "Price": 88.78,
+    "Coin Amount": 259.2927,
+    "Counterparty": "Siberia_pay",
+    "Status": "Canceled",
+    "Time": "2025-03-11 14:19:31"
+  },
+  {
+    "Order No.": 1899463761899217000,
+    "Type": "BUY",
+    "Fiat Amount": 14250,
+    "Price": 88.9,
+    "Coin Amount": 160.2925,
+    "Counterparty": "ALMET_TEAMM",
+    "Status": "Completed",
+    "Time": "2025-03-11 14:13:47"
+  },
+  {
+    "Order No.": 1899455810884259800,
+    "Type": "BUY",
+    "Fiat Amount": 15000,
+    "Price": 88.87,
+    "Coin Amount": 168.7859,
+    "Counterparty": "V3 EXCHANGE",
+    "Status": "Canceled",
+    "Time": "2025-03-11 13:42:11"
+  },
+  {
+    "Order No.": 1899453247183945700,
+    "Type": "BUY",
+    "Fiat Amount": 14000,
+    "Price": 88.89,
+    "Coin Amount": 157.4981,
+    "Counterparty": "VADIM",
+    "Status": "Completed",
+    "Time": "2025-03-11 13:32:00"
+  },
+  {
+    "Order No.": 1899452098607317000,
+    "Type": "BUY",
+    "Fiat Amount": 10000,
+    "Price": 88.87,
+    "Coin Amount": 112.524,
+    "Counterparty": "BLATOSPHERA",
+    "Status": "Canceled",
+    "Time": "2025-03-11 13:27:26"
+  },
+  {
+    "Order No.": 1899068489132408800,
+    "Type": "SELL",
+    "Fiat Amount": 63900,
+    "Price": 92.22,
+    "Coin Amount": 692.9083,
+    "Counterparty": "B3n1Ch",
+    "Status": "Completed",
+    "Time": "2025-03-10 12:03:06"
+  },
+  {
+    "Order No.": 1898741998088441900,
+    "Type": "SELL",
+    "Fiat Amount": 56375,
+    "Price": 91.2,
+    "Coin Amount": 618.147,
+    "Counterparty": "nnkkk1",
+    "Status": "Canceled",
+    "Time": "2025-03-09 14:25:45"
+  },
+  {
+    "Order No.": 1898737952196481000,
+    "Type": "BUY",
+    "Fiat Amount": 39000,
+    "Price": 88.7,
+    "Coin Amount": 439.6844,
+    "Counterparty": "obmenkrasnodar1",
+    "Status": "Completed",
+    "Time": "2025-03-09 14:09:40"
+  },
+  {
+    "Order No.": 1898735796538732500,
+    "Type": "BUY",
+    "Fiat Amount": 9150,
+    "Price": 88.59,
+    "Coin Amount": 103.2848,
+    "Counterparty": "nenazvan",
+    "Status": "Completed",
+    "Time": "2025-03-09 14:01:06"
+  },
+  {
+    "Order No.": 1898731493173039000,
+    "Type": "SELL",
+    "Fiat Amount": 50000,
+    "Price": 91.1,
+    "Coin Amount": 548.8475,
+    "Counterparty": "rezedavv",
+    "Status": "Completed",
+    "Time": "2025-03-09 13:44:00"
+  },
+  {
+    "Order No.": 1898286917130899500,
+    "Type": "BUY",
+    "Fiat Amount": 35000,
+    "Price": 88.73,
+    "Coin Amount": 394.4551,
+    "Counterparty": "???????????",
+    "Status": "Completed",
+    "Time": "2025-03-08 08:17:25"
+  },
+  {
+    "Order No.": 1898277993989345300,
+    "Type": "SELL",
+    "Fiat Amount": 15000,
+    "Price": 91,
+    "Coin Amount": 164.8352,
+    "Counterparty": "DobermanSam",
+    "Status": "Completed",
+    "Time": "2025-03-08 07:41:58"
+  },
+  {
+    "Order No.": 1898276324475854800,
+    "Type": "BUY",
+    "Fiat Amount": 14121,
+    "Price": 88.5,
+    "Coin Amount": 159.5594,
+    "Counterparty": "ivanmaksimov",
+    "Status": "Completed",
+    "Time": "2025-03-08 07:35:20"
+  },
+  {
+    "Order No.": 1898275455071244300,
+    "Type": "BUY",
+    "Fiat Amount": 19950,
+    "Price": 88.57,
+    "Coin Amount": 225.2456,
+    "Counterparty": "bugly",
+    "Status": "Canceled",
+    "Time": "2025-03-08 07:31:52"
+  },
+  {
+    "Order No.": 1898273515298308000,
+    "Type": "BUY",
+    "Fiat Amount": 19574,
+    "Price": 88.49,
+    "Coin Amount": 221.2002,
+    "Counterparty": "?? Mag1c_change",
+    "Status": "Completed",
+    "Time": "2025-03-08 07:24:10"
+  },
+  {
+    "Order No.": 1898271651403747300,
+    "Type": "BUY",
+    "Fiat Amount": 5500,
+    "Price": 88.65,
+    "Coin Amount": 62.0418,
+    "Counterparty": "Rauf32",
+    "Status": "Completed",
+    "Time": "2025-03-08 07:16:46"
+  },
+  {
+    "Order No.": 1898043466239004700,
+    "Type": "SELL",
+    "Fiat Amount": 20000,
+    "Price": 91.25,
+    "Coin Amount": 219.1781,
+    "Counterparty": "rheiny",
+    "Status": "Completed",
+    "Time": "2025-03-07 16:10:02"
+  },
+  {
+    "Order No.": 1897914576481460200,
+    "Type": "BUY",
+    "Fiat Amount": 12000,
+    "Price": 90.09,
+    "Coin Amount": 133.2002,
+    "Counterparty": "molodoyexchange",
+    "Status": "Canceled",
+    "Time": "2025-03-07 07:37:52"
+  },
+  {
+    "Order No.": 1897913588290429000,
+    "Type": "BUY",
+    "Fiat Amount": 6500,
+    "Price": 90.1,
+    "Coin Amount": 72.1421,
+    "Counterparty": "erawy",
+    "Status": "Completed",
+    "Time": "2025-03-07 07:33:57"
+  },
+  {
+    "Order No.": 1897912627953131500,
+    "Type": "BUY",
+    "Fiat Amount": 12000,
+    "Price": 90.29,
+    "Coin Amount": 132.9051,
+    "Counterparty": "molodoyexchange",
+    "Status": "Canceled",
+    "Time": "2025-03-07 07:30:08"
+  },
+  {
+    "Order No.": 1897910822350459000,
+    "Type": "SELL",
+    "Fiat Amount": 18000,
+    "Price": 92.2,
+    "Coin Amount": 195.2278,
+    "Counterparty": "Irina M",
+    "Status": "Completed",
+    "Time": "2025-03-07 07:22:57"
+  },
+  {
+    "Order No.": 1896953441993400300,
+    "Type": "BUY",
+    "Fiat Amount": 12987,
+    "Price": 91.29,
+    "Coin Amount": 142.261,
+    "Counterparty": "User23066azOEg",
+    "Status": "Completed",
+    "Time": "2025-03-04 15:58:40"
+  },
+  {
+    "Order No.": 1896951219258175500,
+    "Type": "BUY",
+    "Fiat Amount": 10512,
+    "Price": 91.3,
+    "Coin Amount": 115.137,
+    "Counterparty": "Nom_Nom",
+    "Status": "Completed",
+    "Time": "2025-03-04 15:49:50"
+  },
+  {
+    "Order No.": 1896950291080663000,
+    "Type": "SELL",
+    "Fiat Amount": 12100.01,
+    "Price": 93.22,
+    "Coin Amount": 129.8006,
+    "Counterparty": "allmoney",
+    "Status": "Completed",
+    "Time": "2025-03-04 15:46:09"
+  },
+  {
+    "Order No.": 1896948556240011300,
+    "Type": "BUY",
+    "Fiat Amount": 10000,
+    "Price": 91.33,
+    "Coin Amount": 109.4931,
+    "Counterparty": "ZagirGG",
+    "Status": "Completed",
+    "Time": "2025-03-04 15:39:15"
+  },
+  {
+    "Order No.": 1896201860005830700,
+    "Type": "SELL",
+    "Fiat Amount": 597.36,
+    "Price": 99.56,
+    "Coin Amount": 6,
+    "Counterparty": "Muhammad5555",
+    "Status": "Completed",
+    "Time": "2025-03-02 14:12:09"
+  },
+  {
+    "Order No.": 1896167873983860700,
+    "Type": "BUY",
+    "Fiat Amount": 10782,
+    "Price": 89.85,
+    "Coin Amount": 120,
+    "Counterparty": "MUHAMMAD500",
+    "Status": "Completed",
+    "Time": "2025-03-02 11:57:06"
+  },
+  {
+    "Order No.": 1896161947088302000,
+    "Type": "SELL",
+    "Fiat Amount": 12750,
+    "Price": 91.3,
+    "Coin Amount": 139.6496,
+    "Counterparty": "DZEN21",
+    "Status": "Completed",
+    "Time": "2025-03-02 11:33:33"
+  },
+  {
+    "Order No.": 1896160021784338400,
+    "Type": "BUY",
+    "Fiat Amount": 15115,
+    "Price": 89.4,
+    "Coin Amount": 169.0716,
+    "Counterparty": "nokanjivan",
+    "Status": "Completed",
+    "Time": "2025-03-02 11:25:54"
+  },
+  {
+    "Order No.": 1896152016799101000,
+    "Type": "SELL",
+    "Fiat Amount": 3870,
+    "Price": 91,
+    "Coin Amount": 42.5275,
+    "Counterparty": "MEKAZ",
+    "Status": "Completed",
+    "Time": "2025-03-02 10:54:05"
+  },
+  {
+    "Order No.": 1896150461490204700,
+    "Type": "SELL",
+    "Fiat Amount": 29500,
+    "Price": 91.2,
+    "Coin Amount": 323.465,
+    "Counterparty": "UpToYou ?",
+    "Status": "Completed",
+    "Time": "2025-03-02 10:47:54"
+  },
+  {
+    "Order No.": 1896148693746843600,
+    "Type": "BUY",
+    "Fiat Amount": 33950,
+    "Price": 89.55,
+    "Coin Amount": 379.1179,
+    "Counterparty": "Chuch4riki_team",
+    "Status": "Completed",
+    "Time": "2025-03-02 10:40:53"
+  },
+  {
+    "Order No.": 1894706803810529300,
+    "Type": "SELL",
+    "Fiat Amount": 4095,
+    "Price": 90.45,
+    "Coin Amount": 45.2737,
+    "Counterparty": "UpToYou ?",
+    "Status": "Completed",
+    "Time": "2025-02-26 11:11:20"
+  },
+  {
+    "Order No.": 1894704660663791600,
+    "Type": "SELL",
+    "Fiat Amount": 48550.1,
+    "Price": 90.25,
+    "Coin Amount": 537.9513,
+    "Counterparty": "AsyaIO",
+    "Status": "Completed",
+    "Time": "2025-02-26 11:02:48"
+  },
+  {
+    "Order No.": 1894704006723113000,
+    "Type": "BUY",
+    "Fiat Amount": 50000.01,
+    "Price": 87.09,
+    "Coin Amount": 574.1189,
+    "Counterparty": "ROX and BOX",
+    "Status": "Completed",
+    "Time": "2025-02-26 11:00:13"
+  },
+  {
+    "Order No.": 1894698182651613200,
+    "Type": "SELL",
+    "Fiat Amount": 10000.01,
+    "Price": 90.36,
+    "Coin Amount": 110.6686,
+    "Counterparty": "Ahi95",
+    "Status": "Completed",
+    "Time": "2025-02-26 10:37:04"
+  },
+  {
+    "Order No.": 1894696351502078000,
+    "Type": "SELL",
+    "Fiat Amount": 41850,
+    "Price": 90.1,
+    "Coin Amount": 464.484,
+    "Counterparty": "Kirill_eim",
+    "Status": "Completed",
+    "Time": "2025-02-26 10:29:47"
+  },
+  {
+    "Order No.": 1894695517625045000,
+    "Type": "BUY",
+    "Fiat Amount": 50000.01,
+    "Price": 87.2,
+    "Coin Amount": 573.3947,
+    "Counterparty": "ROX and BOX",
+    "Status": "Completed",
+    "Time": "2025-02-26 10:26:29"
+  },
+  {
+    "Order No.": 1892891624326951000,
+    "Type": "SELL",
+    "Fiat Amount": 12860.01,
+    "Price": 91.7,
+    "Coin Amount": 140.2401,
+    "Counterparty": "Ismail95v",
+    "Status": "Completed",
+    "Time": "2025-02-21 10:58:27"
+  },
+  {
+    "Order No.": 1892608502065430500,
+    "Type": "BUY",
+    "Fiat Amount": 6000,
+    "Price": 90.7,
+    "Coin Amount": 66.1522,
+    "Counterparty": "_.ANGEL._",
+    "Status": "Completed",
+    "Time": "2025-02-20 16:13:25"
+  },
+  {
+    "Order No.": 1892594259926868000,
+    "Type": "BUY",
+    "Fiat Amount": 6000,
+    "Price": 90.2,
+    "Coin Amount": 66.5189,
+    "Counterparty": "thnip",
+    "Status": "Completed",
+    "Time": "2025-02-20 15:16:50"
+  },
+  {
+    "Order No.": 1892542427888877600,
+    "Type": "SELL",
+    "Fiat Amount": 16556,
+    "Price": 92.72,
+    "Coin Amount": 178.5592,
+    "Counterparty": "RrealityRift",
+    "Status": "Completed",
+    "Time": "2025-02-20 11:50:52"
+  },
+  {
+    "Order No.": 1892541298658898000,
+    "Type": "BUY",
+    "Fiat Amount": 4590,
+    "Price": 90.3,
+    "Coin Amount": 50.8306,
+    "Counterparty": "RaTreder",
+    "Status": "Completed",
+    "Time": "2025-02-20 11:46:23"
+  },
+  {
+    "Order No.": 1892534954649243600,
+    "Type": "BUY",
+    "Fiat Amount": 5000,
+    "Price": 90.4,
+    "Coin Amount": 55.3098,
+    "Counterparty": "xavierr",
+    "Status": "Completed",
+    "Time": "2025-02-20 11:21:11"
+  },
+  {
+    "Order No.": 1892420254795165700,
+    "Type": "SELL",
+    "Fiat Amount": 8000.01,
+    "Price": 92.28,
+    "Coin Amount": 86.6928,
+    "Counterparty": "??????",
+    "Status": "Completed",
+    "Time": "2025-02-20 03:45:24"
+  },
+  {
+    "Order No.": 1892417961688076300,
+    "Type": "BUY",
+    "Fiat Amount": 13775,
+    "Price": 90.89,
+    "Coin Amount": 151.5569,
+    "Counterparty": "Silenze",
+    "Status": "Completed",
+    "Time": "2025-02-20 03:36:17"
+  },
+  {
+    "Order No.": 1891882158263816200,
+    "Type": "SELL",
+    "Fiat Amount": 15000.01,
+    "Price": 94.81,
+    "Coin Amount": 158.2113,
+    "Counterparty": "Love is�.??",
+    "Status": "Completed",
+    "Time": "2025-02-18 16:07:12"
+  },
+  {
+    "Order No.": 1891878435340361700,
+    "Type": "BUY",
+    "Fiat Amount": 1683,
+    "Price": 92.5,
+    "Coin Amount": 18.1946,
+    "Counterparty": "Martantrade",
+    "Status": "Completed",
+    "Time": "2025-02-18 15:52:24"
+  },
+  {
+    "Order No.": 1891875295068975000,
+    "Type": "BUY",
+    "Fiat Amount": 2226,
+    "Price": 92.5,
+    "Coin Amount": 24.0649,
+    "Counterparty": "HustrikP2P",
+    "Status": "Completed",
+    "Time": "2025-02-18 15:39:55"
+  },
+  {
+    "Order No.": 1891874205426720800,
+    "Type": "BUY",
+    "Fiat Amount": 3901,
+    "Price": 92.68,
+    "Coin Amount": 42.0911,
+    "Counterparty": "Region38",
+    "Status": "Completed",
+    "Time": "2025-02-18 15:35:36"
+  },
+  {
+    "Order No.": 1891531064734339000,
+    "Type": "SELL",
+    "Fiat Amount": 15000.01,
+    "Price": 94.8,
+    "Coin Amount": 158.228,
+    "Counterparty": "TigerCoin",
+    "Status": "Completed",
+    "Time": "2025-02-17 16:52:04"
+  },
+  {
+    "Order No.": 1891527212730380300,
+    "Type": "BUY",
+    "Fiat Amount": 12000,
+    "Price": 92.45,
+    "Coin Amount": 129.7999,
+    "Counterparty": "??MILASHKA_VIP",
+    "Status": "Completed",
+    "Time": "2025-02-17 16:36:46"
+  },
+  {
+    "Order No.": 1891524649121443800,
+    "Type": "BUY",
+    "Fiat Amount": 20000,
+    "Price": 92.46,
+    "Coin Amount": 216.3098,
+    "Counterparty": "Dasha04",
+    "Status": "Canceled",
+    "Time": "2025-02-17 16:26:35"
+  },
+  {
+    "Order No.": 1891523029077889000,
+    "Type": "BUY",
+    "Fiat Amount": 5000,
+    "Price": 92.25,
+    "Coin Amount": 54.2006,
+    "Counterparty": "Makstein",
+    "Status": "Canceled",
+    "Time": "2025-02-17 16:20:09"
+  },
+  {
+    "Order No.": 1891520617504243700,
+    "Type": "BUY",
+    "Fiat Amount": 5088.01,
+    "Price": 92.32,
+    "Coin Amount": 55.1128,
+    "Counterparty": "ahm_mag",
+    "Status": "Completed",
+    "Time": "2025-02-17 16:10:34"
+  },
+  {
+    "Order No.": 1891518142147657700,
+    "Type": "BUY",
+    "Fiat Amount": 618,
+    "Price": 91.9,
+    "Coin Amount": 6.7248,
+    "Counterparty": "ruslaan",
+    "Status": "Completed",
+    "Time": "2025-02-17 16:00:44"
+  },
+  {
+    "Order No.": 1891458185971433500,
+    "Type": "SELL",
+    "Fiat Amount": 6750,
+    "Price": 95.12,
+    "Coin Amount": 70.963,
+    "Counterparty": "moriony",
+    "Status": "Completed",
+    "Time": "2025-02-17 12:02:29"
+  },
+  {
+    "Order No.": 1891454927320187000,
+    "Type": "BUY",
+    "Fiat Amount": 1113,
+    "Price": 92.49,
+    "Coin Amount": 12.0338,
+    "Counterparty": "Mikey221",
+    "Status": "Completed",
+    "Time": "2025-02-17 11:49:32"
+  },
+  {
+    "Order No.": 1891159787906117600,
+    "Type": "BUY",
+    "Fiat Amount": 4000.01,
+    "Price": 92.4,
+    "Coin Amount": 43.2902,
+    "Counterparty": "obmenkrasnodar1",
+    "Status": "Completed",
+    "Time": "2025-02-16 16:16:45"
+  },
+  {
+    "Order No.": 1891021962830286800,
+    "Type": "SELL",
+    "Fiat Amount": 15000,
+    "Price": 95,
+    "Coin Amount": 157.8948,
+    "Counterparty": "bliskavka",
+    "Status": "Completed",
+    "Time": "2025-02-16 07:09:05"
+  },
+  {
+    "Order No.": 1891018052786643000,
+    "Type": "SELL",
+    "Fiat Amount": 2000.01,
+    "Price": 95.05,
+    "Coin Amount": 21.0417,
+    "Counterparty": "jestergg",
+    "Status": "Completed",
+    "Time": "2025-02-16 06:53:33"
+  },
+  {
+    "Order No.": 1891009488306118700,
+    "Type": "BUY",
+    "Fiat Amount": 2282,
+    "Price": 93.31,
+    "Coin Amount": 24.4562,
+    "Counterparty": "Az_O",
+    "Status": "Completed",
+    "Time": "2025-02-16 06:19:31"
+  },
+  {
+    "Order No.": 1891008075710263300,
+    "Type": "BUY",
+    "Fiat Amount": 2538,
+    "Price": 93.31,
+    "Coin Amount": 27.1997,
+    "Counterparty": "Az_O",
+    "Status": "Completed",
+    "Time": "2025-02-16 06:13:54"
+  },
+  {
+    "Order No.": 1890999545347203000,
+    "Type": "SELL",
+    "Fiat Amount": 5000,
+    "Price": 94.91,
+    "Coin Amount": 52.6815,
+    "Counterparty": "VioTether",
+    "Status": "Completed",
+    "Time": "2025-02-16 05:40:00"
+  },
+  {
+    "Order No.": 1890432659078287400,
+    "Type": "BUY",
+    "Fiat Amount": 6300,
+    "Price": 94,
+    "Coin Amount": 67.0213,
+    "Counterparty": "NikoBentleyBTC",
+    "Status": "Completed",
+    "Time": "2025-02-14 16:07:24"
+  },
+  {
+    "Order No.": 1890417900855455700,
+    "Type": "BUY",
+    "Fiat Amount": 15000,
+    "Price": 95,
+    "Coin Amount": 157.8948,
+    "Counterparty": "Fast.Swap",
+    "Status": "Completed",
+    "Time": "2025-02-14 15:08:45"
+  },
+  {
+    "Order No.": 1890417227827699700,
+    "Type": "BUY",
+    "Fiat Amount": 10110,
+    "Price": 95.15,
+    "Coin Amount": 106.2533,
+    "Counterparty": "radopopik_must",
+    "Status": "Canceled",
+    "Time": "2025-02-14 15:06:05"
   }
 ]
