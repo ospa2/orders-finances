@@ -32,7 +32,6 @@ import {
   Columns,
   Loader,
   Plus,
-  TrendingUp,
 } from "lucide-react"
 import {
   ColumnDef,
@@ -49,7 +48,6 @@ import {
   useReactTable,
   VisibilityState,
 } from "@tanstack/react-table"
-import { Area, AreaChart, CartesianGrid, XAxis } from "recharts"
 import { z } from "zod"
 
 // Mock data for demonstration
@@ -234,7 +232,7 @@ const columns: ColumnDef<z.infer<typeof schema>>[] = [
   },
   {
     id: "actions",
-    cell: ({ row }) => (
+    cell: () => (
       <div className="relative">
         <button className="p-1 hover:bg-gray-100 rounded">
           <MoreVertical className="h-4 w-4" />
@@ -505,14 +503,6 @@ export function DataTable({
   )
 }
 
-const chartData = [
-  { month: "January", desktop: 186, mobile: 80 },
-  { month: "February", desktop: 305, mobile: 200 },
-  { month: "March", desktop: 237, mobile: 120 },
-  { month: "April", desktop: 73, mobile: 190 },
-  { month: "May", desktop: 209, mobile: 130 },
-  { month: "June", desktop: 214, mobile: 140 },
-]
 
 function TableCellViewer({ item }: { item: z.infer<typeof schema> }) {
   const [isOpen, setIsOpen] = React.useState(false)
