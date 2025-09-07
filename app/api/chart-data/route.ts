@@ -10,7 +10,6 @@ export async function GET() {
     .select("*")
     .order("Time", { ascending: false })
 
-  console.log('orders:', orders);
 
   if (error) {
     return NextResponse.json({ error: error.message }, { status: 500 })

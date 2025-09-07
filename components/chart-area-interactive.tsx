@@ -15,18 +15,8 @@ import {
 import {
   ToggleGroup, ToggleGroupItem,
 } from "@/components/ui/toggle-group"
-import { transformOrdersToChartData } from "@/lib/pnl"
+import { ChartPoint } from "@/lib/pnl"
 
-type Order = {
-  "Order No.": number
-  Type: "BUY" | "SELL"
-  "Fiat Amount": number
-  Price: number
-  "Coin Amount": number
-  Counterparty: string
-  Status: "Completed" | "Canceled"
-  Time: string
-}
 
 export const description = "An interactive area chart"
 
@@ -40,7 +30,7 @@ const chartConfig = {
 export function ChartAreaInteractive() {
   const isMobile = useIsMobile()
   const [timeRange, setTimeRange] = React.useState("90d")
-  const [chartData, setChartData] = React.useState<any[]>([])
+  const [chartData, setChartData] = React.useState<ChartPoint[]>([])
 
   // загрузка данных
   React.useEffect(() => {

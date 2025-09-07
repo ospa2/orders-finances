@@ -26,8 +26,8 @@ export async function POST(req: Request) {
     }
 
     return NextResponse.json({ success: true })
-  } catch (err: any) {
-    console.error("API route error:", err)
-    return NextResponse.json({ error: err.message }, { status: 500 })
-  }
+  } catch (err: unknown) {
+  console.error("API route error:", err)
+  return NextResponse.json({ error: (err as Error).message }, { status: 500 })
+}
 }
