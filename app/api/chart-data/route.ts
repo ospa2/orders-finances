@@ -5,6 +5,7 @@ import { NextResponse } from "next/server"
 import { transformOrdersToChartData } from "@/lib/pnl"
 
 export async function GET() {
+  
   const { data: orders, error } = await supabase
     .from("orders")
     .select("*")
