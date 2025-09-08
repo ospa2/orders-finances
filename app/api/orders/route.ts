@@ -1,15 +1,20 @@
-// /api/orders/route.ts
-
 import { supabase } from "@/lib/supabase"
 import { NextResponse } from "next/server"
 
 export async function POST(req: Request) {
-  
+  // CORS заголовки
+  const headers = new Headers()
+  headers.set("Access-Control-Allow-Credentials", "true")
+  headers.set("Access-Control-Allow-Origin", "https://www.bybit.com") // <-- только домен
+  headers.set("Access-Control-Allow-Methods", "GET,DELETE,PATCH,POST,PUT,OPTIONS")
+  headers.set(
+    "Access-Control-Allow-Headers",
+    "X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version"
+  )
+
   try {
     const order = await req.json()
 
-    // --- ИСПРАВЛЕННЫЙ БЛОК ---
-    // Ключи объекта теперь точно соответствуют именам столбцов в вашей схеме
     const { error } = await supabase.from("orders").insert({
       "Order No.": order["Order No."],
       "Type": order.Type,
@@ -23,12 +28,35 @@ export async function POST(req: Request) {
 
     if (error) {
       console.error("Supabase insert error:", error)
-      return NextResponse.json({ error: error.message }, { status: 400 })
+      return new NextResponse(JSON.stringify({ error: error.message }), {
+        status: 400,
+        headers,
+      })
     }
 
-    return NextResponse.json({ success: true })
+    return new NextResponse(JSON.stringify({ success: true }), {
+      status: 200,
+      headers,
+    })
   } catch (err: unknown) {
-  console.error("API route error:", err)
-  return NextResponse.json({ error: (err as Error).message }, { status: 500 })
+    console.error("API route error:", err)
+    return new NextResponse(
+      JSON.stringify({ error: (err as Error).message }),
+      { status: 500, headers }
+    )
+  }
 }
+
+// Обработка preflight (OPTIONS)
+export async function OPTIONS() {
+  const headers = new Headers()
+  headers.set("Access-Control-Allow-Credentials", "true")
+  headers.set("Access-Control-Allow-Origin", "https://www.bybit.com")
+  headers.set("Access-Control-Allow-Methods", "GET,DELETE,PATCH,POST,PUT,OPTIONS")
+  headers.set(
+    "Access-Control-Allow-Headers",
+    "X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version"
+  )
+
+  return new NextResponse(null, { status: 200, headers })
 }
