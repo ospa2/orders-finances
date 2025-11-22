@@ -33,11 +33,12 @@ interface TooltipPayload {
   payload: MonthSummary;
 }
 interface BarShapeProps {
-   x: number;
-   y: number;
-   width: number;
-   height: number;
    hovered: boolean;
+   x?: number;
+   y?: number;
+   width?: number;
+   height?: number;
+   fill?: string;
 }
 function aggregateByMonth(
    data: ChartPoint[],
@@ -169,7 +170,7 @@ const CustomTooltip = ({
 
 
 const CustomBarShape = (props: BarShapeProps) => {
-   const { x, y, width, height, hovered } = props;
+   const { x=0, y, width=0, height, hovered } = props;
 
    // Slight inset for the foreground so border is visible
    const inset = 0.5;
@@ -304,7 +305,7 @@ export function MonthlyRevenueChart() {
                   <Bar
                      dataKey="revenue"
                      // use custom shape renderer and we will render Cells to get index-based hover handlers
-                     shape={<CustomBarShape hovered={false} x={0} y={0} width={0} height={0} />}
+                     shape={<CustomBarShape hovered={false}  />}
                      isAnimationActive={false} // disable initial animation to avoid re-layout jumps
                   >
                      {revenueData.map((entry, index) => (
