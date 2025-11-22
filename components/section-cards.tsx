@@ -36,8 +36,9 @@ function extractDatePart(fullDateString: string): string {
     return fullDateString.substring(0, 10);
 }
 
-function calculateRevenue(data: ChartPoint[], today: Date = new Date('2025-11-16')) {
-    // Устанавливаем сегодняшнюю дату на 00:00:00 для точных расчетов
+function calculateRevenue(data: ChartPoint[]) {
+  // Устанавливаем сегодняшнюю дату на 00:00:00 для точных расчетов
+    const today = new Date();
     today.setHours(0, 0, 0, 0); 
     
     // --- 1. Расчет дат для фиксированных периодов ---

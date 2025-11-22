@@ -76,6 +76,9 @@
   --sidebar-accent-foreground: hsl(240 5.9% 10%);
   --sidebar-border: hsl(220 13% 91%);
   --sidebar-ring: hsl(217.2 91.2% 59.8%);
+  --color-buy: #e5e5e5;
+  --color-sell: #e5e5e5;
+  --color-revenue: #e5e5e5;
 }
 
 .dark {
@@ -110,13 +113,34 @@
   --sidebar-accent-foreground: hsl(240 4.8% 95.9%);
   --sidebar-border: hsl(240 3.7% 15.9%);
   --sidebar-ring: hsl(217.2 91.2% 59.8%);
+  
 }
-
+html.dark {
+  --color-buy: #404040;
+  --color-sell: #404040;
+  --color-revenue: #404040;
+}
 @layer base {
   * {
     @apply border-border outline-ring/50;
   }
   body {
     @apply bg-background text-foreground;
+  }
+  :root {
+    --color-buy: #ffffff;
+    --color-buy-light: #ffffff;
+
+    --color-sell: #ffffff;
+    --color-sell-light: #ffffff;
+
+    --color-revenue: #ffffff;
+    --color-revenue-light: #ffffff;
+  }
+
+  .dark {
+    --color-buy: var(--color-buy-light);
+    --color-sell: var(--color-sell-light);
+    --color-revenue: var(--color-revenue-light);
   }
 }

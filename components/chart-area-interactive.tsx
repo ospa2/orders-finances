@@ -4,25 +4,25 @@ import * as React from "react";
 import { Area, AreaChart, CartesianGrid, XAxis, YAxis } from "recharts";
 import { useIsMobile } from "@/hooks/use-mobile";
 import {
-  Card,
-  CardAction,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
+   Card,
+   CardAction,
+   CardContent,
+   CardDescription,
+   CardHeader,
+   CardTitle,
 } from "@/components/ui/card";
 import {
-  ChartConfig,
-  ChartContainer,
-  ChartTooltip,
-  ChartTooltipContent,
+   ChartConfig,
+   ChartContainer,
+   ChartTooltip,
+   ChartTooltipContent,
 } from "@/components/ui/chart";
 import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
+   Select,
+   SelectContent,
+   SelectItem,
+   SelectTrigger,
+   SelectValue,
 } from "@/components/ui/select";
 import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
 import { ChartPoint } from "@/lib/pnl";
@@ -30,220 +30,260 @@ import { TimeRangeValue, useChartData } from "@/lib/сhartDataProvider";
 
 export const description = "An interactive area chart";
 
+
+
 const chartConfig = {
-  visitors: { label: "Visitors" },
-  buy: { label: "Buy", color: "var(--color-buy)" },
-  sell: { label: "Sell", color: "var(--color-sell)" },
-  revenue: { label: "Revenue", color: "var(--color-revenue)" },
+   visitors: { label: "Visitors" },
+   buy: { label: "Buy", color: "var(--color-buy)" },
+   sell: { label: "Sell", color: "var(--color-sell)" },
+   revenue: { label: "Revenue", color: "var(--color-revenue)" },
 } satisfies ChartConfig;
 
 export function ChartAreaInteractive() {
-  const isMobile = useIsMobile();
-  const { timeRange, setTimeRange } = useChartData();
-  const [chartData, setChartData] = React.useState<ChartPoint[]>([]);
-  const handleTimeRangeChange = React.useCallback(
-    (value: string) => {
-      // Мы знаем, что значениями будут "90d", "30d", или "7d",
-      // поэтому можем безопасно применить приведение типов (type assertion)
-      // ИЛИ можно добавить проверку, если хотите быть абсолютно строгим:
-      const validValues: TimeRangeValue[] = ["90d", "30d", "7d"];
-      if (validValues.includes(value as TimeRangeValue)) {
-        setTimeRange(value as TimeRangeValue);
-      } else {
-        console.warn(`Invalid time range value received: ${value}`);
-      }
-    },
-    [setTimeRange]
-  );
 
-  // загрузка данных
+  const [colors, setColors] = React.useState({
+     buy: "#10b981",
+     sell: "#ef4444",
+     revenue: "#3b82f6",
+  });
+
   React.useEffect(() => {
-    async function load() {
-      try {
-        const res = await fetch("/api/chart-data");
-        const raw = await res.json();
+     const updateColors = () => {
+        const isDark = document.documentElement.classList.contains("dark");
 
-        setChartData(raw);
-      } catch (err) {
-        console.error("Failed to fetch chart data", err);
-      }
-    }
-    load();
+        setColors({
+           buy: isDark ? "#ffffffff" : "#000000ff", // темная тема = светлый цвет
+           sell: isDark ? "#ffffffff" : "#000000ff", // темная тема = светлый цвет
+           revenue: isDark ? "#ffffffff" : "#000000ff", // темная тема = светлый цвет
+        });
+     };
+
+     updateColors();
+
+     // Следим за изменениями темы
+     const observer = new MutationObserver(updateColors);
+     observer.observe(document.documentElement, {
+        attributes: true,
+        attributeFilter: ["class"],
+     });
+
+     return () => observer.disconnect();
   }, []);
+   const isMobile = useIsMobile();
+   const { timeRange, setTimeRange } = useChartData();
+   const [chartData, setChartData] = React.useState<ChartPoint[]>([]);
+   const handleTimeRangeChange = React.useCallback(
+      (value: string) => {
+         // Мы знаем, что значениями будут "90d", "30d", или "7d",
+         // поэтому можем безопасно применить приведение типов (type assertion)
+         // ИЛИ можно добавить проверку, если хотите быть абсолютно строгим:
+         const validValues: TimeRangeValue[] = ["90d", "30d", "7d"];
+         if (validValues.includes(value as TimeRangeValue)) {
+            setTimeRange(value as TimeRangeValue);
+         } else {
+            console.warn(`Invalid time range value received: ${value}`);
+         }
+      },
+      [setTimeRange]
+   );
 
-  React.useEffect(() => {
-    if (isMobile) setTimeRange("7d");
-  }, [isMobile]);
+   // загрузка данных
+   React.useEffect(() => {
+      async function load() {
+         try {
+            const res = await fetch("/api/chart-data");
+            const raw = await res.json();
 
-  // последняя дата в данных
-  const referenceDate = React.useMemo(() => {
-    if (!chartData || chartData.length === 0) return new Date();
-    return new Date(chartData[chartData.length - 1].date);
-  }, [chartData]);
+            setChartData(raw);
+         } catch (err) {
+            console.error("Failed to fetch chart data", err);
+         }
+      }
+      load();
+   }, []);
 
-  // фильтр по диапазону
-  const filteredData = React.useMemo(() => {
-    if (!chartData) return [];
-    let daysToSubtract = 90;
-    if (timeRange === "30d") daysToSubtract = 30;
-    else if (timeRange === "7d") daysToSubtract = 7;
+   React.useEffect(() => {
+      if (isMobile) setTimeRange("7d");
+   }, [isMobile]);
 
-    const startDate = new Date(referenceDate);
-    startDate.setDate(startDate.getDate() - daysToSubtract + 1);
+   // последняя дата в данных
+   const referenceDate = React.useMemo(() => {
+      if (!chartData || chartData.length === 0) return new Date();
+      return new Date(chartData[chartData.length - 1].date);
+   }, [chartData]);
 
-    return chartData.filter((item) => {
-      const d = new Date(item.date);
-      return d >= startDate && d <= referenceDate;
-    });
-  }, [timeRange, referenceDate, chartData]);
+   // фильтр по диапазону
+   const filteredData = React.useMemo(() => {
+      if (!chartData) return [];
+      let daysToSubtract = 90;
+      if (timeRange === "30d") daysToSubtract = 30;
+      else if (timeRange === "7d") daysToSubtract = 7;
 
-  return (
-    <Card className="@container/card">
-      <CardHeader>
-        <CardTitle>Total Visitors</CardTitle>
-        <CardDescription>
-          <span className="hidden @[540px]/card:block">
-            Total for the last 3 months
-          </span>
-          <span className="@[540px]/card:hidden">Last 3 months</span>
-        </CardDescription>
-        <CardAction>
-          <ToggleGroup
-            type="single"
-            value={timeRange}
-            onValueChange={handleTimeRangeChange}
-            variant="outline"
-            className="hidden *:data-[slot=toggle-group-item]:!px-4 @[767px]/card:flex"
-          >
-            <ToggleGroupItem value="90d">Last 3 months</ToggleGroupItem>
-            <ToggleGroupItem value="30d">Last 30 days</ToggleGroupItem>
-            <ToggleGroupItem value="7d">Last 7 days</ToggleGroupItem>
-          </ToggleGroup>
+      const startDate = new Date(referenceDate);
+      startDate.setDate(startDate.getDate() - daysToSubtract + 1);
 
-          <Select value={timeRange} onValueChange={handleTimeRangeChange}>
-            <SelectTrigger
-              className="flex w-40 @[767px]/card:hidden"
-              size="sm"
-              aria-label="Select a value"
+      return chartData.filter((item) => {
+         const d = new Date(item.date);
+         return d >= startDate && d <= referenceDate;
+      });
+   }, [timeRange, referenceDate, chartData]);
+
+   return (
+      <Card className="@container/card">
+         <CardHeader>
+            <CardTitle>Revenue</CardTitle>
+            <CardDescription>
+               <span className="hidden @[540px]/card:block">
+                  Total for the {timeRange === "90d" ? "last 3 months" : timeRange === "30d" ? "last 30 days" : "last 7 days"}
+               </span>
+               <span className="@[540px]/card:hidden">Last 3 months</span>
+            </CardDescription>
+            <CardAction>
+               <ToggleGroup
+                  type="single"
+                  value={timeRange}
+                  onValueChange={handleTimeRangeChange}
+                  variant="outline"
+                  className="hidden *:data-[slot=toggle-group-item]:!px-4 @[767px]/card:flex"
+               >
+                  <ToggleGroupItem value="90d">Last 3 months</ToggleGroupItem>
+                  <ToggleGroupItem value="30d">Last 30 days</ToggleGroupItem>
+                  <ToggleGroupItem value="7d">Last 7 days</ToggleGroupItem>
+               </ToggleGroup>
+
+               <Select value={timeRange} onValueChange={handleTimeRangeChange}>
+                  <SelectTrigger
+                     className="flex w-40 @[767px]/card:hidden"
+                     size="sm"
+                     aria-label="Select a value"
+                  >
+                     <SelectValue placeholder="Last 3 months" />
+                  </SelectTrigger>
+                  <SelectContent className="rounded-xl">
+                     <SelectItem value="90d">Last 3 months</SelectItem>
+                     <SelectItem value="30d">Last 30 days</SelectItem>
+                     <SelectItem value="7d">Last 7 days</SelectItem>
+                  </SelectContent>
+               </Select>
+            </CardAction>
+         </CardHeader>
+
+         <CardContent className="px-2 pt-4 sm:px-6 sm:pt-6">
+            <ChartContainer
+               config={chartConfig}
+               className="aspect-auto h-[250px] w-full"
             >
-              <SelectValue placeholder="Last 3 months" />
-            </SelectTrigger>
-            <SelectContent className="rounded-xl">
-              <SelectItem value="90d">Last 3 months</SelectItem>
-              <SelectItem value="30d">Last 30 days</SelectItem>
-              <SelectItem value="7d">Last 7 days</SelectItem>
-            </SelectContent>
-          </Select>
-        </CardAction>
-      </CardHeader>
+               <AreaChart data={filteredData}>
+                  <defs>
+                     <linearGradient id="fillBuy" x1="0" y1="0" x2="0" y2="1">
+                        <stop
+                           offset="5%"
+                           stopColor={colors.buy}
+                           stopOpacity={1.0}
+                        />
+                        <stop
+                           offset="95%"
+                           stopColor={colors.buy}
+                           stopOpacity={0.1}
+                        />
+                     </linearGradient>
+                     <linearGradient id="fillSell" x1="0" y1="0" x2="0" y2="1">
+                        <stop
+                           offset="5%"
+                           stopColor={colors.sell}
+                           stopOpacity={0.8}
+                        />
+                        <stop
+                           offset="95%"
+                           stopColor={colors.sell}
+                           stopOpacity={0.1}
+                        />
+                     </linearGradient>
+                     <linearGradient
+                        id="fillRevenue"
+                        x1="0"
+                        y1="0"
+                        x2="0"
+                        y2="1"
+                     >
+                        <stop
+                           offset="5%"
+                           stopColor={colors.revenue}
+                           stopOpacity={0.9}
+                        />
+                        <stop
+                           offset="95%"
+                           stopColor={colors.revenue}
+                           stopOpacity={0.05}
+                        />
+                     </linearGradient>
+                  </defs>
 
-      <CardContent className="px-2 pt-4 sm:px-6 sm:pt-6">
-        <ChartContainer
-          config={chartConfig}
-          className="aspect-auto h-[250px] w-full"
-        >
-          <AreaChart data={filteredData}>
-            <defs>
-              <linearGradient id="fillBuy" x1="0" y1="0" x2="0" y2="1">
-                <stop
-                  offset="5%"
-                  stopColor="var(--color-buy)"
-                  stopOpacity={1.0}
-                />
-                <stop
-                  offset="95%"
-                  stopColor="var(--color-buy)"
-                  stopOpacity={0.1}
-                />
-              </linearGradient>
-              <linearGradient id="fillSell" x1="0" y1="0" x2="0" y2="1">
-                <stop
-                  offset="5%"
-                  stopColor="var(--color-sell)"
-                  stopOpacity={0.8}
-                />
-                <stop
-                  offset="95%"
-                  stopColor="var(--color-sell)"
-                  stopOpacity={0.1}
-                />
-              </linearGradient>
-              <linearGradient id="fillRevenue" x1="0" y1="0" x2="0" y2="1">
-                <stop
-                  offset="5%"
-                  stopColor="var(--color-revenue)"
-                  stopOpacity={0.9}
-                />
-                <stop
-                  offset="95%"
-                  stopColor="var(--color-revenue)"
-                  stopOpacity={0.05}
-                />
-              </linearGradient>
-            </defs>
+                  <CartesianGrid vertical={false} />
+                  <XAxis
+                     dataKey="date"
+                     tickLine={false}
+                     axisLine={false}
+                     tickMargin={8}
+                     minTickGap={32}
+                     tickFormatter={(value) => {
+                        const date = new Date(value);
+                        return date.toLocaleDateString("en-US", {
+                           month: "short",
+                           day: "numeric",
+                        });
+                     }}
+                  />
 
-            <CartesianGrid vertical={false} />
-            <XAxis
-              dataKey="date"
-              tickLine={false}
-              axisLine={false}
-              tickMargin={8}
-              minTickGap={32}
-              tickFormatter={(value) => {
-                const date = new Date(value);
-                return date.toLocaleDateString("en-US", {
-                  month: "short",
-                  day: "numeric",
-                });
-              }}
-            />
+                  <YAxis yAxisId="left" orientation="left" />
+                  <YAxis yAxisId="right" orientation="right" />
 
-            <YAxis yAxisId="left" orientation="left" />
-            <YAxis yAxisId="right" orientation="right" />
+                  <ChartTooltip
+                     cursor={false}
+                     content={
+                        <ChartTooltipContent
+                           labelFormatter={(value) => {
+                              return new Date(value).toLocaleDateString(
+                                 "en-US",
+                                 {
+                                    month: "short",
+                                    day: "numeric",
+                                 }
+                              );
+                           }}
+                           indicator="dot"
+                        />
+                     }
+                  />
 
-            <ChartTooltip
-              cursor={false}
-              content={
-                <ChartTooltipContent
-                  labelFormatter={(value) => {
-                    return new Date(value).toLocaleDateString("en-US", {
-                      month: "short",
-                      day: "numeric",
-                    });
-                  }}
-                  indicator="dot"
-                />
-              }
-            />
-
-            <Area
-              dataKey="sell"
-              type="natural"
-              fill="url(#fillSell)"
-              stroke="var(--color-sell)"
-              stackId="a"
-              yAxisId="left"
-            />
-            <Area
-              dataKey="buy"
-              type="natural"
-              fill="url(#fillBuy)"
-              stroke="var(--color-buy)"
-              stackId="a"
-              yAxisId="left"
-            />
-            <Area
-              dataKey="revenue"
-              type="natural"
-              fill="url(#fillRevenue)"
-              stroke="var(--color-revenue)"
-              strokeWidth={2}
-              activeDot={{ r: 3 }}
-              yAxisId="right"
-            />
-          </AreaChart>
-        </ChartContainer>
-      </CardContent>
-    </Card>
-  );
+                  <Area
+                     dataKey="sell"
+                     type="natural"
+                     fill="url(#fillSell)"
+                     stroke="var(--color-sell)"
+                     stackId="a"
+                     yAxisId="left"
+                  />
+                  <Area
+                     dataKey="buy"
+                     type="natural"
+                     fill="url(#fillBuy)"
+                     stroke="var(--color-buy)"
+                     stackId="a"
+                     yAxisId="left"
+                  />
+                  <Area
+                     dataKey="revenue"
+                     type="natural"
+                     fill="url(#fillRevenue)"
+                     stroke="var(--color-revenue)"
+                     strokeWidth={2}
+                     activeDot={{ r: 3 }}
+                     yAxisId="right"
+                  />
+               </AreaChart>
+            </ChartContainer>
+         </CardContent>
+      </Card>
+   );
 }
