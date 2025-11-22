@@ -29,6 +29,16 @@ type MonthSummary = {
    totalBuy: number; // сумма buy
    totalSell: number; // сумма sell
 };
+interface TooltipPayload {
+  payload: MonthSummary;
+}
+interface BarShapeProps {
+   x: number;
+   y: number;
+   width: number;
+   height: number;
+   hovered: boolean;
+}
 function aggregateByMonth(
    data: ChartPoint[],
    options = { weighted: true }
@@ -108,7 +118,13 @@ function aggregateByMonth(
 }
 
 // Smooth-tooltip wrapper with fade
-const CustomTooltip = ({ active, payload }: any) => {
+const CustomTooltip = ({
+   active,
+   payload,
+}: {
+   active: boolean;
+   payload: TooltipPayload[];
+}) => {
    if (active && payload && payload.length) {
       const data = payload[0].payload;
       return (
@@ -152,7 +168,7 @@ const CustomTooltip = ({ active, payload }: any) => {
 };
 
 
-const CustomBarShape = (props: any) => {
+const CustomBarShape = (props: BarShapeProps) => {
    const { x, y, width, height, hovered } = props;
 
    // Slight inset for the foreground so border is visible
@@ -168,9 +184,7 @@ const CustomBarShape = (props: any) => {
       const updateColors = () => {
          const isDark = document.documentElement.classList.contains("dark");
 
-         setColor(
-            isDark ? "rgba(255, 255, 255, 0.5)" : "rgba(0, 0, 0, 0.5)"
-         );
+         setColor(isDark ? "rgba(255, 255, 255, 0.5)" : "rgba(0, 0, 0, 0.5)");
       };
 
       updateColors();
@@ -246,9 +260,12 @@ export function MonthlyRevenueChart() {
   const revenueData = aggregateByMonth(data)
    const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 
-   const handleMouseEnter = useCallback((_: any, index: number) => {
-      setHoveredIndex(index);
-   }, []);
+   const handleMouseEnter = useCallback(
+      (_: React.MouseEvent, index: number) => {
+         setHoveredIndex(index);
+      },
+      []
+   );
 
    const handleMouseLeave = useCallback(() => {
       setHoveredIndex(null);
@@ -283,11 +300,11 @@ export function MonthlyRevenueChart() {
                      tickFormatter={(value) => `₽${(value / 1000).toFixed(0)}k`}
                   />
                   {/* disable the default cursor so it doesn't create weird overlay - we'll keep tooltip */}
-                  <Tooltip content={<CustomTooltip />} cursor={false} />
+                  <Tooltip content={<CustomTooltip active={false} payload={[]} />} cursor={false} />
                   <Bar
                      dataKey="revenue"
                      // use custom shape renderer and we will render Cells to get index-based hover handlers
-                     shape={<CustomBarShape hovered={false} />}
+                     shape={<CustomBarShape hovered={false} x={0} y={0} width={0} height={0} />}
                      isAnimationActive={false} // disable initial animation to avoid re-layout jumps
                   >
                      {revenueData.map((entry, index) => (
