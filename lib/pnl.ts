@@ -19,6 +19,9 @@ export type ChartPoint = {
   revenue: number; // реализованная прибыль (фиат)
 };
 
+export interface MonthlySpread {
+  [month: string]: number;
+}
 type Lot = {
   qty: Decimal;   // положительное = лонг, отрицательное = шорт
   fiat: Decimal;  // для лонга: потрачено на этот lot; для шорта: получено (proceeds)
@@ -147,4 +150,66 @@ export function transformOrdersToChartData(orders: Order[]): ChartPoint[] {
     .sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime());
 
   return points;
+}
+
+export function calculateMonthlySpread(orders: Order[]): MonthlySpread[] {
+  // Группируем по месяцам
+  const monthlyData: {
+    [key: string]: {
+      buyOrders: Order[];
+      sellOrders: Order[];
+    };
+  } = {};
+
+  orders.forEach(o => {
+    // Парсим дату и получаем ключ месяца (например, "2025-11")
+    const date = new Date(o.Time);
+    const monthKey = `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, '0')}`;
+
+    if (!monthlyData[monthKey]) {
+      monthlyData[monthKey] = {
+        buyOrders: [],
+        sellOrders: []
+      };
+    }
+
+    // Разделяем по типу ордера
+    if (o.Type === 'BUY') {
+      monthlyData[monthKey].buyOrders.push(o);
+    } else if (o.Type === 'SELL') {
+      monthlyData[monthKey].sellOrders.push(o);
+    }
+  });
+
+  // Рассчитываем спред для каждого месяца и формируем результат
+  const spreads: MonthlySpread[] = Object.entries(monthlyData).map(([month, data]) => {
+    const { buyOrders, sellOrders } = data;
+
+    // Средняя цена покупки
+    const avgBuyPrice = buyOrders.length > 0
+      ? buyOrders.reduce((sum, o) => sum + o.Price, 0) / buyOrders.length
+      : 0;
+
+    // Средняя цена продажи
+    const avgSellPrice = sellOrders.length > 0
+      ? sellOrders.reduce((sum, o) => sum + o.Price, 0) / sellOrders.length
+      : 0;
+
+    // Спред в процентах
+    const spreadPercent = avgBuyPrice > 0
+      ? ((avgSellPrice - avgBuyPrice) / avgBuyPrice) * 100
+      : 0;
+
+    // Возвращаем объект с месяцем как ключ и спредом как значение
+    return {
+      [month]: Number(spreadPercent.toFixed(2))
+    };
+  });
+
+  // Сортируем по месяцам
+  return spreads.sort((a, b) => {
+    const monthA = Object.keys(a)[0];
+    const monthB = Object.keys(b)[0];
+    return monthA.localeCompare(monthB);
+  });
 }

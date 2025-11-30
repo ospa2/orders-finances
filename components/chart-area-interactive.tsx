@@ -72,6 +72,7 @@ export function ChartAreaInteractive() {
    const isMobile = useIsMobile();
    const { timeRange, setTimeRange } = useChartData();
    const [chartData, setChartData] = React.useState<ChartPoint[]>([]);
+
    const handleTimeRangeChange = React.useCallback(
       (value: string) => {
          // Мы знаем, что значениями будут "90d", "30d", или "7d",
@@ -94,7 +95,7 @@ export function ChartAreaInteractive() {
             const res = await fetch("/api/chart-data");
             const raw = await res.json();
 
-            setChartData(raw);
+            setChartData(raw.chartData);
          } catch (err) {
             console.error("Failed to fetch chart data", err);
          }
@@ -104,7 +105,7 @@ export function ChartAreaInteractive() {
 
    React.useEffect(() => {
       if (isMobile) setTimeRange("7d");
-   }, [isMobile]);
+   }, [isMobile, setTimeRange]);
 
    // последняя дата в данных
    const referenceDate = React.useMemo(() => {

@@ -2,7 +2,7 @@
 
 import { supabase } from "@/lib/supabase"
 import { NextResponse } from "next/server"
-import { transformOrdersToChartData } from "@/lib/pnl"
+import { calculateMonthlySpread, transformOrdersToChartData } from "@/lib/pnl"
 
 export async function GET() {
   
@@ -31,6 +31,7 @@ export async function GET() {
       Time: o.Time,
     }))
   )
+  const monthlySpread = calculateMonthlySpread(orders || []);
 
-  return NextResponse.json(chartData)
+  return NextResponse.json({ chartData, monthlySpread })
 }

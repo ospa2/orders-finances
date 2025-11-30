@@ -18,7 +18,7 @@ import {
    CardHeader,
    CardTitle,
 } from "@/components/ui/card";
-import { ChartPoint } from "@/lib/pnl";
+import { ChartPoint, MonthlySpread } from "@/lib/pnl";
 import { useChartData } from "@/lib/сhartDataProvider";
 
 
@@ -42,7 +42,7 @@ interface BarShapeProps {
 }
 function aggregateByMonth(
    data: ChartPoint[],
-   options = { weighted: true }
+   monthlySpread: MonthlySpread[],
 ): MonthSummary[] {
    const monthNames = [
       "Jan",
@@ -65,10 +65,16 @@ function aggregateByMonth(
          totalBuy: number;
          totalSell: number;
          count: number;
-         sumOfRowSpreads: number; // используется при weighted = false
-         rowsWithBuy: number;
       }
    >();
+
+   // Создаём Map для быстрого поиска спреда по месяцу
+   const spreadMap = new Map<string, number>();
+   monthlySpread.forEach(item => {
+      const month = Object.keys(item)[0];
+      const spread = item[month];
+      spreadMap.set(month, spread);
+   });
 
    for (const { date, buy, sell, revenue } of data) {
       const d = new Date(date);
@@ -79,37 +85,32 @@ function aggregateByMonth(
          totalBuy: 0,
          totalSell: 0,
          count: 0,
-         sumOfRowSpreads: 0,
-         rowsWithBuy: 0,
       };
       acc.revenue += revenue;
       acc.totalBuy += buy;
       acc.totalSell += sell;
       acc.count += 1;
-      if (buy !== 0) {
-         acc.sumOfRowSpreads += (sell - buy) / buy;
-         acc.rowsWithBuy += 1;
-      }
       map.set(m, acc);
    }
 
    const result: MonthSummary[] = Array.from(map.entries())
       .sort((a, b) => a[0] - b[0]) // по порядку месяцев
       .map(([monthIndex, acc]) => {
-         const { revenue, totalBuy, totalSell, sumOfRowSpreads, rowsWithBuy } =
-            acc;
-         let avgSpread = 0;
-         if (options.weighted) {
-            avgSpread = totalBuy > 0 ? (totalSell - totalBuy) / totalBuy : 0;
-         } else {
-            avgSpread = rowsWithBuy > 0 ? sumOfRowSpreads / rowsWithBuy : 0;
-         }
-         // округлим до 2 знаков, вернём число (не строку)
-         avgSpread = Number(avgSpread.toFixed(2));
+         const { revenue, totalBuy, totalSell } = acc;
+         
+         // Получаем спред из monthlySpread
+         // Формируем ключ в формате "YYYY-MM" из текущего года и monthIndex
+         const year = new Date().getFullYear();
+         const monthKey = `${year}-${String(monthIndex + 1).padStart(2, '0')}`;
+         const spreadPercent = spreadMap.get(monthKey) || 0;
+         
+         // Конвертируем проценты (2.17) в десятичную дробь (0.0217)
+         const avgSpread = spreadPercent / 100;
+         
          return {
             month: monthNames[monthIndex],
             revenue,
-            avgSpread,
+            avgSpread, // храним как десятичную дробь для tooltip
             totalBuy,
             totalSell,
          };
@@ -257,9 +258,10 @@ const CustomBarShape = (props: BarShapeProps) => {
 
 export function MonthlyRevenueChart() {
 
-  const data = useChartData().chartData
-  const revenueData = aggregateByMonth(data)
-   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
+   const data = useChartData().chartData
+   const monthlySpread = useChartData().monthlySpread
+  const revenueData = aggregateByMonth(data, monthlySpread)
+   const [hoveredndex, setHoveredIndex] = useState<number | null>(null);
 
    const handleMouseEnter = useCallback(
       (_: React.MouseEvent, index: number) => {
