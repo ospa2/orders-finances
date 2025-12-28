@@ -1,4 +1,5 @@
 import { AppSidebar } from "@/components/app-sidebar";
+import CardUsageRingsChart from "@/components/cards-usage-rings";
 import { ChartAreaInteractive } from "@/components/chart-area-interactive";
 import { DataTable } from "@/components/data-table";
 import { MonthlyRevenueChart } from "@/components/monthly-revenue-chart";
@@ -33,7 +34,11 @@ export default function Page() {
                            <div className="px-4 lg:px-6">
                               <MonthlyRevenueChart />
                            </div>
-                           <DataTable />
+
+                           <div className="px-4 lg:px-6">
+                              <CardUsageRingsChart />
+                           </div>
+                           <DataTable/>
                         </div>
                      </div>
                   </div>
