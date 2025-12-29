@@ -182,7 +182,7 @@ const columns: ColumnDef<Order>[] = [
          type MetaType = {
             allOrders: Order[];
          };
-       const allOrders = (table.options.meta as MetaType)?.allOrders || [];
+         const allOrders = (table.options.meta as MetaType)?.allOrders || [];
          return <TableCellViewer item={row.original} allOrders={allOrders} />;
       },
    },
@@ -461,7 +461,12 @@ export function DataTable() {
          localStorage.setItem(STORAGE_KEY, JSON.stringify(allData));
       };
 
-      fetchAll();
+      const cached = localStorage.getItem(STORAGE_KEY);
+      if (!cached) {
+         fetchAll();
+      } else {
+         setData(JSON.parse(cached));
+      }
    }, []);
    const dataIds = React.useMemo<UniqueIdentifier[]>(
       () => data?.map((row) => row["Order No."]) || [],

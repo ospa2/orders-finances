@@ -25,12 +25,10 @@ import {
    SelectValue,
 } from "@/components/ui/select";
 import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
-import { ChartPoint } from "@/lib/pnl";
+import { ChartPoint, MonthlySpread } from "@/lib/pnl";
 import { TimeRangeValue, useChartData } from "@/lib/сhartDataProvider";
 
 export const description = "An interactive area chart";
-
-
 
 const chartConfig = {
    visitors: { label: "Visitors" },
@@ -40,35 +38,34 @@ const chartConfig = {
 } satisfies ChartConfig;
 
 export function ChartAreaInteractive() {
+   const [colors, setColors] = React.useState({
+      buy: "#10b981",
+      sell: "#ef4444",
+      revenue: "#3b82f6",
+   });
 
-  const [colors, setColors] = React.useState({
-     buy: "#10b981",
-     sell: "#ef4444",
-     revenue: "#3b82f6",
-  });
+   React.useEffect(() => {
+      const updateColors = () => {
+         const isDark = document.documentElement.classList.contains("dark");
 
-  React.useEffect(() => {
-     const updateColors = () => {
-        const isDark = document.documentElement.classList.contains("dark");
+         setColors({
+            buy: isDark ? "#ffffffff" : "#000000ff", // темная тема = светлый цвет
+            sell: isDark ? "#ffffffff" : "#000000ff", // темная тема = светлый цвет
+            revenue: isDark ? "#ffffffff" : "#000000ff", // темная тема = светлый цвет
+         });
+      };
 
-        setColors({
-           buy: isDark ? "#ffffffff" : "#000000ff", // темная тема = светлый цвет
-           sell: isDark ? "#ffffffff" : "#000000ff", // темная тема = светлый цвет
-           revenue: isDark ? "#ffffffff" : "#000000ff", // темная тема = светлый цвет
-        });
-     };
+      updateColors();
 
-     updateColors();
+      // Следим за изменениями темы
+      const observer = new MutationObserver(updateColors);
+      observer.observe(document.documentElement, {
+         attributes: true,
+         attributeFilter: ["class"],
+      });
 
-     // Следим за изменениями темы
-     const observer = new MutationObserver(updateColors);
-     observer.observe(document.documentElement, {
-        attributes: true,
-        attributeFilter: ["class"],
-     });
-
-     return () => observer.disconnect();
-  }, []);
+      return () => observer.disconnect();
+   }, []);
    const isMobile = useIsMobile();
    const { timeRange, setTimeRange } = useChartData();
    const [chartData, setChartData] = React.useState<ChartPoint[]>([]);
@@ -102,7 +99,62 @@ export function ChartAreaInteractive() {
       }
       load();
    }, []);
+   const STORAGE_KEY = "chart_data_cache";
 
+   React.useEffect(() => {
+      const controller = new AbortController();
+
+      const fetchAll = async () => {
+         try {
+            const res = await fetch("/api/chart-data", {
+               signal: controller.signal,
+            });
+
+            if (!res.ok) {
+               throw new Error(`HTTP status: ${res.status}`);
+            }
+
+            const data: {
+               chartData: ChartPoint;
+               monthlySpread: MonthlySpread;
+            }[] = await res.json();
+
+            const chartData = data.map((d) => d.chartData);
+
+            if (data.length > 0) {
+               // Синхронизируем стейт и кэш
+               setChartData(chartData);
+               localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+            }
+         } catch (error) {
+            if (error instanceof Error && error.name === "AbortError") {
+               return; // Игнорируем штатную отмену
+            }
+            console.error("Fetch error:", error);
+         }
+      };
+
+      const cached = localStorage.getItem(STORAGE_KEY);
+      if (cached) {
+         try {
+            const parsed = JSON.parse(cached) as {
+               chartData: ChartPoint;
+               monthlySpread: MonthlySpread;
+            }[];
+            setChartData(parsed.map((d) => d.chartData));
+         } catch (e) {
+            console.error("Failed to parse cached data", e);
+            localStorage.removeItem(STORAGE_KEY);
+            void fetchAll();
+         }
+      } else {
+         void fetchAll();
+      }
+
+      return () => {
+         controller.abort();
+      };
+   }, []); // Пустой массив зависимостей подразумевает инициализацию при mount
    React.useEffect(() => {
       if (isMobile) setTimeRange("7d");
    }, [isMobile, setTimeRange]);
@@ -135,7 +187,12 @@ export function ChartAreaInteractive() {
             <CardTitle>Revenue</CardTitle>
             <CardDescription>
                <span className="hidden @[540px]/card:block">
-                  Total for the {timeRange === "90d" ? "last 3 months" : timeRange === "30d" ? "last 30 days" : "last 7 days"}
+                  Total for the{" "}
+                  {timeRange === "90d"
+                     ? "last 3 months"
+                     : timeRange === "30d"
+                     ? "last 30 days"
+                     : "last 7 days"}
                </span>
                <span className="@[540px]/card:hidden">Last 3 months</span>
             </CardDescription>

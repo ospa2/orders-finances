@@ -1,59 +1,76 @@
 "use client";
-import React, { createContext, useContext, useState, useEffect } from "react";
+import React, {
+   createContext,
+   useContext,
+   useState,
+   useEffect,
+   useMemo,
+} from "react";
 import { ChartPoint, MonthlySpread } from "./pnl";
 
-// 1. Создаем сам Контекст
-// Устанавливаем значение по умолчанию, которое будет использоваться,
-// если компонент вызван вне провайдера.
+export type TimeRangeValue = "90d" | "30d" | "7d";
+
 interface ChartContextType {
    chartData: ChartPoint[];
    isLoading: boolean;
-
-   // Добавляем состояние диапазона времени
    timeRange: TimeRangeValue;
-   // Добавляем функцию для обновления состояния диапазона времени
    setTimeRange: React.Dispatch<React.SetStateAction<TimeRangeValue>>;
+   monthlySpread: MonthlySpread[];
+}
 
+interface CacheSchema {
+   chartData: ChartPoint[];
    monthlySpread: MonthlySpread[];
 }
 
 const ChartContext = createContext<ChartContextType | undefined>(undefined);
-export type TimeRangeValue = "90d" | "30d" | "7d";
 
-// 2. Создаем Провайдер, который будет управлять состоянием и загрузкой
 export const ChartDataProvider: React.FC<{ children: React.ReactNode }> = ({
    children,
 }) => {
    const [chartData, setChartData] = useState<ChartPoint[]>([]);
+   const [monthlySpread, setMonthlySpread] = useState<MonthlySpread[]>([]);
    const [isLoading, setIsLoading] = useState(true);
-   const [timeRange, setTimeRange] = React.useState<TimeRangeValue>("90d");
-   const [monthlySpread, setMonthlySpread] = React.useState<MonthlySpread[]>();
-   // Логика загрузки данных (ваш код, перенесенный сюда)
-   useEffect(() => {
-      async function load() {
-         try {
-            const res = await fetch("/api/chart-data");
-            const raw = await res.json(); // Указываем тип
+   const [timeRange, setTimeRange] = useState<TimeRangeValue>("90d");
 
-            setChartData(raw.chartData);
-            setMonthlySpread(raw.monthlySpread);
+   useEffect(() => {
+      // Выполняем в useEffect, чтобы избежать ReferenceError: window is not defined при SSR
+      const loadFromCache = (): void => {
+         try {
+            const dataRaw = localStorage.getItem("chart_data_cache");
+
+            if (dataRaw) {
+               const parsed = JSON.parse(dataRaw) as CacheSchema;
+
+               // Простейшая валидация структуры
+               if (
+                  Array.isArray(parsed.chartData) &&
+                  Array.isArray(parsed.monthlySpread)
+               ) {
+                  setChartData(parsed.chartData);
+                  setMonthlySpread(parsed.monthlySpread);
+               }
+            }
          } catch (err) {
-            console.error("Failed to fetch chart data", err);
+            console.error("Critical: Failed to parse chart_data_cache", err);
          } finally {
-            setIsLoading(false); // Загрузка завершена
+            setIsLoading(false);
          }
-      }
-      load();
+      };
+
+      loadFromCache();
    }, []);
 
-   // 3. Значение, которое будет доступно всем потребителям
-   const contextValue = {
-      chartData,
-      isLoading,
-      timeRange,
-      setTimeRange,
-      monthlySpread: monthlySpread ?? [],
-   };
+   const contextValue = useMemo(
+      (): ChartContextType => ({
+         chartData,
+         isLoading,
+         timeRange,
+         setTimeRange,
+         monthlySpread,
+      }),
+      [chartData, isLoading, timeRange, monthlySpread]
+   );
 
    return (
       <ChartContext.Provider value={contextValue}>
@@ -62,16 +79,10 @@ export const ChartDataProvider: React.FC<{ children: React.ReactNode }> = ({
    );
 };
 
-// В файле ChartDataProvider.tsx или отдельном hooks.ts
-
-// 4. Создаем хук для удобного использования данных
-export const useChartData = () => {
+export const useChartData = (): ChartContextType => {
    const context = useContext(ChartContext);
-
-   // Проверка на случай, если хук вызван вне провайдера
-   if (context === undefined) {
+   if (!context) {
       throw new Error("useChartData must be used within a ChartDataProvider");
    }
-
    return context;
 };

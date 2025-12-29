@@ -21,7 +21,6 @@ import {
 import { ChartPoint, MonthlySpread } from "@/lib/pnl";
 import { useChartData } from "@/lib/сhartDataProvider";
 
-
 type MonthSummary = {
    month: string; // "Jan", "Feb", ...
    revenue: number; // сумма revenue за месяц
@@ -30,7 +29,7 @@ type MonthSummary = {
    totalSell: number; // сумма sell
 };
 interface TooltipPayload {
-  payload: MonthSummary;
+   payload: MonthSummary;
 }
 interface BarShapeProps {
    hovered: boolean;
@@ -42,7 +41,7 @@ interface BarShapeProps {
 }
 function aggregateByMonth(
    data: ChartPoint[],
-   monthlySpread: MonthlySpread[],
+   monthlySpread: MonthlySpread[]
 ): MonthSummary[] {
    const monthNames = [
       "Jan",
@@ -70,7 +69,7 @@ function aggregateByMonth(
 
    // Создаём Map для быстрого поиска спреда по месяцу
    const spreadMap = new Map<string, number>();
-   monthlySpread.forEach(item => {
+   monthlySpread.forEach((item) => {
       const month = Object.keys(item)[0];
       const spread = item[month];
       spreadMap.set(month, spread);
@@ -97,16 +96,16 @@ function aggregateByMonth(
       .sort((a, b) => a[0] - b[0]) // по порядку месяцев
       .map(([monthIndex, acc]) => {
          const { revenue, totalBuy, totalSell } = acc;
-         
+
          // Получаем спред из monthlySpread
          // Формируем ключ в формате "YYYY-MM" из текущего года и monthIndex
          const year = new Date().getFullYear();
-         const monthKey = `${year}-${String(monthIndex + 1).padStart(2, '0')}`;
+         const monthKey = `${year}-${String(monthIndex + 1).padStart(2, "0")}`;
          const spreadPercent = spreadMap.get(monthKey) || 0;
-         
+
          // Конвертируем проценты (2.17) в десятичную дробь (0.0217)
          const avgSpread = spreadPercent / 100;
-         
+
          return {
             month: monthNames[monthIndex],
             revenue,
@@ -169,9 +168,8 @@ const CustomTooltip = ({
    return null;
 };
 
-
 const CustomBarShape = (props: BarShapeProps) => {
-   const { x=0, y, width=0, height, hovered } = props;
+   const { x = 0, y, width = 0, height, hovered } = props;
 
    // Slight inset for the foreground so border is visible
    const inset = 0.5;
@@ -257,10 +255,10 @@ const CustomBarShape = (props: BarShapeProps) => {
 };
 
 export function MonthlyRevenueChart() {
-
-   const data = useChartData().chartData
-   const monthlySpread = useChartData().monthlySpread
-  const revenueData = aggregateByMonth(data, monthlySpread)
+   
+   const data = useChartData().chartData;
+   const monthlySpread = useChartData().monthlySpread;
+   const revenueData = aggregateByMonth(data, monthlySpread);
    const [hoveredndex, setHoveredIndex] = useState<number | null>(null);
 
    const handleMouseEnter = useCallback(
@@ -303,11 +301,14 @@ export function MonthlyRevenueChart() {
                      tickFormatter={(value) => `₽${(value / 1000).toFixed(0)}k`}
                   />
                   {/* disable the default cursor so it doesn't create weird overlay - we'll keep tooltip */}
-                  <Tooltip content={<CustomTooltip active={false} payload={[]} />} cursor={false} />
+                  <Tooltip
+                     content={<CustomTooltip active={false} payload={[]} />}
+                     cursor={false}
+                  />
                   <Bar
                      dataKey="revenue"
                      // use custom shape renderer and we will render Cells to get index-based hover handlers
-                     shape={<CustomBarShape hovered={false}  />}
+                     shape={<CustomBarShape hovered={false} />}
                      isAnimationActive={false} // disable initial animation to avoid re-layout jumps
                   >
                      {revenueData.map((entry, index) => (
