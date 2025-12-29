@@ -1,16 +1,19 @@
 // route.ts
 
 import { supabase } from "@/lib/supabase"
-import { NextResponse } from "next/server"
+import { NextRequest, NextResponse } from "next/server"
 import { calculateMonthlySpread, transformOrdersToChartData } from "@/lib/pnl"
 
-export async function GET() {
-  
+export async function GET(request: NextRequest) {
+  const { searchParams } = new URL(request.url);
+  const from = Number(searchParams.get('from')) || 0;
+  const to = Number(searchParams.get('to')) || 299;
+
   const { data: orders, error } = await supabase
     .from("orders")
     .select("*")
     .order("Time", { ascending: false })
-
+    .range(from, to); // Запрашиваем конкретный диапазон
 
   if (error) {
     return NextResponse.json({ error: error.message }, { status: 500 })

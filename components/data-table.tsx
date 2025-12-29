@@ -51,7 +51,7 @@ import {
    type SortingState,
    type VisibilityState,
 } from "@tanstack/react-table";
-import {Bar, BarChart, CartesianGrid, XAxis, YAxis } from "recharts";
+import { Bar, BarChart, CartesianGrid, XAxis, YAxis } from "recharts";
 import { z } from "zod";
 
 import { useIsMobile } from "@/hooks/use-mobile";
@@ -112,7 +112,7 @@ export const schema = z.object({
    Status: z.string(),
    Time: z.string(), // или z.coerce.date(), если нужен объект Date
 });
-
+const STORAGE_KEY = "orders_cache";
 // Create a separate component for the drag handle
 function DragHandle({ id }: { id: number }) {
    const { attributes, listeners } = useSortable({
@@ -177,7 +177,14 @@ const columns: ColumnDef<Order>[] = [
       header: ({ column }) => (
          <DataTableColumnHeader column={column} title="Order No." />
       ),
-      cell: ({ row }) => <TableCellViewer item={row.original} />,
+      cell: ({ row, table }) => {
+         // Получаем данные из meta
+         type MetaType = {
+            allOrders: Order[];
+         };
+       const allOrders = (table.options.meta as MetaType)?.allOrders || [];
+         return <TableCellViewer item={row.original} allOrders={allOrders} />;
+      },
    },
    {
       accessorKey: "Type",
@@ -424,17 +431,37 @@ export function DataTable() {
    );
 
    React.useEffect(() => {
-      const fetchData = async () => {
-         try {
-            const res = await fetch("/api/orders");
-            const data: Order[] = await res.json();
-            setData(data);
-         } catch (error) {
-            console.log("error:", error);
+      const fetchAll = async () => {
+         let allData: Order[] = [];
+         let from = 0;
+         const STEP = 500;
+         let hasMore = true;
+
+         while (hasMore) {
+            // Запрашиваем 0-499, затем 500-999, затем 1000-1499
+            const res = await fetch(
+               `/api/orders?from=${from}&to=${from + STEP - 1}`
+            );
+            const chunk: Order[] = await res.json();
+
+            if (chunk.length > 0) {
+               allData = [...allData, ...chunk];
+               from += STEP;
+
+               // Обновляем стейт сразу, чтобы юзер видел первые данные
+               setData([...allData]);
+            }
+
+            // Если пришло меньше 500 строк, значит данных в базе больше нет
+            if (chunk.length < STEP) {
+               hasMore = false;
+            }
          }
+
+         localStorage.setItem(STORAGE_KEY, JSON.stringify(allData));
       };
 
-      fetchData();
+      fetchAll();
    }, []);
    const dataIds = React.useMemo<UniqueIdentifier[]>(
       () => data?.map((row) => row["Order No."]) || [],
@@ -450,6 +477,9 @@ export function DataTable() {
          rowSelection,
          columnFilters,
          pagination,
+      },
+      meta: {
+         allOrders: data, // Передаем стейт сюда
       },
       // Важно: getRowId должен возвращать строку
       getRowId: (row: Order) => row["Order No."] as unknown as string,
@@ -863,24 +893,15 @@ export function useCounterpartyMetrics(
    }, [counterparty, allOrders]);
 }
 
-export default function TableCellViewer({ item }: { item: Order }) {
+export default function TableCellViewer({
+   item,
+   allOrders,
+}: {
+   item: Order;
+   allOrders: Order[];
+}) {
    const isMobile = useIsMobile();
-   const [allOrders, setAllOrders] = React.useState<Order[]>([]);
    const title = item["Order No."];
-
-   React.useEffect(() => {
-      const fetchData = async () => {
-         try {
-            const res = await fetch("/api/orders");
-            const data: Order[] = await res.json();
-            setAllOrders(data);
-         } catch (error) {
-            console.log("error:", error);
-         }
-      };
-
-      fetchData();
-   }, []);
 
    const metrics = useCounterpartyMetrics(item.Counterparty, allOrders);
 

@@ -1,5 +1,5 @@
 import { supabase } from "@/lib/supabase"
-import { NextResponse } from "next/server"
+import { NextRequest, NextResponse } from "next/server"
 
 export async function POST(req: Request) {
   // CORS заголовки
@@ -46,53 +46,58 @@ export async function POST(req: Request) {
     )
   }
 }
+
+const ALLOWED_ORIGINS = [
+  "https://www.bybit.com",
+  "http://localhost:3000",
+  "http://localhost:3001",
+  "https://orders-finances.vercel.app"
+]
+
 function getCorsHeaders(req: Request) {
   const origin = req.headers.get("origin") ?? ""
-  const isAllowed = process.env.ALLOWED_ORIGINS!.includes(origin)
+  // Если origin пустой (например, прямой вызов), разрешаем первый из списка
+  const allowedOrigin = ALLOWED_ORIGINS.includes(origin) ? origin : ALLOWED_ORIGINS[0]
 
   return {
-    "Access-Control-Allow-Origin": isAllowed ? origin : process.env.ALLOWED_ORIGINS![0],
+    "Access-Control-Allow-Origin": allowedOrigin,
     "Access-Control-Allow-Credentials": "true",
     "Access-Control-Allow-Methods": "GET,POST,OPTIONS",
     "Access-Control-Allow-Headers": "Content-Type, X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Date, X-Api-Version",
   }
 }
 
-export async function GET(req: Request) {
+export async function GET(req: NextRequest) {
   const headers = getCorsHeaders(req)
 
   try {
-    // Извлекаем параметры из URL для гибкости (например, /api/orders?limit=50)
-    const { searchParams } = new URL(req.url)
-    const limit = Number(searchParams.get("limit")) || 100
-    const status = searchParams.get("status")
 
-    let query = supabase
+    const { searchParams } = new URL(req.url)
+    const from = Number(searchParams.get('from'))
+    const to = Number(searchParams.get('to'))
+
+    const { data, error } = await supabase
       .from("orders")
       .select("*")
       .order("Time", { ascending: false })
-      .limit(limit)
-
-    if (status) {
-      query = query.eq("Status", status)
-    }
-
-    const { data, error } = await query
+      .range(from, to); // Запрашиваем конкретный диапазон
 
     if (error) {
       return NextResponse.json({ error: error.message }, { status: 400, headers })
     }
 
-    return NextResponse.json(data, { status: 200, headers })
+    // Всегда возвращаем массив или объект, никогда не возвращаем пустой Response
+    return NextResponse.json(data ?? [], { status: 200, headers })
+
   } catch (err: unknown) {
+    console.error("GET Error:", err)
     return NextResponse.json(
-      { error: err instanceof Error ? err.message : "Unknown error" },
+      { error: err instanceof Error ? err.message : "Internal Server Error" },
       { status: 500, headers }
     )
   }
 }
 
-// OPTIONS должен возвращать те же динамические заголовки
 export async function OPTIONS(req: Request) {
   return new NextResponse(null, {
     status: 204,
