@@ -85,20 +85,7 @@ export function ChartAreaInteractive() {
       [setTimeRange]
    );
 
-   // загрузка данных
-   React.useEffect(() => {
-      async function load() {
-         try {
-            const res = await fetch("/api/chart-data");
-            const raw = await res.json();
 
-            setChartData(raw.chartData);
-         } catch (err) {
-            console.error("Failed to fetch chart data", err);
-         }
-      }
-      load();
-   }, []);
    const STORAGE_KEY = "chart_data_cache";
 
    React.useEffect(() => {
@@ -114,15 +101,11 @@ export function ChartAreaInteractive() {
                throw new Error(`HTTP status: ${res.status}`);
             }
 
-            const data: {
-               chartData: ChartPoint;
-               monthlySpread: MonthlySpread;
-            }[] = await res.json();
-
-            const chartData = data.map((d) => d.chartData);
-
-            if (data.length > 0) {
+            const data = await res.json();
+            const chartData = data.monthlySpread;
+            if (data) {
                // Синхронизируем стейт и кэш
+               console.log(123)
                setChartData(chartData);
                localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
             }
@@ -137,11 +120,8 @@ export function ChartAreaInteractive() {
       const cached = localStorage.getItem(STORAGE_KEY);
       if (cached) {
          try {
-            const parsed = JSON.parse(cached) as {
-               chartData: ChartPoint;
-               monthlySpread: MonthlySpread;
-            }[];
-            setChartData(parsed.map((d) => d.chartData));
+            const parsed = JSON.parse(cached)
+            setChartData(parsed.chartData);
          } catch (e) {
             console.error("Failed to parse cached data", e);
             localStorage.removeItem(STORAGE_KEY);
@@ -154,7 +134,7 @@ export function ChartAreaInteractive() {
       return () => {
          controller.abort();
       };
-   }, []); // Пустой массив зависимостей подразумевает инициализацию при mount
+   }, []);
    React.useEffect(() => {
       if (isMobile) setTimeRange("7d");
    }, [isMobile, setTimeRange]);
