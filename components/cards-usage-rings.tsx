@@ -24,7 +24,7 @@ type CardData = {
 const dummyDataDay: CardData[] = [
    {
       id: "1",
-      bank: "Sberbank",
+      bank: "seraphimSber",
       color: "#21A038",
       currentTurnover: 45000,
       maxTurnover: 100000,
@@ -33,8 +33,8 @@ const dummyDataDay: CardData[] = [
    },
    {
       id: "2",
-      bank: "Tinkoff",
-      color: "#FFDD2D",
+      bank: "mamaSber",
+      color: "#21A038",
       currentTurnover: 78000,
       maxTurnover: 100000,
       operations: 18,
@@ -42,8 +42,8 @@ const dummyDataDay: CardData[] = [
    },
    {
       id: "3",
-      bank: "Alfa",
-      color: "#EF3124",
+      bank: "papaSber",
+      color: "#21A038",
       currentTurnover: 32000,
       maxTurnover: 100000,
       operations: 8,
@@ -51,8 +51,8 @@ const dummyDataDay: CardData[] = [
    },
    {
       id: "4",
-      bank: "VTB",
-      color: "#0098D9",
+      bank: "seraphimTbank",
+      color: "#FFDD2D",
       currentTurnover: 91000,
       maxTurnover: 100000,
       operations: 19,
@@ -60,8 +60,17 @@ const dummyDataDay: CardData[] = [
    },
    {
       id: "5",
-      bank: "Raiffeisen",
-      color: "#FFED00",
+      bank: "galyaTbank",
+      color: "#FFDD2D",
+      currentTurnover: 55000,
+      maxTurnover: 100000,
+      operations: 14,
+      maxOperations: 20,
+   },
+   {
+      id: "6",
+      bank: "papaTbank",
+      color: "#FFDD2D",
       currentTurnover: 55000,
       maxTurnover: 100000,
       operations: 14,
@@ -72,7 +81,7 @@ const dummyDataDay: CardData[] = [
 const dummyDataMonth: CardData[] = [
    {
       id: "1",
-      bank: "Sberbank",
+      bank: "seraphimSber",
       color: "#21A038",
       currentTurnover: 1250000,
       maxTurnover: 3000000,
@@ -81,8 +90,8 @@ const dummyDataMonth: CardData[] = [
    },
    {
       id: "2",
-      bank: "Tinkoff",
-      color: "#FFDD2D",
+      bank: "mamaSber",
+      color: "#21A038",
       currentTurnover: 2100000,
       maxTurnover: 3000000,
       operations: 485,
@@ -90,8 +99,8 @@ const dummyDataMonth: CardData[] = [
    },
    {
       id: "3",
-      bank: "Alfa",
-      color: "#EF3124",
+      bank: "papaSber",
+      color: "#21A038",
       currentTurnover: 890000,
       maxTurnover: 3000000,
       operations: 225,
@@ -99,8 +108,8 @@ const dummyDataMonth: CardData[] = [
    },
    {
       id: "4",
-      bank: "VTB",
-      color: "#0098D9",
+      bank: "seraphimTbank",
+      color: "#FFDD2D",
       currentTurnover: 2650000,
       maxTurnover: 3000000,
       operations: 550,
@@ -108,8 +117,17 @@ const dummyDataMonth: CardData[] = [
    },
    {
       id: "5",
-      bank: "Raiffeisen",
-      color: "#FFED00",
+      bank: "galyaTbank",
+      color: "#FFDD2D",
+      currentTurnover: 1580000,
+      maxTurnover: 3000000,
+      operations: 390,
+      maxOperations: 600,
+   },
+   {
+      id: "6",
+      bank: "papaTbank",
+      color: "#FFDD2D",
       currentTurnover: 1580000,
       maxTurnover: 3000000,
       operations: 390,

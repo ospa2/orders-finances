@@ -2,6 +2,7 @@ import { AppSidebar } from "@/components/app-sidebar";
 import CardUsageRingsChart from "@/components/cards-usage-rings";
 import { ChartAreaInteractive } from "@/components/chart-area-interactive";
 import { DataTable } from "@/components/data-table";
+import { Heatmap } from "@/components/heatmap-timeline";
 import { MonthlyRevenueChart } from "@/components/monthly-revenue-chart";
 import { SectionCards } from "@/components/section-cards";
 import { SiteHeader } from "@/components/site-header";
@@ -38,7 +39,10 @@ export default function Page() {
                            <div className="px-4 lg:px-6">
                               <CardUsageRingsChart />
                            </div>
-                           <DataTable/>
+                           <DataTable />
+                           <div className="px-4 lg:px-6">
+                              <Heatmap/>
+                           </div>
                         </div>
                      </div>
                   </div>

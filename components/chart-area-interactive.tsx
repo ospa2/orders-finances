@@ -105,7 +105,6 @@ export function ChartAreaInteractive() {
             const chartData = data.monthlySpread;
             if (data) {
                // Синхронизируем стейт и кэш
-               console.log(123)
                setChartData(chartData);
                localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
             }
