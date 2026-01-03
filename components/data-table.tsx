@@ -447,14 +447,13 @@ export function DataTable() {
             if (chunk.length > 0) {
                allData = [...allData, ...chunk];
                from += STEP;
-
-               // Обновляем стейт сразу, чтобы юзер видел первые данные
-               setData([...allData]);
+               
             }
 
             // Если пришло меньше 500 строк, значит данных в базе больше нет
             if (chunk.length < STEP) {
                hasMore = false;
+               setData([...allData]);
             }
          }
 
@@ -466,6 +465,7 @@ export function DataTable() {
          fetchAll();
       } else {
          setData(JSON.parse(cached));
+         fetchAll();
       }
    }, []);
    const dataIds = React.useMemo<UniqueIdentifier[]>(

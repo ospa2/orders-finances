@@ -82,7 +82,7 @@ export const ChartDataProvider: React.FC<{ children: React.ReactNode }> = ({
 
    useEffect(() => {
       fetchData();
-   }, []);
+   });
    const contextValue = useMemo(
       (): ChartContextType => ({
          chartData,
