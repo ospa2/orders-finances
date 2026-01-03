@@ -62,17 +62,19 @@ export const ChartDataProvider: React.FC<{ children: React.ReactNode }> = ({
    }, []);
 
    const fetchData = async () => {
-      const res = await fetch(`/api/chart-data?range=10d`);
+      const mergeByDate = (a: ChartPoint[], b: ChartPoint[]): ChartPoint[] => {
+         const map = new Map<string, ChartPoint>();
+         [...a, ...b].forEach((item) => map.set(item.date, item));
+         return Array.from(map.values());
+      };
+      const res = await fetch(`/api/chart-data`);
       const data: CacheSchema = await res.json();
       const newChartData = data.chartData;
 
-      const allChartData = [...chartData, ...newChartData];
-      const uniqueChartData = allChartData.filter(
-         (item, index) =>
-            allChartData.findIndex((i) => i.date === item.date) === index
-      );
-      if (uniqueChartData.length === 0) {
-         setChartData(uniqueChartData);
+      const allChartData = mergeByDate(chartData, newChartData);
+      
+      if (allChartData) {
+         setChartData(allChartData);
          localStorage.setItem("chart_data_cache", JSON.stringify(data));
       }
    };
