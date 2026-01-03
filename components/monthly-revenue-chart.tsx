@@ -259,7 +259,7 @@ export function MonthlyRevenueChart() {
    const data = useChartData().chartData;
    const monthlySpread = useChartData().monthlySpread;
    const revenueData = aggregateByMonth(data, monthlySpread);
-   const [hoveredndex, setHoveredIndex] = useState<number | null>(null);
+   const [, setHoveredIndex] = useState<number | null>(null);
 
    const handleMouseEnter = useCallback(
       (_: React.MouseEvent, index: number) => {
