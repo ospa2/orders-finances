@@ -12,6 +12,7 @@ import {
 } from "@/components/ui/card"
 import { useChartData } from "@/lib/сhartDataProvider";
 import { ChartPoint, Order } from "@/lib/pnl";
+import { useState, useEffect } from "react";
 // Функция для получения даты N дней назад (осталась без изменений)
 function getDateDaysAgo(days: number, today: Date): Date {
     const d = new Date(today);
@@ -222,7 +223,20 @@ export function SectionCards() {
   const { chartData, timeRange } = useChartData();
   const totalRevenue = chartData.reduce((acc, curr) => acc + curr.revenue, 0).toFixed();
   const { last7Days, last30Days, last90Days } = calculateRevenue(chartData);
-  const orders = JSON.parse(localStorage.getItem("orders_cache") || "[]");
+  const [orders, setOrders] = useState<Order[]>([]); // Типизируйте Order
+
+  useEffect(() => {
+     const cached = localStorage.getItem("orders_cache");
+     if (cached) {
+        try {
+           setOrders(JSON.parse(cached));
+        } catch (e) {
+           console.error("Failed to parse orders_cache", e);
+        }
+     }
+  }, []);
+
+  // Теперь расчеты зависят от состояния
   const cycleVelocity = calculateCycleVelocity(orders, timeRange);
   return (
      <div className="*:data-[slot=card]:from-primary/5 *:data-[slot=card]:to-card dark:*:data-[slot=card]:bg-card grid grid-cols-1 gap-4 px-4 *:data-[slot=card]:bg-gradient-to-t *:data-[slot=card]:shadow-xs lg:px-6 @xl/main:grid-cols-2 @5xl/main:grid-cols-4">

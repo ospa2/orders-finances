@@ -192,7 +192,7 @@ export function Heatmap() {
     dragRef.current.mode = null;
     document.removeEventListener("pointermove", handlePointerMove);
     document.removeEventListener("pointerup", handlePointerUp);
-  }, []);
+  }, [handlePointerMove]);
 
   // Styles
   const colorHex = mode === "BUY" ? "#18f168" : "#f91c1c";
