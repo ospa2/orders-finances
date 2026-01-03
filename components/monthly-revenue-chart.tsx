@@ -39,6 +39,7 @@ interface BarShapeProps {
    height?: number;
    fill?: string;
 }
+
 function aggregateByMonth(
    data: ChartPoint[],
    monthlySpread: MonthlySpread[]
@@ -58,12 +59,14 @@ function aggregateByMonth(
       "Dec",
    ];
    const map = new Map<
-      number,
+      string,
       {
          revenue: number;
          totalBuy: number;
          totalSell: number;
          count: number;
+         year: number;
+         monthIndex: number;
       }
    >();
 
@@ -78,36 +81,44 @@ function aggregateByMonth(
    for (const { date, buy, sell, revenue } of data) {
       const d = new Date(date);
       if (isNaN(d.getTime())) continue; // пропустить некорректные даты
-      const m = d.getMonth();
-      const acc = map.get(m) ?? {
+
+      const year = d.getFullYear();
+      const monthIndex = d.getMonth();
+      const monthKey = `${year}-${String(monthIndex + 1).padStart(2, "0")}`;
+
+      const acc = map.get(monthKey) ?? {
          revenue: 0,
          totalBuy: 0,
          totalSell: 0,
          count: 0,
+         year,
+         monthIndex,
       };
       acc.revenue += revenue;
       acc.totalBuy += buy;
       acc.totalSell += sell;
       acc.count += 1;
-      map.set(m, acc);
+      map.set(monthKey, acc);
    }
 
    const result: MonthSummary[] = Array.from(map.entries())
-      .sort((a, b) => a[0] - b[0]) // по порядку месяцев
-      .map(([monthIndex, acc]) => {
-         const { revenue, totalBuy, totalSell } = acc;
+      .sort((a, b) => {
+         // Сортируем по году и месяцу
+         const [keyA] = a;
+         const [keyB] = b;
+         return keyA.localeCompare(keyB);
+      })
+      .map(([monthKey, acc]) => {
+         const { revenue, totalBuy, totalSell, year, monthIndex } = acc;
 
          // Получаем спред из monthlySpread
-         // Формируем ключ в формате "YYYY-MM" из текущего года и monthIndex
-         const year = new Date().getFullYear();
-         const monthKey = `${year}-${String(monthIndex + 1).padStart(2, "0")}`;
          const spreadPercent = spreadMap.get(monthKey) || 0;
 
          // Конвертируем проценты (2.17) в десятичную дробь (0.0217)
          const avgSpread = spreadPercent / 100;
 
          return {
-            month: monthNames[monthIndex],
+            month: `${monthNames[monthIndex]} ${monthNames[monthIndex]==="Jan" ? year : ""}`,
             revenue,
             avgSpread, // храним как десятичную дробь для tooltip
             totalBuy,
