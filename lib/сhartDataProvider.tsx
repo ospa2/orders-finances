@@ -75,6 +75,7 @@ export const ChartDataProvider: React.FC<{ children: React.ReactNode }> = ({
       
       if (allChartData) {
          setChartData(allChartData);
+         setMonthlySpread(data.monthlySpread);
          localStorage.setItem("chart_data_cache", JSON.stringify(data));
       }
    };
