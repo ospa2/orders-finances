@@ -436,7 +436,6 @@ export function DataTable() {
          let from = 0;
          const STEP = 500;
          let hasMore = true;
-
          while (hasMore) {
             // Запрашиваем 0-499, затем 500-999, затем 1000-1499
             const res = await fetch(
@@ -447,7 +446,6 @@ export function DataTable() {
             if (chunk.length > 0) {
                allData = [...allData, ...chunk];
                from += STEP;
-               
             }
 
             // Если пришло меньше 500 строк, значит данных в базе больше нет

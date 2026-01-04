@@ -68,7 +68,7 @@ export function ChartAreaInteractive() {
    }, []);
    const isMobile = useIsMobile();
    const { timeRange, setTimeRange } = useChartData();
-   const [chartData, setChartData] = React.useState<ChartPoint[]>([]);
+   const chartData = useChartData().chartData;
 
    const handleTimeRangeChange = React.useCallback(
       (value: string) => {
@@ -86,54 +86,7 @@ export function ChartAreaInteractive() {
    );
 
 
-   const STORAGE_KEY = "chart_data_cache";
-
-   React.useEffect(() => {
-      const controller = new AbortController();
-
-      const fetchAll = async () => {
-         try {
-            const res = await fetch("/api/chart-data", {
-               signal: controller.signal,
-            });
-
-            if (!res.ok) {
-               throw new Error(`HTTP status: ${res.status}`);
-            }
-
-            const data = await res.json();
-            const chartData = data.monthlySpread;
-            if (data) {
-               // Синхронизируем стейт и кэш
-               setChartData(chartData);
-               localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
-            }
-         } catch (error) {
-            if (error instanceof Error && error.name === "AbortError") {
-               return; // Игнорируем штатную отмену
-            }
-            console.error("Fetch error:", error);
-         }
-      };
-
-      const cached = localStorage.getItem(STORAGE_KEY);
-      if (cached) {
-         try {
-            const parsed = JSON.parse(cached)
-            setChartData(parsed.chartData);
-         } catch (e) {
-            console.error("Failed to parse cached data", e);
-            localStorage.removeItem(STORAGE_KEY);
-            void fetchAll();
-         }
-      } else {
-         void fetchAll();
-      }
-
-      return () => {
-         controller.abort();
-      };
-   }, []);
+   
    React.useEffect(() => {
       if (isMobile) setTimeRange("7d");
    }, [isMobile, setTimeRange]);

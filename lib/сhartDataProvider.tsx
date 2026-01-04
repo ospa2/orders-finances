@@ -67,8 +67,10 @@ export const ChartDataProvider: React.FC<{ children: React.ReactNode }> = ({
          [...a, ...b].forEach((item) => map.set(item.date, item));
          return Array.from(map.values());
       };
+
       const res = await fetch(`/api/chart-data`);
       const data: CacheSchema = await res.json();
+      
       const newChartData = data.chartData;
 
       const allChartData = mergeByDate(chartData, newChartData);
@@ -82,7 +84,7 @@ export const ChartDataProvider: React.FC<{ children: React.ReactNode }> = ({
 
    useEffect(() => {
       fetchData();
-   });
+   }, []);
    const contextValue = useMemo(
       (): ChartContextType => ({
          chartData,
