@@ -25,7 +25,6 @@ import {
    SelectValue,
 } from "@/components/ui/select";
 import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
-import { ChartPoint } from "@/lib/pnl";
 import { TimeRangeValue, useChartData } from "@/lib/сhartDataProvider";
 
 export const description = "An interactive area chart";

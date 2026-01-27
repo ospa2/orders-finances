@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect, useMemo } from "react";
 import {
    Card,
    CardContent,
@@ -9,11 +9,26 @@ import {
    CardTitle,
 } from "@/components/ui/card";
 
+// --- Types ---
+
 type TimeMode = "day" | "month";
 
-type CardData = {
+// Полное соответствие колонкам в Supabase
+interface ApiCardData {
    id: string;
-   bank: string;
+   bank: "sber" | "tbank" | string;
+   balance: number;
+   // Ежедневные метрики (сбрасываются cron '0 0 * * *')
+   turnover: number;
+   operations: number;
+   // Ежемесячные метрики (сбрасываются cron '0 0 1 * *')
+   monthly_operations: number;
+   monhtly_turnover: number; // Сохранено написание как в БД (с опечаткой)
+}
+
+type DisplayCardData = {
+   id: string;
+   bankLabel: string;
    color: string;
    currentTurnover: number;
    maxTurnover: number;
@@ -21,119 +36,27 @@ type CardData = {
    maxOperations: number;
 };
 
-const dummyDataDay: CardData[] = [
-   {
-      id: "1",
-      bank: "seraphimSber",
-      color: "#21A038",
-      currentTurnover: 45000,
-      maxTurnover: 100000,
-      operations: 12,
-      maxOperations: 20,
-   },
-   {
-      id: "2",
-      bank: "mamaSber",
-      color: "#21A038",
-      currentTurnover: 78000,
-      maxTurnover: 100000,
-      operations: 18,
-      maxOperations: 20,
-   },
-   {
-      id: "3",
-      bank: "papaSber",
-      color: "#21A038",
-      currentTurnover: 32000,
-      maxTurnover: 100000,
-      operations: 8,
-      maxOperations: 20,
-   },
-   {
-      id: "4",
-      bank: "seraphimTbank",
-      color: "#FFDD2D",
-      currentTurnover: 91000,
-      maxTurnover: 100000,
-      operations: 19,
-      maxOperations: 20,
-   },
-   {
-      id: "5",
-      bank: "galyaTbank",
-      color: "#FFDD2D",
-      currentTurnover: 55000,
-      maxTurnover: 100000,
-      operations: 14,
-      maxOperations: 20,
-   },
-   {
-      id: "6",
-      bank: "papaTbank",
-      color: "#FFDD2D",
-      currentTurnover: 55000,
-      maxTurnover: 100000,
-      operations: 14,
-      maxOperations: 20,
-   },
-];
+// --- Config (Без изменений) ---
 
-const dummyDataMonth: CardData[] = [
-   {
-      id: "1",
-      bank: "seraphimSber",
-      color: "#21A038",
-      currentTurnover: 1250000,
-      maxTurnover: 3000000,
-      operations: 340,
-      maxOperations: 600,
+const LIMITS = {
+   day: {
+      maxTurnover: 100000,
+      maxOperations: 10,
    },
-   {
-      id: "2",
-      bank: "mamaSber",
-      color: "#21A038",
-      currentTurnover: 2100000,
-      maxTurnover: 3000000,
-      operations: 485,
-      maxOperations: 600,
+   month: {
+      maxTurnover: 1000000,
+      maxOperations: 50,
    },
-   {
-      id: "3",
-      bank: "papaSber",
-      color: "#21A038",
-      currentTurnover: 890000,
-      maxTurnover: 3000000,
-      operations: 225,
-      maxOperations: 600,
-   },
-   {
-      id: "4",
-      bank: "seraphimTbank",
-      color: "#FFDD2D",
-      currentTurnover: 2650000,
-      maxTurnover: 3000000,
-      operations: 550,
-      maxOperations: 600,
-   },
-   {
-      id: "5",
-      bank: "galyaTbank",
-      color: "#FFDD2D",
-      currentTurnover: 1580000,
-      maxTurnover: 3000000,
-      operations: 390,
-      maxOperations: 600,
-   },
-   {
-      id: "6",
-      bank: "papaTbank",
-      color: "#FFDD2D",
-      currentTurnover: 1580000,
-      maxTurnover: 3000000,
-      operations: 390,
-      maxOperations: 600,
-   },
-];
+};
+
+const BANK_COLORS: Record<string, string> = {
+   sber: "#21A038",
+   tbank: "#FFDD2D",
+   default: "#888888",
+};
+
+// --- Components (Progress bars без изменений) ---
+// ... (CircularProgress и LinearProgress оставить как были) ...
 
 const CircularProgress = ({
    percentage,
@@ -147,7 +70,8 @@ const CircularProgress = ({
    const strokeWidth = 8;
    const radius = (size - strokeWidth) / 2;
    const circumference = 2 * Math.PI * radius;
-   const offset = circumference - (percentage / 100) * circumference;
+   const safePercentage = Math.min(Math.max(percentage, 0), 100);
+   const offset = circumference - (safePercentage / 100) * circumference;
 
    return (
       <svg width={size} height={size} className="transform -rotate-90">
@@ -170,9 +94,7 @@ const CircularProgress = ({
             strokeDasharray={circumference}
             strokeDashoffset={offset}
             strokeLinecap="round"
-            style={{
-               transition: "stroke-dashoffset 0.5s ease",
-            }}
+            style={{ transition: "stroke-dashoffset 0.5s ease" }}
          />
       </svg>
    );
@@ -190,7 +112,7 @@ const LinearProgress = ({
          <div
             className="h-full rounded-full transition-all duration-500 ease-out"
             style={{
-               width: `${percentage}%`,
+               width: `${Math.min(percentage, 100)}%`,
                backgroundColor: color,
             }}
          />
@@ -198,17 +120,19 @@ const LinearProgress = ({
    );
 };
 
-const CardRing = ({ card }: { card: CardData; mode: TimeMode }) => {
-   const turnoverPercentage = (card.currentTurnover / card.maxTurnover) * 100;
-   const operationsPercentage = (card.operations / card.maxOperations) * 100;
+const CardRing = ({ card }: { card: DisplayCardData }) => {
+   // Защита от деления на 0
+   const turnoverPercentage =
+      card.maxTurnover > 0
+         ? (card.currentTurnover / card.maxTurnover) * 100
+         : 0;
+
+   const operationsPercentage =
+      card.maxOperations > 0 ? (card.operations / card.maxOperations) * 100 : 0;
 
    const formatCurrency = (value: number) => {
-      if (value >= 1000000) {
-         return `${(value / 1000000).toFixed(1)}M`;
-      }
-      if (value >= 1000) {
-         return `${(value / 1000).toFixed(0)}k`;
-      }
+      if (value >= 1000000) return `${(value / 1000000).toFixed(1)}M`;
+      if (value >= 1000) return `${(value / 1000).toFixed(0)}k`;
       return value.toString();
    };
 
@@ -229,7 +153,14 @@ const CardRing = ({ card }: { card: CardData; mode: TimeMode }) => {
                </div>
             </div>
          </div>
-         <div className="text-sm font-semibold text-center">{card.bank}</div>
+
+         <div
+            className="text-sm font-semibold text-center truncate w-full px-2"
+            title={card.id}
+         >
+            {card.id}
+         </div>
+
          <div className="w-full space-y-1">
             <div className="flex justify-between text-xs text-muted-foreground">
                <span>Operations</span>
@@ -248,7 +179,62 @@ const CardRing = ({ card }: { card: CardData; mode: TimeMode }) => {
 
 export default function CardUsageRingsChart() {
    const [mode, setMode] = useState<TimeMode>("day");
-   const data = mode === "day" ? dummyDataDay : dummyDataMonth;
+   const [apiData, setApiData] = useState<ApiCardData[]>([]);
+   const [isLoading, setIsLoading] = useState(true);
+   const [error, setError] = useState<string | null>(null);
+
+   useEffect(() => {
+      const fetchData = async () => {
+         try {
+            setIsLoading(true);
+            // Добавлен timestamp чтобы избежать кеширования GET запросов Next.js
+            const response = await fetch(`/api/cards?t=${Date.now()}`);
+            if (!response.ok) throw new Error("Failed to fetch");
+
+            const json = await response.json();
+            setApiData(json);
+         } catch (err) {
+            console.error(err);
+            setError("Error loading data");
+         } finally {
+            setIsLoading(false);
+         }
+      };
+
+      fetchData();
+
+      // Опционально: можно добавить поллинг данных
+      // const interval = setInterval(fetchData, 5000);
+      // return () => clearInterval(interval);
+   }, []);
+
+   const processedData: DisplayCardData[] = useMemo(() => {
+      const currentLimits = LIMITS[mode];
+      const isMonth = mode === "month";
+
+      return apiData.map((item) => {
+         // Выбор полей в зависимости от режима
+         const turnoverValue = isMonth ? item.monhtly_turnover : item.turnover;
+         const operationsValue = isMonth
+            ? item.monthly_operations
+            : item.operations;
+
+         return {
+            id: item.id,
+            bankLabel: item.bank,
+            color: BANK_COLORS[item.bank] || BANK_COLORS.default,
+
+            // Маппинг правильных полей
+            currentTurnover: turnoverValue || 0, // Fallback на 0 если null
+            operations: operationsValue || 0,
+
+            maxTurnover: currentLimits.maxTurnover,
+            maxOperations: currentLimits.maxOperations,
+         };
+      });
+   }, [apiData, mode]);
+
+   if (error) return <div className="p-4 text-red-500">{error}</div>;
 
    return (
       <Card>
@@ -257,39 +243,41 @@ export default function CardUsageRingsChart() {
                <div>
                   <CardTitle>Card Usage</CardTitle>
                   <CardDescription>
-                     Turnover and operations per card
+                     Turnover and operations per card ({mode})
                   </CardDescription>
                </div>
                <div className="flex gap-2 p-1 bg-muted rounded-lg">
-                  <button
-                     onClick={() => setMode("day")}
-                     className={`px-4 py-2 text-sm font-medium rounded-md transition-colors ${
-                        mode === "day"
-                           ? "bg-background shadow-sm"
-                           : "text-muted-foreground hover:text-foreground"
-                     }`}
-                  >
-                     Day
-                  </button>
-                  <button
-                     onClick={() => setMode("month")}
-                     className={`px-4 py-2 text-sm font-medium rounded-md transition-colors ${
-                        mode === "month"
-                           ? "bg-background shadow-sm"
-                           : "text-muted-foreground hover:text-foreground"
-                     }`}
-                  >
-                     Month
-                  </button>
+                  {/* Кнопки переключения режимов */}
+                  {(["day", "month"] as TimeMode[]).map((m) => (
+                     <button
+                        key={m}
+                        onClick={() => setMode(m)}
+                        className={`px-4 py-2 text-sm font-medium rounded-md transition-colors capitalize ${
+                           mode === m
+                              ? "bg-background shadow-sm text-foreground"
+                              : "text-muted-foreground hover:text-foreground"
+                        }`}
+                     >
+                        {m}
+                     </button>
+                  ))}
                </div>
             </div>
          </CardHeader>
          <CardContent>
-            <div className="grid grid-cols-5 gap-6">
-               {data.map((card) => (
-                  <CardRing key={card.id} card={card} mode={mode} />
-               ))}
-            </div>
+            {isLoading ? (
+               <div className="flex items-center justify-center h-48">
+                  <span className="text-muted-foreground">
+                     Loading cards...
+                  </span>
+               </div>
+            ) : (
+               <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
+                  {processedData.map((card) => (
+                     <CardRing key={card.id} card={card} />
+                  ))}
+               </div>
+            )}
          </CardContent>
       </Card>
    );
