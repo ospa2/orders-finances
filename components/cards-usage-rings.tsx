@@ -23,7 +23,7 @@ interface ApiCardData {
    operations: number;
    // Ежемесячные метрики (сбрасываются cron '0 0 1 * *')
    monthly_operations: number;
-   monhtly_turnover: number; // Сохранено написание как в БД (с опечаткой)
+   monthly_turnover: number;
 }
 
 type DisplayCardData = {
@@ -214,7 +214,7 @@ export default function CardUsageRingsChart() {
 
       return apiData.map((item) => {
          // Выбор полей в зависимости от режима
-         const turnoverValue = isMonth ? item.monhtly_turnover : item.turnover;
+         const turnoverValue = isMonth ? item.monthly_turnover : item.turnover;
          const operationsValue = isMonth
             ? item.monthly_operations
             : item.operations;
