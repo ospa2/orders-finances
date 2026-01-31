@@ -13,15 +13,12 @@ import {
 
 type TimeMode = "day" | "month";
 
-// Полное соответствие колонкам в Supabase
 interface ApiCardData {
    id: string;
    bank: "sber" | "tbank" | string;
    balance: number;
-   // Ежедневные метрики (сбрасываются cron '0 0 * * *')
    turnover: number;
    operations: number;
-   // Ежемесячные метрики (сбрасываются cron '0 0 1 * *')
    monthly_operations: number;
    monthly_turnover: number;
 }
@@ -30,23 +27,18 @@ type DisplayCardData = {
    id: string;
    bankLabel: string;
    color: string;
+   balance: number;
    currentTurnover: number;
    maxTurnover: number;
    operations: number;
    maxOperations: number;
 };
 
-// --- Config (Без изменений) ---
+// --- Config ---
 
 const LIMITS = {
-   day: {
-      maxTurnover: 100000,
-      maxOperations: 10,
-   },
-   month: {
-      maxTurnover: 1000000,
-      maxOperations: 50,
-   },
+   day: { maxTurnover: 100000, maxOperations: 10 },
+   month: { maxTurnover: 1000000, maxOperations: 50 },
 };
 
 const BANK_COLORS: Record<string, string> = {
@@ -55,8 +47,23 @@ const BANK_COLORS: Record<string, string> = {
    default: "#888888",
 };
 
-// --- Components (Progress bars без изменений) ---
-// ... (CircularProgress и LinearProgress оставить как были) ...
+// --- Helpers ---
+
+const formatCurrency = (value: number) => {
+   if (value >= 1000000) return `${(value / 1000000).toFixed(2)}M`;
+   if (value >= 1000) return `${(value / 1000).toFixed(0)}k`;
+   return value.toString();
+};
+
+const formatFullCurrency = (value: number) => {
+   return new Intl.NumberFormat("ru-RU", {
+      style: "currency",
+      currency: "RUB",
+      maximumFractionDigits: 0,
+   }).format(value);
+};
+
+// --- Components ---
 
 const CircularProgress = ({
    percentage,
@@ -108,7 +115,7 @@ const LinearProgress = ({
    color: string;
 }) => {
    return (
-      <div className="w-full h-2 bg-black/5 dark:bg-white/5 rounded-full overflow-hidden">
+      <div className="w-full h-1.5 bg-black/5 dark:bg-white/5 rounded-full overflow-hidden">
          <div
             className="h-full rounded-full transition-all duration-500 ease-out"
             style={{
@@ -120,8 +127,71 @@ const LinearProgress = ({
    );
 };
 
-const CardRing = ({ card }: { card: DisplayCardData }) => {
-   // Защита от деления на 0
+// Новый компонент баланса
+const BalanceIndicator = ({
+   balance,
+   maxSetBalance,
+   color,
+}: {
+   balance: number;
+   maxSetBalance: number;
+   color: string;
+}) => {
+   // Вычисляем процент заполнения относительно самой богатой карты в наборе
+   // Используем Math.max(1, ...) для избежания деления на 0
+   const fillPercentage = (balance / Math.max(maxSetBalance, 1)) * 100;
+
+   return (
+      <div className="w-full mt-2 group relative overflow-hidden rounded-lg border border-black/5 dark:border-white/5 shadow-sm">
+         {/* Background Fill Bar */}
+         <div
+            className="absolute inset-y-0 left-0 transition-all duration-700 ease-out"
+            style={{
+               width: `${fillPercentage}%`,
+               backgroundColor: color,
+            }}
+         />
+
+         {/* Content */}
+         <div className="relative flex items-center justify-between px-3 py-2">
+            <div className="flex items-center">
+               {/* Добавлен flex и items-center для выравнивания иконки и текста в строку */}
+               <span className="flex items-center gap-1.5 px-2 py-1 rounded-sm bg-foreground text-background text-[10px] font-bold tracking-wider transition-colors">
+                  <svg
+                     xmlns="http://www.w3.org/2000/svg"
+                     viewBox="0 0 24 24"
+                     fill="none"
+                     stroke="currentColor" // Используем currentColor, чтобы цвет подстраивался под text-background
+                     strokeWidth="2.5"
+                     strokeLinecap="round"
+                     strokeLinejoin="round"
+                     className="w-3 h-3"
+                  >
+                     <path d="M19 7V4a1 1 0 0 0-1-1H5a2 2 0 0 0 0 4h15a1 1 0 0 1 1 1v4h-3a2 2 0 0 0 0 4h3a1 1 0 0 0 1-1v-2a1 1 0 0 0-1-1" />
+                     <path d="M3 5v14a2 2 0 0 0 2 2h15a1 1 0 0 0 1-1v-4" />
+                  </svg>
+                  Balance
+               </span>
+            </div>
+
+            <div
+               className="text-sm font-bold tracking-tight"
+               style={{ color: "var(--foreground)" }}
+            >
+               {formatFullCurrency(balance)}
+            </div>
+         </div>
+      </div>
+   );
+};
+
+const CardRing = ({
+   card,
+   maxSetBalance,
+}: {
+   card: DisplayCardData;
+   maxSetBalance: number;
+}) => {
    const turnoverPercentage =
       card.maxTurnover > 0
          ? (card.currentTurnover / card.maxTurnover) * 100
@@ -130,19 +200,14 @@ const CardRing = ({ card }: { card: DisplayCardData }) => {
    const operationsPercentage =
       card.maxOperations > 0 ? (card.operations / card.maxOperations) * 100 : 0;
 
-   const formatCurrency = (value: number) => {
-      if (value >= 1000000) return `${(value / 1000000).toFixed(1)}M`;
-      if (value >= 1000) return `${(value / 1000).toFixed(0)}k`;
-      return value.toString();
-   };
-
    return (
-      <div className="flex flex-col items-center gap-3">
+      <div className="flex flex-col items-center gap-4 p-2">
+         {/* 1. График оборота */}
          <div className="relative">
             <CircularProgress
                percentage={turnoverPercentage}
                color={card.color}
-               size={120}
+               size={110} // Чуть уменьшил, чтобы влез новый баланс
             />
             <div className="absolute inset-0 flex flex-col items-center justify-center">
                <div className="text-2xl font-bold">
@@ -154,15 +219,25 @@ const CardRing = ({ card }: { card: DisplayCardData }) => {
             </div>
          </div>
 
+         {/* 2. Название карты */}
          <div
-            className="text-sm font-semibold text-center truncate w-full px-2"
+            className="text-sm font-bold tracking-wide truncate px-2 text-center"
+            style={{ color: card.color }}
             title={card.id}
          >
             {card.id}
          </div>
 
-         <div className="w-full space-y-1">
-            <div className="flex justify-between text-xs text-muted-foreground">
+         {/* 3. Новый дизайн баланса */}
+         <BalanceIndicator
+            balance={card.balance}
+            maxSetBalance={maxSetBalance}
+            color={card.color}
+         />
+
+         {/* 4. Операции */}
+         <div className="w-full space-y-1.5 mt-1">
+            <div className="flex justify-between text-[10px] font-medium text-muted-foreground tracking-wider">
                <span>Operations</span>
                <span>
                   {card.operations}/{card.maxOperations}
@@ -187,7 +262,6 @@ export default function CardUsageRingsChart() {
       const fetchData = async () => {
          try {
             setIsLoading(true);
-            // Добавлен timestamp чтобы избежать кеширования GET запросов Next.js
             const response = await fetch(`/api/cards?t=${Date.now()}`);
             if (!response.ok) throw new Error("Failed to fetch");
 
@@ -202,10 +276,6 @@ export default function CardUsageRingsChart() {
       };
 
       fetchData();
-
-      // Опционально: можно добавить поллинг данных
-      // const interval = setInterval(fetchData, 5000);
-      // return () => clearInterval(interval);
    }, []);
 
    const processedData: DisplayCardData[] = useMemo(() => {
@@ -213,7 +283,6 @@ export default function CardUsageRingsChart() {
       const isMonth = mode === "month";
 
       return apiData.map((item) => {
-         // Выбор полей в зависимости от режима
          const turnoverValue = isMonth ? item.monthly_turnover : item.turnover;
          const operationsValue = isMonth
             ? item.monthly_operations
@@ -223,39 +292,42 @@ export default function CardUsageRingsChart() {
             id: item.id,
             bankLabel: item.bank,
             color: BANK_COLORS[item.bank] || BANK_COLORS.default,
-
-            // Маппинг правильных полей
-            currentTurnover: turnoverValue || 0, // Fallback на 0 если null
+            balance: item.balance || 0,
+            currentTurnover: turnoverValue || 0,
             operations: operationsValue || 0,
-
             maxTurnover: currentLimits.maxTurnover,
             maxOperations: currentLimits.maxOperations,
          };
       });
    }, [apiData, mode]);
 
+   // Вычисляем глобальный максимум баланса для масштабирования шкал
+   const maxSetBalance = useMemo(() => {
+      if (processedData.length === 0) return 0;
+      return Math.max(...processedData.map((c) => c.balance));
+   }, [processedData]);
+
    if (error) return <div className="p-4 text-red-500">{error}</div>;
 
    return (
-      <Card>
+      <Card className="w-full">
          <CardHeader>
             <div className="flex items-center justify-between">
                <div>
-                  <CardTitle>Card Usage</CardTitle>
+                  <CardTitle>Financial Overview</CardTitle>
                   <CardDescription>
-                     Turnover and operations per card ({mode})
+                     Monitor turnover, operations, and liquidity ({mode})
                   </CardDescription>
                </div>
-               <div className="flex gap-2 p-1 bg-muted rounded-lg">
-                  {/* Кнопки переключения режимов */}
+               <div className="flex gap-1 p-1 bg-muted/50 rounded-lg border border-black/5">
                   {(["day", "month"] as TimeMode[]).map((m) => (
                      <button
                         key={m}
                         onClick={() => setMode(m)}
-                        className={`px-4 py-2 text-sm font-medium rounded-md transition-colors capitalize ${
+                        className={`px-3 py-1.5 text-xs font-semibold rounded-md transition-all capitalize ${
                            mode === m
-                              ? "bg-background shadow-sm text-foreground"
-                              : "text-muted-foreground hover:text-foreground"
+                              ? "bg-background shadow-sm text-foreground ring-1 ring-black/5"
+                              : "text-muted-foreground hover:text-foreground hover:bg-black/5"
                         }`}
                      >
                         {m}
@@ -266,15 +338,19 @@ export default function CardUsageRingsChart() {
          </CardHeader>
          <CardContent>
             {isLoading ? (
-               <div className="flex items-center justify-center h-48">
-                  <span className="text-muted-foreground">
-                     Loading cards...
-                  </span>
+               <div className="flex items-center justify-center h-64">
+                  <div className="animate-pulse text-muted-foreground font-medium">
+                     Syncing bank data...
+                  </div>
                </div>
             ) : (
-               <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
+               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5 gap-8">
                   {processedData.map((card) => (
-                     <CardRing key={card.id} card={card} />
+                     <CardRing
+                        key={card.id}
+                        card={card}
+                        maxSetBalance={maxSetBalance}
+                     />
                   ))}
                </div>
             )}
