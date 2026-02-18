@@ -42,8 +42,18 @@ const LIMITS = {
 };
 
 const BANK_COLORS: Record<string, string> = {
-   sber: "#21A038",
    tbank: "#FFDD2D",
+   sber: "#21A038",
+   alfa: "#EF3124",
+   vtb: "linear-gradient(135deg, #0039A6 0%, #00AAFF 100%)",
+   raif: "#FFE600",
+   gazprom: "#0067B1",
+   psb: "linear-gradient(135deg, #FF7F00 0%, #004A99 100%)",
+   rshb: "#006835",
+   mts: "linear-gradient(135deg, #E30611 0%, #CC0000 60%, #1A1A1A 100%)",
+   sovcom: "linear-gradient(135deg, #FF4B5F 0%, #0039A6 100%)",
+   uralsib: "#002B7A",
+   otp: "#4DAE50",
    default: "#888888",
 };
 
@@ -80,8 +90,35 @@ const CircularProgress = ({
    const safePercentage = Math.min(Math.max(percentage, 0), 100);
    const offset = circumference - (safePercentage / 100) * circumference;
 
+   const isGradient = color.startsWith("linear-gradient");
+   const gradientId = `grad-${[...color]
+      .reduce((h, c) => (Math.imul(31, h) + c.charCodeAt(0)) | 0, 0)
+      .toString(36)
+      .replace("-", "n")}`;
+   // Парсим два крайних цвета из linear-gradient(...)
+   const colorStops = isGradient
+      ? [...color.matchAll(/#[0-9a-fA-F]{3,6}/g)].map((m) => m[0])
+      : [color, color];
+
    return (
       <svg width={size} height={size} className="transform -rotate-90">
+         {isGradient && (
+            <defs>
+               <linearGradient
+                  id={gradientId}
+                  x1="0%"
+                  y1="0%"
+                  x2="100%"
+                  y2="0%"
+               >
+                  <stop offset="0%" stopColor={colorStops[0]} />
+                  <stop
+                     offset="100%"
+                     stopColor={colorStops[colorStops.length - 1]}
+                  />
+               </linearGradient>
+            </defs>
+         )}
          <circle
             cx={size / 2}
             cy={size / 2}
@@ -95,7 +132,7 @@ const CircularProgress = ({
             cx={size / 2}
             cy={size / 2}
             r={radius}
-            stroke={color}
+            stroke={isGradient ? `url(#${gradientId})` : color}
             strokeWidth={strokeWidth}
             fill="none"
             strokeDasharray={circumference}
@@ -114,13 +151,16 @@ const LinearProgress = ({
    percentage: number;
    color: string;
 }) => {
+   const isGradient = color.startsWith("linear-gradient");
    return (
       <div className="w-full h-1.5 bg-black/5 dark:bg-white/5 rounded-full overflow-hidden">
          <div
             className="h-full rounded-full transition-all duration-500 ease-out"
             style={{
                width: `${Math.min(percentage, 100)}%`,
-               backgroundColor: color,
+               ...(isGradient
+                  ? { background: color }
+                  : { backgroundColor: color }),
             }}
          />
       </div>
@@ -148,7 +188,9 @@ const BalanceIndicator = ({
             className="absolute inset-y-0 left-0 transition-all duration-700 ease-out"
             style={{
                width: `${fillPercentage}%`,
-               backgroundColor: color,
+               ...(color.startsWith("linear-gradient")
+                  ? { background: color }
+                  : { backgroundColor: color }),
             }}
          />
 
@@ -222,7 +264,16 @@ const CardRing = ({
          {/* 2. Название карты */}
          <div
             className="text-sm font-bold tracking-wide truncate px-2 text-center"
-            style={{ color: card.color }}
+            style={
+               card.color.startsWith("linear-gradient")
+                  ? {
+                       background: card.color,
+                       WebkitBackgroundClip: "text",
+                       WebkitTextFillColor: "transparent",
+                       backgroundClip: "text",
+                    }
+                  : { color: card.color }
+            }
             title={card.id}
          >
             {card.id}
