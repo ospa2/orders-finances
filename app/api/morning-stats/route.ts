@@ -5,10 +5,9 @@ import { NextResponse } from 'next/server';
 
 export async function GET() {
 
-
    // Получаем одну запись, где id — это имя вашей категории
    const { data, error } = await supabase
-      .from('global_stats')
+      .from('flexible_stats')
       .select('payload')
       .eq('id', 'morningPriceStats')
       .single();
@@ -24,7 +23,7 @@ export async function POST(request: Request) {
    const body = await request.json(); // { date, samples, ... }
 
    const { data, error } = await supabase
-      .from('global_stats')
+      .from('flexible_stats')
       .upsert({
          id: 'morningPriceStats',
          payload: body,
