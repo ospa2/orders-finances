@@ -27,7 +27,6 @@ export async function POST(request: Request) {
       .upsert({
          id: 'morningPriceStats',
          payload: body,
-         updated_at: new Date().toISOString()
       })
       .select();
 
