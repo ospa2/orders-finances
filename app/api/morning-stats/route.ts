@@ -3,9 +3,8 @@ import { NextResponse } from 'next/server';
 
 
 
-export async function GET(request: Request) {
-   const { searchParams } = new URL(request.url);
-   const date = searchParams.get('date');
+export async function GET() {
+
 
    // Получаем одну запись, где id — это имя вашей категории
    const { data, error } = await supabase
@@ -16,12 +15,7 @@ export async function GET(request: Request) {
 
    if (error) return NextResponse.json({ error: error.message }, { status: 500 });
 
-   let result = data.payload;
-
-   // Если payload — это массив, и передана дата, фильтруем внутри кода
-   if (Array.isArray(result) && date) {
-      result = result.filter((item) => item.date === date);
-   }
+   const result = data.payload;
 
    return NextResponse.json(result);
 }
