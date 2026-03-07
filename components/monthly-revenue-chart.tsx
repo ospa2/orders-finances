@@ -1,6 +1,11 @@
 "use client";
 
-import React, { useState, useCallback } from "react";
+import React, {
+   useState,
+   useEffect,
+   useMemo,
+   useRef,
+} from "react";
 import {
    Bar,
    BarChart,
@@ -42,7 +47,7 @@ interface BarShapeProps {
 
 function aggregateByMonth(
    data: ChartPoint[],
-   monthlySpread: MonthlySpread[]
+   monthlySpread: MonthlySpread[],
 ): MonthSummary[] {
    const monthNames = [
       "Jan",
@@ -118,7 +123,7 @@ function aggregateByMonth(
          const avgSpread = spreadPercent / 100;
 
          return {
-            month: `${monthNames[monthIndex]} ${monthNames[monthIndex]==="Jan" ? year : ""}`,
+            month: `${monthNames[monthIndex]} ${monthNames[monthIndex] === "Jan" ? year : ""}`,
             revenue,
             avgSpread, // храним как десятичную дробь для tooltip
             totalBuy,
@@ -266,82 +271,193 @@ const CustomBarShape = (props: BarShapeProps) => {
 };
 
 export function MonthlyRevenueChart() {
-   
-   const data = useChartData().chartData;
-   const monthlySpread = useChartData().monthlySpread;
-   const revenueData = aggregateByMonth(data, monthlySpread);
-   const [, setHoveredIndex] = useState<number | null>(null);
-
-   const handleMouseEnter = useCallback(
-      (_: React.MouseEvent, index: number) => {
-         setHoveredIndex(index);
-      },
-      []
+   const { chartData: rawData, monthlySpread } = useChartData();
+   const allData = useMemo(
+      () => aggregateByMonth(rawData, monthlySpread),
+      [rawData, monthlySpread],
    );
 
-   const handleMouseLeave = useCallback(() => {
-      setHoveredIndex(null);
-   }, []);
+   const [viewRange, setViewRange] = useState({ start: 0, end: 0 });
+   const containerRef = useRef<HTMLDivElement>(null);
+
+   const navRef = useRef({
+      start: 0,
+      end: 0,
+      isDragging: false,
+      lastX: 0,
+      deltaAccumulator: 0,
+   });
+
+   // 1. Нативный обработчик зума (Wheel)
+   useEffect(() => {
+      const container = containerRef.current;
+      if (!container) return;
+
+      const handleNativeWheel = (e: WheelEvent) => {
+         // Ключевой момент: блокируем скролл страницы
+         e.preventDefault();
+
+         const direction = e.deltaY > 0 ? 1 : -1;
+         const { start, end } = navRef.current;
+         const dataLen = allData.length;
+         if (dataLen === 0) return;
+
+         const currentLen = end - start;
+         const zoomStep = Math.max(1, Math.round(currentLen * 0.15));
+
+         let newStart = start;
+         let newEnd = end;
+
+         if (direction > 0) {
+            // Zoom Out
+            newStart = Math.max(0, start - zoomStep);
+            newEnd = Math.min(dataLen - 1, end + zoomStep);
+         } else {
+            // Zoom In
+            if (currentLen > 2) {
+               newStart = Math.min(end - 2, start + zoomStep);
+               newEnd = Math.max(start + 2, end - zoomStep);
+            }
+         }
+
+         navRef.current.start = newStart;
+         navRef.current.end = newEnd;
+         setViewRange({ start: newStart, end: newEnd });
+      };
+
+      // Регистрация НЕ пассивного обработчика
+      container.addEventListener("wheel", handleNativeWheel, {
+         passive: false,
+      });
+
+      return () => {
+         container.removeEventListener("wheel", handleNativeWheel);
+      };
+   }, [allData]); // Переподписываемся при изменении данных
+
+   // 2. Инициализация диапазона (остается как была)
+   useEffect(() => {
+      if (allData.length > 0) {
+         const initial = { start: 0, end: allData.length - 1 };
+         setViewRange(initial);
+         navRef.current.start = initial.start;
+         navRef.current.end = initial.end;
+      }
+   }, [allData.length]);
+
+   const visibleData = useMemo(
+      () => allData.slice(viewRange.start, viewRange.end + 1),
+      [allData, viewRange],
+   );
+
+   // 3. PAN: Логика Drag (остается как была)
+   const onMouseDown = (e: React.MouseEvent) => {
+      navRef.current.isDragging = true;
+      navRef.current.lastX = e.clientX;
+      navRef.current.deltaAccumulator = 0;
+      document.body.style.cursor = "grabbing";
+   };
+
+   useEffect(() => {
+      const onMouseMove = (e: MouseEvent) => {
+         if (!navRef.current.isDragging || !containerRef.current) return;
+
+         const { start, end } = navRef.current;
+         const visibleCount = end - start + 1;
+         const containerWidth =
+            containerRef.current.getBoundingClientRect().width;
+         const pixelsPerStep = containerWidth / visibleCount;
+
+         const mouseDeltaX = e.clientX - navRef.current.lastX;
+         navRef.current.lastX = e.clientX;
+         navRef.current.deltaAccumulator += mouseDeltaX;
+
+         if (Math.abs(navRef.current.deltaAccumulator) >= pixelsPerStep) {
+            const stepsToMove = Math.trunc(
+               navRef.current.deltaAccumulator / pixelsPerStep,
+            );
+            const shift = -stepsToMove;
+            const dataLen = allData.length;
+
+            if (start + shift >= 0 && end + shift < dataLen) {
+               const finalStart = start + shift;
+               const finalEnd = end + shift;
+               navRef.current.start = finalStart;
+               navRef.current.end = finalEnd;
+               navRef.current.deltaAccumulator -= stepsToMove * pixelsPerStep;
+               setViewRange({ start: finalStart, end: finalEnd });
+            }
+         }
+      };
+
+      const onMouseUp = () => {
+         navRef.current.isDragging = false;
+         document.body.style.cursor = "default";
+      };
+
+      window.addEventListener("mousemove", onMouseMove);
+      window.addEventListener("mouseup", onMouseUp);
+      return () => {
+         window.removeEventListener("mousemove", onMouseMove);
+         window.removeEventListener("mouseup", onMouseUp);
+      };
+   }, [allData.length]);
 
    return (
-      <Card>
+      <Card className="select-none overflow-hidden">
          <CardHeader>
             <CardTitle>Monthly Revenue</CardTitle>
-            <CardDescription>Revenue breakdown for the year</CardDescription>
+            <CardDescription>
+               Drag 1:1, Wheel zoom (no page scroll)
+            </CardDescription>
          </CardHeader>
          <CardContent>
-            <ResponsiveContainer width="100%" height={400}>
-               <BarChart
-                  data={revenueData}
-                  margin={{ top: 20, right: 30, left: 20, bottom: 5 }}
-               >
-                  <CartesianGrid
-                     strokeDasharray="3 3"
-                     className="stroke-muted"
-                  />
-                  <XAxis
-                     dataKey="month"
-                     tickLine={false}
-                     axisLine={false}
-                     className="text-muted-foreground"
-                  />
-                  <YAxis
-                     tickLine={false}
-                     axisLine={false}
-                     className="text-muted-foreground"
-                     tickFormatter={(value) => `₽${(value / 1000).toFixed(0)}k`}
-                  />
-                  {/* disable the default cursor so it doesn't create weird overlay - we'll keep tooltip */}
-                  <Tooltip
-                     content={<CustomTooltip active={false} payload={[]} />}
-                     cursor={false}
-                  />
-                  <Bar
-                     dataKey="revenue"
-                     // use custom shape renderer and we will render Cells to get index-based hover handlers
-                     shape={<CustomBarShape hovered={false} />}
-                     isAnimationActive={false} // disable initial animation to avoid re-layout jumps
+            {/* onWheel больше не нужен в пропсах, он работает через useEffect/ref */}
+            <div
+               ref={containerRef}
+               onMouseDown={onMouseDown}
+               className="w-full h-[400px] cursor-grab active:cursor-grabbing touch-none"
+            >
+               <ResponsiveContainer width="100%" height="100%">
+                  <BarChart
+                     data={visibleData}
+                     margin={{ top: 20, right: 30, left: 20, bottom: 5 }}
                   >
-                     {revenueData.map((entry, index) => (
-                        <Cell
-                           key={`cell-${index}`}
-                           onMouseEnter={(e: React.MouseEvent) =>
-                              handleMouseEnter(e, index)
-                           }
-                           onMouseLeave={handleMouseLeave}
-                           // pass hovered prop via className (Recharts won't pass custom props to shape automatically)
-                           // instead we'll render the Bar with a function shape — but simpler: override `shape` prop per Cell
-                           // Recharts doesn't support per-Cell shape prop directly, so we provide a `shape` at Bar level and
-                           // rely on `payload` to decide hovered state inside shape through props. To make it simpler,
-                           // we'll pass `fill` attribute that the shape ignores but keep for compatibility.
-                           fill="hsl(var(--chart-1))"
-                           // also add role and cursor style
-                           style={{ cursor: "pointer" }}
-                        />
-                     ))}
-                  </Bar>
-               </BarChart>
-            </ResponsiveContainer>
+                     <CartesianGrid
+                        strokeDasharray="3 3"
+                        className="stroke-muted"
+                     />
+                     <XAxis
+                        dataKey="month"
+                        tickLine={false}
+                        axisLine={false}
+                        className="text-xs text-muted-foreground"
+                     />
+                     <YAxis
+                        tickLine={false}
+                        axisLine={false}
+                        className="text-xs text-muted-foreground"
+                        tickFormatter={(v) => `₽${(v / 1000).toFixed(0)}k`}
+                     />
+                     <Tooltip
+                        content={<CustomTooltip active={false} payload={[]} />}
+                        cursor={false}
+                     />
+                     <Bar
+                        dataKey="revenue"
+                        shape={<CustomBarShape hovered={false} />}
+                        isAnimationActive={false}
+                     >
+                        {visibleData.map((_, index) => (
+                           <Cell
+                              key={`cell-${index}`}
+                              fill="hsl(var(--chart-1))"
+                           />
+                        ))}
+                     </Bar>
+                  </BarChart>
+               </ResponsiveContainer>
+            </div>
          </CardContent>
       </Card>
    );

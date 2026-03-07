@@ -1,57 +1,49 @@
-// pnl.ts
 import Decimal from "decimal.js";
 
 export type Order = {
   "Order No.": number;
   Type: "BUY" | "SELL";
-  "Fiat Amount": number; // total fiat (cost for BUY, proceeds for SELL) -- may include fees if your export does
+  "Fiat Amount": number;
   Price: number;
   "Coin Amount": number;
   Counterparty: string;
   Status: "Completed" | "Canceled" | string;
-  Time: string; // "YYYY-MM-DD HH:mm:ss"
+  Time: string; // Ожидается "YYYY-MM-DD HH:mm:ss" или ISO "YYYY-MM-DDTHH:mm:ss+Z"
 };
 
 export type ChartPoint = {
   date: string;
-  buy: number;   // потрачено на покупки (фиат)
-  sell: number;  // получено от продаж (фиат)
-  revenue: number; // реализованная прибыль (фиат)
+  buy: number;
+  sell: number;
+  revenue: number;
 };
 
 export interface MonthlySpread {
   [month: string]: number;
 }
+
 type Lot = {
-  qty: Decimal;   // положительное = лонг, отрицательное = шорт
-  fiat: Decimal;  // для лонга: потрачено на этот lot; для шорта: получено (proceeds)
+  qty: Decimal;
+  fiat: Decimal;
 };
 
-
-/**
- * transformOrdersToChartData - FIFO с точными расчётами на decimal.js
- */
 const DUST_TOLERANCE = new Decimal('1e-12');
 
 /**
- * Изолируем получение даты для легкой замены логики таймзон
+ * Извлекает YYYY-MM-DD, поддерживая пробел или 'T' в качестве разделителя времени.
  */
-const extractDate = (timeStr: string): string => timeStr.split(" ")[0];
+const extractDate = (timeStr: string): string => timeStr.split(/[ T]/)[0];
 
-/**
- * Вычисляет PnL по FIFO. Поддерживает инкрементальный расчет через initialInventory.
- */
 export function transformOrdersToChartData(
   orders: Order[],
   initialInventory: Lot[] = []
-): { points: ChartPoint[]; inventory: Lot[] } {
+): ChartPoint[] {
 
   const sorted = orders
     .filter(o => o.Status?.toLowerCase() === "completed")
     .slice()
     .sort((a, b) => new Date(a.Time).getTime() - new Date(b.Time).getTime());
 
-  // Клонируем стейт, чтобы не мутировать внешние объекты
   const inventory: Lot[] = initialInventory.map(lot => ({
     qty: new Decimal(lot.qty),
     fiat: new Decimal(lot.fiat)
@@ -60,7 +52,8 @@ export function transformOrdersToChartData(
   const dailyMap: Record<string, { buy: Decimal; sell: Decimal; revenue: Decimal }> = {};
 
   for (const o of sorted) {
-    const date = extractDate(o.Time);
+    const date = extractDate(o.Time); // Теперь корректно вернет "2025-02-14" для любых форматов
+
     if (!dailyMap[date]) {
       dailyMap[date] = { buy: new Decimal(0), sell: new Decimal(0), revenue: new Decimal(0) };
     }
@@ -126,7 +119,7 @@ export function transformOrdersToChartData(
     }
   }
 
-  const points: ChartPoint[] = Object.entries(dailyMap)
+  return Object.entries(dailyMap)
     .map(([date, vals]) => ({
       date,
       buy: vals.buy.toNumber(),
@@ -134,9 +127,9 @@ export function transformOrdersToChartData(
       revenue: vals.revenue.toNumber(),
     }))
     .sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime());
-
-  return { points, inventory };
 }
+
+// ... calculateMonthlySpread остается без изменений
 
 export function calculateMonthlySpread(orders: Order[]): MonthlySpread[] {
   // Группируем по месяцам

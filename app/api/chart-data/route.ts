@@ -2,18 +2,36 @@
 
 import { supabase } from "@/lib/supabase"
 import { NextResponse } from "next/server"
-import { calculateMonthlySpread, transformOrdersToChartData } from "@/lib/pnl"
+import { calculateMonthlySpread, Order, transformOrdersToChartData } from "@/lib/pnl"
+import { PostgrestError } from "@supabase/supabase-js";
 
 export async function GET() {
 
+  const PAGE_SIZE = 300;
+  const results = await Promise.all([
+    supabase.from("orders").select("*").range(0, PAGE_SIZE - 1),
+    supabase.from("orders").select("*").range(PAGE_SIZE, PAGE_SIZE * 2 - 1),
+    supabase.from("orders").select("*").range(PAGE_SIZE * 2, PAGE_SIZE * 3 - 1),
+    supabase.from("orders").select("*").range(PAGE_SIZE * 3, PAGE_SIZE * 4 - 1),
+    supabase.from("orders").select("*").range(PAGE_SIZE * 4, PAGE_SIZE * 5 - 1),
+  ]);
 
-  const { data: orders, error } = await supabase
-    .from("orders")
-    .select("*")
-    .order("Time", { ascending: false })
+  const orders: Order[] = [];
+  const errors: PostgrestError[] = [];
 
-  if (error) {
-    return NextResponse.json({ error: error.message }, { status: 500 })
+  for (const { data, error } of results) {
+    if (error) {
+      errors.push(error);
+    } else if (data) {
+      orders.push(...(data as Order[]));
+    }
+  }
+  if (errors.length > 0) {
+    // Возвращаем первую ошибку или агрегированный список
+    return NextResponse.json(
+      { error: errors[0].message, details: errors },
+      { status: 500 }
+    );
   }
 
   // --- ИСПРАВЛЕННЫЙ БЛОК ---

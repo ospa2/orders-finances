@@ -61,24 +61,48 @@ export const ChartDataProvider: React.FC<{ children: React.ReactNode }> = ({
       loadFromCache();
    }, []);
 
-   const fetchData = async () => {
-      const mergeByDate = (a: ChartPoint[], b: ChartPoint[]): ChartPoint[] => {
-         const map = new Map<string, ChartPoint>();
-         [...a, ...b].forEach((item) => map.set(item.date, item));
-         return Array.from(map.values());
-      };
+   const fetchData = async (): Promise<void> => {
+      try {
+         const res = await fetch(`/api/chart-data`);
 
-      const res = await fetch(`/api/chart-data`);
-      const data: CacheSchema = await res.json();
-      
-      const newChartData = data.chartData;
+         if (!res.ok) {
+            throw new Error(`HTTP error! status: ${res.status}`);
+         }
 
-      const allChartData = mergeByDate(chartData, newChartData);
-      
-      if (allChartData) {
-         setChartData(allChartData);
-         setMonthlySpread(data.monthlySpread);
-         localStorage.setItem("chart_data_cache", JSON.stringify(data));
+         const data: CacheSchema = await res.json();
+
+         // Защита от пустых или некорректных данных из API
+         const newChartData = Array.isArray(data?.chartData)
+            ? data.chartData
+            : [];
+         console.log('data:', data);
+         console.log('newChartData:', newChartData);
+         
+         
+
+         // Защита от неопределенного состояния chartData (если это стейт)
+         const currentChartData = Array.isArray(chartData) ? chartData : [];
+
+         const mergeByDate = (
+            a: ChartPoint[],
+            b: ChartPoint[],
+         ): ChartPoint[] => {
+            const map = new Map<string, ChartPoint>();
+            // Теперь a и b гарантированно итерируемы
+            for (const item of a) map.set(item.date, item);
+            for (const item of b) map.set(item.date, item);
+            return Array.from(map.values());
+         };
+
+         const allChartData = mergeByDate(currentChartData, newChartData);
+
+         if (allChartData.length > 0) {
+            setChartData(allChartData);
+            setMonthlySpread(data.monthlySpread);
+            localStorage.setItem("chart_data_cache", JSON.stringify(data));
+         }
+      } catch (error) {
+         console.error("Failed to fetch or merge chart data:", error);
       }
    };
 
