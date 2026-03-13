@@ -37,8 +37,8 @@ type DisplayCardData = {
 // --- Config ---
 
 const LIMITS = {
-   day: { maxTurnover: 100000, maxOperations: 10 },
-   month: { maxTurnover: 1000000, maxOperations: 50 },
+   day: { maxTurnover: 100000, maxOperations: 3 },
+   month: { maxTurnover: 1000000, maxOperations: 30 },
 };
 
 const BANK_COLORS: Record<string, string> = {
