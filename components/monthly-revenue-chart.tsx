@@ -1,11 +1,6 @@
 "use client";
 
-import React, {
-   useState,
-   useEffect,
-   useMemo,
-   useRef,
-} from "react";
+import React, { useState, useEffect, useMemo, useRef } from "react";
 import {
    Bar,
    BarChart,
@@ -27,12 +22,15 @@ import { ChartPoint, MonthlySpread } from "@/lib/pnl";
 import { useChartData } from "@/lib/сhartDataProvider";
 
 type MonthSummary = {
-   month: string; // "Jan", "Feb", ...
-   revenue: number; // сумма revenue за месяц
-   avgSpread: number; // (totalSell - totalBuy) / totalBuy, округлён до 2 знаков
-   totalBuy: number; // сумма buy
-   totalSell: number; // сумма sell
+   month: string;
+   revenue: number;
+   projectedRevenue: number; // ожидаемый доход сверх фактического (0 для всех кроме текущего месяца)
+   avgSpread: number;
+   totalBuy: number;
+   totalSell: number;
+   isCurrentMonth: boolean;
 };
+
 interface TooltipPayload {
    payload: MonthSummary;
 }
@@ -43,6 +41,10 @@ interface BarShapeProps {
    width?: number;
    height?: number;
    fill?: string;
+}
+
+function getDaysInMonth(year: number, month: number): number {
+   return new Date(year, month + 1, 0).getDate();
 }
 
 function aggregateByMonth(
@@ -63,6 +65,11 @@ function aggregateByMonth(
       "Nov",
       "Dec",
    ];
+
+   const now = new Date();
+   const currentYearMonth = `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, "0")}`;
+   const currentDayOfMonth = now.getDate(); // сколько дней прошло включая сегодня
+
    const map = new Map<
       string,
       {
@@ -75,17 +82,15 @@ function aggregateByMonth(
       }
    >();
 
-   // Создаём Map для быстрого поиска спреда по месяцу
    const spreadMap = new Map<string, number>();
    monthlySpread.forEach((item) => {
       const month = Object.keys(item)[0];
-      const spread = item[month];
-      spreadMap.set(month, spread);
+      spreadMap.set(month, item[month]);
    });
 
    for (const { date, buy, sell, revenue } of data) {
       const d = new Date(date);
-      if (isNaN(d.getTime())) continue; // пропустить некорректные даты
+      if (isNaN(d.getTime())) continue;
 
       const year = d.getFullYear();
       const monthIndex = d.getMonth();
@@ -106,35 +111,37 @@ function aggregateByMonth(
       map.set(monthKey, acc);
    }
 
-   const result: MonthSummary[] = Array.from(map.entries())
-      .sort((a, b) => {
-         // Сортируем по году и месяцу
-         const [keyA] = a;
-         const [keyB] = b;
-         return keyA.localeCompare(keyB);
-      })
+   return Array.from(map.entries())
+      .sort(([a], [b]) => a.localeCompare(b))
       .map(([monthKey, acc]) => {
          const { revenue, totalBuy, totalSell, year, monthIndex } = acc;
 
-         // Получаем спред из monthlySpread
          const spreadPercent = spreadMap.get(monthKey) || 0;
-
-         // Конвертируем проценты (2.17) в десятичную дробь (0.0217)
          const avgSpread = spreadPercent / 100;
+
+         const isCurrentMonth = monthKey === currentYearMonth;
+
+         // Линейная экстраполяция: если прошло N дней из M, ожидаем revenue * (M/N)
+         let projectedRevenue = 0;
+         if (isCurrentMonth && currentDayOfMonth > 0) {
+            const totalDays = getDaysInMonth(year, monthIndex);
+            const projectedTotal = (revenue / currentDayOfMonth) * totalDays;
+            projectedRevenue = Math.max(0, projectedTotal - revenue);
+         }
 
          return {
             month: `${monthNames[monthIndex]} ${monthNames[monthIndex] === "Jan" ? year : ""}`,
             revenue,
-            avgSpread, // храним как десятичную дробь для tooltip
+            projectedRevenue,
+            avgSpread,
             totalBuy,
             totalSell,
+            isCurrentMonth,
          };
       });
-
-   return result;
 }
 
-// Smooth-tooltip wrapper with fade
+// Tooltip
 const CustomTooltip = ({
    active,
    payload,
@@ -144,13 +151,10 @@ const CustomTooltip = ({
 }) => {
    if (active && payload && payload.length) {
       const data = payload[0].payload;
+      const projectedTotal = data.revenue + data.projectedRevenue;
+
       return (
-         <div
-            style={{
-               opacity: 1,
-            }}
-            className="rounded-lg border bg-background p-3 shadow-lg"
-         >
+         <div className="rounded-lg border bg-background p-3 shadow-lg">
             <p className="text-sm font-semibold mb-2">{data.month}</p>
             <div className="space-y-1 text-sm">
                <div className="flex justify-between gap-4">
@@ -159,6 +163,24 @@ const CustomTooltip = ({
                      {data.revenue.toLocaleString()}₽
                   </span>
                </div>
+               {data.isCurrentMonth && data.projectedRevenue > 0 && (
+                  <>
+                     <div className="flex justify-between gap-4">
+                        <span className="text-muted-foreground">
+                           Projected:
+                        </span>
+                        <span className="font-medium text-blue-500">
+                           ~{projectedTotal.toLocaleString()}₽
+                        </span>
+                     </div>
+                     <div className="border-t pt-1 mt-1 flex justify-between gap-4 text-xs text-muted-foreground">
+                        <span>Expected extra:</span>
+                        <span className="text-blue-400">
+                           +{data.projectedRevenue.toLocaleString()}₽
+                        </span>
+                     </div>
+                  </>
+               )}
                <div className="flex justify-between gap-4">
                   <span className="text-muted-foreground">Avg Spread:</span>
                   <span className="font-medium">
@@ -184,47 +206,37 @@ const CustomTooltip = ({
    return null;
 };
 
+// Обычный бар (фактический доход)
 const CustomBarShape = (props: BarShapeProps) => {
    const { x = 0, y, width = 0, height, hovered } = props;
 
-   // Slight inset for the foreground so border is visible
    const inset = 0.5;
    const fgX = x + inset;
    const fgWidth = Math.max(0, width - inset * 2);
-   const fgY = y;
-   const fgHeight = height;
 
    const [color, setColor] = React.useState("rgba(255, 255, 255, 0.5)");
 
    React.useEffect(() => {
       const updateColors = () => {
          const isDark = document.documentElement.classList.contains("dark");
-
          setColor(isDark ? "rgba(255, 255, 255, 0.5)" : "rgba(0, 0, 0, 0.5)");
       };
-
       updateColors();
-
-      // Следим за изменениями темы
       const observer = new MutationObserver(updateColors);
       observer.observe(document.documentElement, {
          attributes: true,
          attributeFilter: ["class"],
       });
-
       return () => observer.disconnect();
    }, []);
-   // Colors — use CSS variables if you like; here we use hard values for clarity
-   const bgFill = "rgba(0,0,0,0.04)"; // soft dim background
-   const highlightStroke = "hsl(var(--foreground))";
 
-   // Common transition style for smoothness
+   const bgFill = "rgba(0,0,0,0.04)";
+   const highlightStroke = "hsl(var(--foreground))";
    const transition =
       "opacity 160ms ease, stroke-width 160ms ease, transform 160ms ease";
 
    return (
       <g>
-         {/* background rect (soft dim) */}
          <rect
             x={x}
             y={y}
@@ -237,27 +249,24 @@ const CustomBarShape = (props: BarShapeProps) => {
             opacity={hovered ? 0.85 : 0.6}
             pointerEvents="none"
          />
-         {/* main foreground rect */}
          <rect
             x={fgX}
-            y={fgY}
+            y={y}
             width={fgWidth}
-            height={fgHeight}
+            height={height}
             rx={6}
             ry={6}
             fill={color}
             style={{
                transition,
-               // a tiny lift on hover to give UI feedback (no width/height change!)
                transform: hovered ? "translateY(-2px)" : "translateY(0)",
             }}
          />
-         {/* outline (only visible on hover) */}
          <rect
             x={fgX}
-            y={fgY}
+            y={y}
             width={fgWidth}
-            height={fgHeight}
+            height={height}
             rx={6}
             ry={6}
             fill="none"
@@ -266,6 +275,55 @@ const CustomBarShape = (props: BarShapeProps) => {
             style={{ transition }}
             pointerEvents="none"
          />
+      </g>
+   );
+};
+
+// Прозрачный бар сверху (прогноз) — только для текущего месяца
+const ProjectedBarShape = (
+   props: BarShapeProps & { isCurrentMonth?: boolean },
+) => {
+   const { x = 0, y = 0, width = 0, height = 0, isCurrentMonth } = props;
+
+   if (!isCurrentMonth || height <= 0) return null;
+
+   const inset = 0.5;
+   const fgX = x + inset;
+   const fgWidth = Math.max(0, width - inset * 2);
+
+   // Скругляем только верхние углы (т.к. нижние примыкают к основному бару)
+   const r = 6;
+
+   return (
+      <g>
+         {/* Штриховая рамка */}
+         <path
+            d={`
+               M ${fgX + r} ${y}
+               H ${fgX + fgWidth - r}
+               Q ${fgX + fgWidth} ${y} ${fgX + fgWidth} ${y + r}
+               V ${y + height}
+               H ${fgX}
+               V ${y + r}
+               Q ${fgX} ${y} ${fgX + r} ${y}
+               Z
+            `}
+            fill="rgba(99, 179, 237, 0.18)"
+            stroke="rgba(99, 179, 237, 0.7)"
+            strokeWidth={1.5}
+            strokeDasharray="4 3"
+         />
+         {/* Тихий текст-маркер */}
+         <text
+            x={fgX + fgWidth / 2}
+            y={y + height / 2 + 4}
+            textAnchor="middle"
+            fontSize={9}
+            fill="rgba(99,179,237,0.9)"
+            fontWeight={500}
+         >
+            est.
+         </text>
       </g>
    );
 };
@@ -279,7 +337,6 @@ export function MonthlyRevenueChart() {
 
    const [viewRange, setViewRange] = useState({ start: 0, end: 0 });
    const containerRef = useRef<HTMLDivElement>(null);
-
    const navRef = useRef({
       start: 0,
       end: 0,
@@ -288,15 +345,12 @@ export function MonthlyRevenueChart() {
       deltaAccumulator: 0,
    });
 
-   // 1. Нативный обработчик зума (Wheel)
    useEffect(() => {
       const container = containerRef.current;
       if (!container) return;
 
       const handleNativeWheel = (e: WheelEvent) => {
-         // Ключевой момент: блокируем скролл страницы
          e.preventDefault();
-
          const direction = e.deltaY > 0 ? 1 : -1;
          const { start, end } = navRef.current;
          const dataLen = allData.length;
@@ -304,16 +358,13 @@ export function MonthlyRevenueChart() {
 
          const currentLen = end - start;
          const zoomStep = Math.max(1, Math.round(currentLen * 0.15));
-
-         let newStart = start;
-         let newEnd = end;
+         let newStart = start,
+            newEnd = end;
 
          if (direction > 0) {
-            // Zoom Out
             newStart = Math.max(0, start - zoomStep);
             newEnd = Math.min(dataLen - 1, end + zoomStep);
          } else {
-            // Zoom In
             if (currentLen > 2) {
                newStart = Math.min(end - 2, start + zoomStep);
                newEnd = Math.max(start + 2, end - zoomStep);
@@ -325,17 +376,12 @@ export function MonthlyRevenueChart() {
          setViewRange({ start: newStart, end: newEnd });
       };
 
-      // Регистрация НЕ пассивного обработчика
       container.addEventListener("wheel", handleNativeWheel, {
          passive: false,
       });
+      return () => container.removeEventListener("wheel", handleNativeWheel);
+   }, [allData]);
 
-      return () => {
-         container.removeEventListener("wheel", handleNativeWheel);
-      };
-   }, [allData]); // Переподписываемся при изменении данных
-
-   // 2. Инициализация диапазона (остается как была)
    useEffect(() => {
       if (allData.length > 0) {
          const initial = { start: 0, end: allData.length - 1 };
@@ -350,7 +396,6 @@ export function MonthlyRevenueChart() {
       [allData, viewRange],
    );
 
-   // 3. PAN: Логика Drag (остается как была)
    const onMouseDown = (e: React.MouseEvent) => {
       navRef.current.isDragging = true;
       navRef.current.lastX = e.clientX;
@@ -408,11 +453,10 @@ export function MonthlyRevenueChart() {
          <CardHeader>
             <CardTitle>Monthly Revenue</CardTitle>
             <CardDescription>
-               Drag 1:1, Wheel zoom (no page scroll)
+               Drag 1:1, Wheel zoom · Dashed bar = projected for current month
             </CardDescription>
          </CardHeader>
          <CardContent>
-            {/* onWheel больше не нужен в пропсах, он работает через useEffect/ref */}
             <div
                ref={containerRef}
                onMouseDown={onMouseDown}
@@ -421,6 +465,7 @@ export function MonthlyRevenueChart() {
                <ResponsiveContainer width="100%" height="100%">
                   <BarChart
                      data={visibleData}
+                     stackOffset="none"
                      margin={{ top: 20, right: 30, left: 20, bottom: 5 }}
                   >
                      <CartesianGrid
@@ -443,15 +488,44 @@ export function MonthlyRevenueChart() {
                         content={<CustomTooltip active={false} payload={[]} />}
                         cursor={false}
                      />
+
+                     {/* Фактический доход */}
                      <Bar
                         dataKey="revenue"
+                        stackId="revenue"
                         shape={<CustomBarShape hovered={false} />}
                         isAnimationActive={false}
                      >
                         {visibleData.map((_, index) => (
                            <Cell
-                              key={`cell-${index}`}
+                              key={`cell-actual-${index}`}
                               fill="hsl(var(--chart-1))"
+                           />
+                        ))}
+                     </Bar>
+
+                     {/* Прогнозируемый доход — только для текущего месяца, над фактическим */}
+                     <Bar
+                        dataKey="projectedRevenue"
+                        stackId="revenue"
+                        shape={(props: unknown) => {
+                           const p = props as BarShapeProps & {
+                              index?: number;
+                           };
+                           const entry = visibleData[p.index ?? 0];
+                           return (
+                              <ProjectedBarShape
+                                 {...p}
+                                 isCurrentMonth={entry?.isCurrentMonth}
+                              />
+                           );
+                        }}
+                        isAnimationActive={false}
+                     >
+                        {visibleData.map((_, index) => (
+                           <Cell
+                              key={`cell-proj-${index}`}
+                              fill="transparent"
                            />
                         ))}
                      </Bar>
