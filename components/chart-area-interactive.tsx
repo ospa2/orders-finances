@@ -25,7 +25,7 @@ import {
    SelectValue,
 } from "@/components/ui/select";
 import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
-import { TimeRangeValue, useChartData } from "@/lib/сhartDataProvider";
+import { TimeRangeValue, useChartData } from "@/hooks/сhartDataProvider";
 
 export const description = "An interactive area chart";
 
@@ -81,11 +81,9 @@ export function ChartAreaInteractive() {
             console.warn(`Invalid time range value received: ${value}`);
          }
       },
-      [setTimeRange]
+      [setTimeRange],
    );
 
-
-   
    React.useEffect(() => {
       if (isMobile) setTimeRange("7d");
    }, [isMobile, setTimeRange]);
@@ -122,8 +120,8 @@ export function ChartAreaInteractive() {
                   {timeRange === "90d"
                      ? "last 3 months"
                      : timeRange === "30d"
-                     ? "last 30 days"
-                     : "last 7 days"}
+                       ? "last 30 days"
+                       : "last 7 days"}
                </span>
                <span className="@[540px]/card:hidden">Last 3 months</span>
             </CardDescription>
@@ -237,7 +235,7 @@ export function ChartAreaInteractive() {
                                  {
                                     month: "short",
                                     day: "numeric",
-                                 }
+                                 },
                               );
                            }}
                            indicator="dot"

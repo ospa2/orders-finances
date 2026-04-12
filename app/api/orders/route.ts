@@ -1,5 +1,7 @@
+import { Order } from "@/lib/pnl"
 import { supabase } from "@/lib/supabase"
-import { NextRequest, NextResponse } from "next/server"
+import { PostgrestError } from "@supabase/supabase-js"
+import { NextResponse } from "next/server"
 
 export async function POST(req: Request) {
   // CORS заголовки
@@ -67,35 +69,35 @@ function getCorsHeaders(req: Request) {
   }
 }
 
-export async function GET(req: NextRequest) {
-  const headers = getCorsHeaders(req)
+export async function GET() {
 
-  try {
-
-    const { searchParams } = new URL(req.url)
-    const from = Number(searchParams.get('from'))
-    const to = Number(searchParams.get('to'))
-
-    const { data, error } = await supabase
-      .from("orders")
-      .select("*")
-      .order("Time", { ascending: false })
-      .range(from, to); // Запрашиваем конкретный диапазон
-
-    if (error) {
-      return NextResponse.json({ error: error.message }, { status: 400, headers })
+  const PAGE_SIZE = 300;
+    const results = await Promise.all([
+      supabase.from("orders").select("*").range(0, PAGE_SIZE - 1),
+      supabase.from("orders").select("*").range(PAGE_SIZE, PAGE_SIZE * 2 - 1),
+      supabase.from("orders").select("*").range(PAGE_SIZE * 2, PAGE_SIZE * 3 - 1),
+      supabase.from("orders").select("*").range(PAGE_SIZE * 3, PAGE_SIZE * 4 - 1),
+      supabase.from("orders").select("*").range(PAGE_SIZE * 4, PAGE_SIZE * 5 - 1),
+    ]);
+  
+    const orders: Order[] = [];
+    const errors: PostgrestError[] = [];
+  
+    for (const { data, error } of results) {
+      if (error) {
+        errors.push(error);
+      } else if (data) {
+        orders.push(...(data as Order[]));
+      }
     }
-
-    // Всегда возвращаем массив или объект, никогда не возвращаем пустой Response
-    return NextResponse.json(data ?? [], { status: 200, headers })
-
-  } catch (err: unknown) {
-    console.error("GET Error:", err)
-    return NextResponse.json(
-      { error: err instanceof Error ? err.message : "Internal Server Error" },
-      { status: 500, headers }
-    )
+    if (errors.length > 0) {
+      // Возвращаем первую ошибку или агрегированный список
+      return NextResponse.json(
+        { error: errors[0].message, details: errors },
+        { status: 500 }
+      );
   }
+  return NextResponse.json(orders)
 }
 
 export async function OPTIONS(req: Request) {

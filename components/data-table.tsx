@@ -335,8 +335,10 @@ function DraggableRow({ row, disabled }: DraggableRowProps) {
    );
 }
 
-interface DataTableColumnHeaderProps<TData, TValue>
-   extends React.HTMLAttributes<HTMLDivElement> {
+interface DataTableColumnHeaderProps<
+   TData,
+   TValue,
+> extends React.HTMLAttributes<HTMLDivElement> {
    column: Column<TData, TValue>;
    title: string;
 }
@@ -408,7 +410,7 @@ export function DataTable() {
    const [columnVisibility, setColumnVisibility] =
       React.useState<VisibilityState>({});
    const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>(
-      []
+      [],
    );
    const [sorting, setSorting] = React.useState<SortingState>([
       {
@@ -421,41 +423,21 @@ export function DataTable() {
       pageSize: 10,
    });
    const isSortingActive = !sorting.some(
-      (sort) => sort.id === "Time" && sort.desc === true
+      (sort) => sort.id === "Time" && sort.desc === true,
    );
    const sortableId = React.useId();
    const sensors = useSensors(
       useSensor(MouseSensor, {}),
       useSensor(TouchSensor, {}),
-      useSensor(KeyboardSensor, {})
+      useSensor(KeyboardSensor, {}),
    );
 
    React.useEffect(() => {
       const fetchAll = async () => {
-         let allData: Order[] = [];
-         let from = 0;
-         const STEP = 500;
-         let hasMore = true;
-         while (hasMore) {
-            // Запрашиваем 0-499, затем 500-999, затем 1000-1499
-            const res = await fetch(
-               `/api/orders?from=${from}&to=${from + STEP - 1}`
-            );
-            const chunk: Order[] = await res.json();
+         const res = await fetch("/api/orders");
+         const orders: Order[] = await res.json();
 
-            if (chunk.length > 0) {
-               allData = [...allData, ...chunk];
-               from += STEP;
-            }
-
-            // Если пришло меньше 500 строк, значит данных в базе больше нет
-            if (chunk.length < STEP) {
-               hasMore = false;
-               setData([...allData]);
-            }
-         }
-
-         localStorage.setItem(STORAGE_KEY, JSON.stringify(allData));
+         localStorage.setItem(STORAGE_KEY, JSON.stringify(orders));
       };
 
       const cached = localStorage.getItem(STORAGE_KEY);
@@ -468,7 +450,7 @@ export function DataTable() {
    }, []);
    const dataIds = React.useMemo<UniqueIdentifier[]>(
       () => data?.map((row) => row["Order No."]) || [],
-      [data]
+      [data],
    );
 
    const table = useReactTable({
@@ -574,7 +556,7 @@ export function DataTable() {
                         .filter(
                            (column) =>
                               typeof column.accessorFn !== "undefined" &&
-                              column.getCanHide()
+                              column.getCanHide(),
                         )
                         .map((column) => {
                            return (
@@ -636,7 +618,7 @@ export function DataTable() {
                                           ? null
                                           : flexRender(
                                                header.column.columnDef.header,
-                                               header.getContext()
+                                               header.getContext(),
                                             )}
                                     </TableHead>
                                  );
@@ -790,14 +772,14 @@ export interface MetricPoint {
 
 export function useCounterpartyMetrics(
    counterparty: string,
-   allOrders: Order[]
+   allOrders: Order[],
 ) {
    return React.useMemo(() => {
       // 1. Первичная фильтрация и сортировка по времени
       const counterpartyOrders = allOrders
          .filter((o) => o.Counterparty === counterparty)
          .sort(
-            (a, b) => new Date(a.Time).getTime() - new Date(b.Time).getTime()
+            (a, b) => new Date(a.Time).getTime() - new Date(b.Time).getTime(),
          );
 
       if (counterpartyOrders.length === 0) return null;

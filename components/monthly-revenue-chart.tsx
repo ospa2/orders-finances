@@ -19,7 +19,7 @@ import {
    CardTitle,
 } from "@/components/ui/card";
 import { ChartPoint, MonthlySpread } from "@/lib/pnl";
-import { useChartData } from "@/lib/сhartDataProvider";
+import { useChartData } from "@/hooks/сhartDataProvider";
 
 type MonthSummary = {
    month: string;

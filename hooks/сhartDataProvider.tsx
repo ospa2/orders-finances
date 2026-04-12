@@ -6,7 +6,7 @@ import React, {
    useEffect,
    useMemo,
 } from "react";
-import { ChartPoint, MonthlySpread } from "./pnl";
+import { ChartPoint, MonthlySpread } from "../lib/pnl";
 
 export type TimeRangeValue = "90d" | "30d" | "7d";
 
@@ -75,10 +75,8 @@ export const ChartDataProvider: React.FC<{ children: React.ReactNode }> = ({
          const newChartData = Array.isArray(data?.chartData)
             ? data.chartData
             : [];
-         console.log('data:', data);
-         console.log('newChartData:', newChartData);
-         
-         
+         console.log("data:", data);
+         console.log("newChartData:", newChartData);
 
          // Защита от неопределенного состояния chartData (если это стейт)
          const currentChartData = Array.isArray(chartData) ? chartData : [];
@@ -117,7 +115,7 @@ export const ChartDataProvider: React.FC<{ children: React.ReactNode }> = ({
          setTimeRange,
          monthlySpread,
       }),
-      [chartData, isLoading, timeRange, monthlySpread]
+      [chartData, isLoading, timeRange, monthlySpread],
    );
 
    return (

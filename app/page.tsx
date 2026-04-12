@@ -7,7 +7,7 @@ import { MonthlyRevenueChart } from "@/components/monthly-revenue-chart";
 import { SectionCards } from "@/components/section-cards";
 import { SiteHeader } from "@/components/site-header";
 import { SidebarInset, SidebarProvider } from "@/components/ui/sidebar";
-import { ChartDataProvider } from "@/lib/сhartDataProvider";
+import { ChartDataProvider } from "@/hooks/сhartDataProvider";
 import { ThemeProvider } from "next-themes";
 
 export default function Page() {
@@ -41,7 +41,7 @@ export default function Page() {
                            </div>
                            <DataTable />
                            <div className="px-4 lg:px-6">
-                              <Heatmap/>
+                              <Heatmap />
                            </div>
                         </div>
                      </div>
