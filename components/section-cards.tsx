@@ -223,8 +223,6 @@ function CardCycleVelocity({ minutes }: { minutes: number }) {
    );
 }
 
-
-
 type Lot = {
    price: number;
    amount: number; // оставшийся USDT из этого BUY ордера
@@ -354,29 +352,27 @@ export function CardUsdtHold() {
                   <CardTitle className="text-2xl font-semibold tabular-nums @[250px]/card:text-3xl">
                      {loading ? (
                         <span className="animate-pulse text-muted-foreground text-lg">
-                           Загрузка...
+                           Loading...
                         </span>
                      ) : (
-                        <>
-                           {totalFormatted}{" "}
-                           <span className="text-base font-normal text-muted-foreground">
-                              USDT
-                           </span>
-                        </>
+                        <div className="flex items-center gap-2">
+                           <IconCoin className="size-8" />
+                           {avgFormatted}
+                           {" ₽"}
+                           <span className="text-base font-normal text-muted-foreground"></span>
+                        </div>
                      )}
                   </CardTitle>
                   <CardAction>
-                     <Badge variant="outline">
-                        <IconCoin className="size-3.5" />≈ {avgFormatted} ₽
-                     </Badge>
+                     <Badge variant="outline">≈ {totalFormatted} USDT</Badge>
                   </CardAction>
                </CardHeader>
                <CardFooter className="flex-col items-start gap-1.5 text-sm">
                   <div className="line-clamp-1 flex gap-2 font-medium">
-                     Средняя цена покупки
+                     Average buy price
                   </div>
                   <div className="text-muted-foreground">
-                     Нажмите чтобы увидеть разбивку
+                     Click to see details
                   </div>
                </CardFooter>
             </Card>
@@ -384,16 +380,16 @@ export function CardUsdtHold() {
 
          <PopoverContent className="w-72 p-0" align="start">
             <div className="px-4 py-3 border-b">
-               <p className="text-sm font-semibold">Разбивка холда</p>
+               <p className="text-sm font-semibold">Hold breakdown</p>
                <p className="text-xs text-muted-foreground mt-0.5">
-                  Итого: {totalFormatted} USDT · avg {avgFormatted} ₽
+                  Total: {totalFormatted} USDT · avg {avgFormatted} ₽
                </p>
             </div>
 
             <div className="divide-y max-h-72 overflow-y-auto">
                {hold?.groups.length === 0 && (
                   <p className="px-4 py-3 text-sm text-muted-foreground">
-                     Нет открытых позиций
+                     No open positions
                   </p>
                )}
                {hold?.groups.map((g, i) => (
@@ -412,7 +408,7 @@ export function CardUsdtHold() {
                            {((g.amount / (hold.totalUsdt || 1)) * 100).toFixed(
                               1,
                            )}
-                           % от холда
+                           % Hold
                         </span>
                      </div>
                      <div className="text-right">
@@ -427,7 +423,7 @@ export function CardUsdtHold() {
             {hold && hold.groups.length > 0 && (
                <div className="px-4 py-2.5 border-t bg-muted/30">
                   <div className="flex justify-between text-xs text-muted-foreground">
-                     <span>Стоимость холда</span>
+                     <span>Hold amount</span>
                      <span className="font-medium text-foreground">
                         ≈ {fmt(hold.totalUsdt * hold.avgPrice, 0)} ₽
                      </span>
@@ -517,7 +513,7 @@ export function SectionCards() {
             </CardFooter>
          </Card>
          <CardCycleVelocity minutes={cycleVelocity} />
-         <CardUsdtHold/>
+         <CardUsdtHold />
       </div>
    );
 }
