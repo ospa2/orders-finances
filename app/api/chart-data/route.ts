@@ -14,6 +14,7 @@ export async function GET() {
     supabase.from("orders").select("*").range(PAGE_SIZE * 2, PAGE_SIZE * 3 - 1),
     supabase.from("orders").select("*").range(PAGE_SIZE * 3, PAGE_SIZE * 4 - 1),
     supabase.from("orders").select("*").range(PAGE_SIZE * 4, PAGE_SIZE * 5 - 1),
+    supabase.from("orders").select("*").range(PAGE_SIZE * 5, PAGE_SIZE * 6 - 1),
   ]);
 
   const orders: Order[] = [];
