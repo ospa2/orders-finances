@@ -47,28 +47,180 @@ function getDaysInMonth(year: number, month: number): number {
    return new Date(year, month + 1, 0).getDate();
 }
 
+// ─── Helpers ────────────────────────────────────────────────────────────────
+
+function smoothed(values: number[], window = 4): number[] {
+   const half = Math.floor(window / 2);
+   return values.map((_, i) => {
+      const start = Math.max(0, i - half);
+      const end = Math.min(values.length - 1, i + half);
+      const slice = values.slice(start, end + 1);
+      return slice.reduce((a, b) => a + b, 0) / slice.length;
+   });
+}
+
+function mean(arr: number[]): number {
+   if (arr.length === 0) return 0;
+   return arr.reduce((a, b) => a + b, 0) / arr.length;
+}
+
+type Segment = {
+   // индексы дней внутри прошедшей части месяца (0-based)
+   startIdx: number;
+   endIdx: number;
+   revenues: number[]; // доход по дням
+};
+
+/**
+ * Разбивает массив дневных доходов на сегменты по двухпроходному алгоритму.
+ * Возвращает массив сегментов, отсортированных по startIdx.
+ */
+function detectSegments(dailyRevenues: number[]): Segment[] {
+   const n = dailyRevenues.length;
+   if (n === 0) return [];
+
+   const sm = smoothed(dailyRevenues, 4);
+
+   // ── Pass 1: грубые кандидаты на долины ──────────────────────────────────
+
+   const nonZero = dailyRevenues.filter((v) => v > 0);
+   const globalMedian =
+      nonZero.length === 0
+         ? 0
+         : nonZero.sort((a, b) => a - b)[Math.floor(nonZero.length / 2)];
+
+   const ROUGH_THRESHOLD = globalMedian * 0.3;
+
+   // Помечаем каждый день: valley = true если кандидат на разделитель
+   const isValleyCandidate = sm.map((v) => v < ROUGH_THRESHOLD);
+
+   // Собираем непрерывные серии кандидатов в "runs"
+   type Run = { start: number; end: number };
+   const valleyRuns: Run[] = [];
+   let inRun = false;
+   let runStart = 0;
+
+   for (let i = 0; i < n; i++) {
+      if (isValleyCandidate[i] && !inRun) {
+         inRun = true;
+         runStart = i;
+      } else if (!isValleyCandidate[i] && inRun) {
+         valleyRuns.push({ start: runStart, end: i - 1 });
+         inRun = false;
+      }
+   }
+   if (inRun) valleyRuns.push({ start: runStart, end: n - 1 });
+
+   // ── Pass 2: адаптивный контраст ─────────────────────────────────────────
+
+   // Фильтруем: долина должна быть ≥ 2 дней
+   const MIN_VALLEY_LEN = 2;
+   const confirmedDividers: Run[] = [];
+
+   for (const run of valleyRuns) {
+      const len = run.end - run.start + 1;
+      if (len < MIN_VALLEY_LEN) continue;
+
+      const valleyLevel = mean(sm.slice(run.start, run.end + 1));
+
+      const leftRevs = sm.slice(0, run.start);
+      const rightRevs = sm.slice(run.end + 1);
+
+      if (leftRevs.length === 0 || rightRevs.length === 0) continue;
+
+      const leftLevel = mean(leftRevs);
+      const rightLevel = mean(rightRevs);
+
+      const reference = Math.min(leftLevel, rightLevel);
+      if (reference <= 0) continue;
+
+      const K = valleyLevel / reference;
+      if (K < 0.5) {
+         confirmedDividers.push(run);
+      }
+   }
+
+   // ── Строим сегменты из подтверждённых разделителей ──────────────────────
+
+   const boundaries: number[] = [0];
+   for (const d of confirmedDividers) {
+      boundaries.push(d.start);
+      boundaries.push(d.end + 1);
+   }
+   boundaries.push(n);
+
+   // boundaries идут парами [start, end)
+   const rawSegments: Segment[] = [];
+   for (let i = 0; i < boundaries.length - 1; i += 2) {
+      const start = boundaries[i];
+      const end = boundaries[i + 1] - 1;
+      if (start > end) continue;
+
+      // Проверяем — это активный сегмент или долина
+      const segRevs = dailyRevenues.slice(start, end + 1);
+      const segMean = mean(segRevs);
+
+      // Пропускаем сегменты с уровнем как у долины
+      const isDivider = confirmedDividers.some(
+         (d) => d.start === start && d.end === end,
+      );
+      if (isDivider) continue;
+      if (globalMedian > 0 && segMean < ROUGH_THRESHOLD) continue;
+
+      rawSegments.push({ startIdx: start, endIdx: end, revenues: segRevs });
+   }
+
+   // ── Постобработка: сливаем сегменты < 3 дней с похожим соседом ──────────
+
+   const MIN_SEGMENT_LEN = 3;
+   const segments: Segment[] = [];
+
+   for (let i = 0; i < rawSegments.length; i++) {
+      const seg = rawSegments[i];
+      const len = seg.endIdx - seg.startIdx + 1;
+
+      if (len < MIN_SEGMENT_LEN && segments.length > 0) {
+         // Сливаем с предыдущим
+         const prev = segments[segments.length - 1];
+         prev.endIdx = seg.endIdx;
+         prev.revenues = [...prev.revenues, ...seg.revenues];
+      } else {
+         segments.push({ ...seg, revenues: [...seg.revenues] });
+      }
+   }
+
+   return segments;
+}
+
+/**
+ * Считает avgRevenuePerActiveDay и activeRatio для сегмента
+ */
+type SegmentRate = {
+   avgPerActiveDay: number; // средний доход в активный день
+   activeRatio: number;     // доля активных дней среди всех дней сегмента
+};
+
+function segmentRate(revenues: number[]): SegmentRate {
+   const activeDays = revenues.filter((v) => v > 0);
+   const activeRatio = revenues.length > 0 ? activeDays.length / revenues.length : 0;
+   const avgPerActiveDay = activeDays.length > 0 ? mean(activeDays) : 0;
+   return { avgPerActiveDay, activeRatio };
+}
+
+// ─── Main function ───────────────────────────────────────────────────────────
+
 function aggregateByMonth(
    data: ChartPoint[],
    monthlySpread: MonthlySpread[],
 ): MonthSummary[] {
    const monthNames = [
-      "Jan",
-      "Feb",
-      "Mar",
-      "Apr",
-      "May",
-      "Jun",
-      "Jul",
-      "Aug",
-      "Sep",
-      "Oct",
-      "Nov",
-      "Dec",
+      "Jan", "Feb", "Mar", "Apr", "May", "Jun",
+      "Jul", "Aug", "Sep", "Oct", "Nov", "Dec",
    ];
 
    const now = new Date();
    const currentYearMonth = `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, "0")}`;
-   const currentDayOfMonth = now.getDate(); // сколько дней прошло включая сегодня
+   const currentDayOfMonth = now.getDate();
 
    const map = new Map<
       string,
@@ -79,6 +231,8 @@ function aggregateByMonth(
          count: number;
          year: number;
          monthIndex: number;
+         // дневные доходы для текущего месяца
+         dailyRevenues: Map<number, number>; // day-of-month → revenue
       }
    >();
 
@@ -95,6 +249,7 @@ function aggregateByMonth(
       const year = d.getFullYear();
       const monthIndex = d.getMonth();
       const monthKey = `${year}-${String(monthIndex + 1).padStart(2, "0")}`;
+      const dayOfMonth = d.getDate();
 
       const acc = map.get(monthKey) ?? {
          revenue: 0,
@@ -103,30 +258,105 @@ function aggregateByMonth(
          count: 0,
          year,
          monthIndex,
+         dailyRevenues: new Map<number, number>(),
       };
       acc.revenue += revenue;
       acc.totalBuy += buy;
       acc.totalSell += sell;
       acc.count += 1;
+      acc.dailyRevenues.set(
+         dayOfMonth,
+         (acc.dailyRevenues.get(dayOfMonth) ?? 0) + revenue,
+      );
       map.set(monthKey, acc);
    }
 
    return Array.from(map.entries())
       .sort(([a], [b]) => a.localeCompare(b))
       .map(([monthKey, acc]) => {
-         const { revenue, totalBuy, totalSell, year, monthIndex } = acc;
+         const { revenue, totalBuy, totalSell, year, monthIndex, dailyRevenues } = acc;
 
          const spreadPercent = spreadMap.get(monthKey) || 0;
          const avgSpread = spreadPercent / 100;
 
          const isCurrentMonth = monthKey === currentYearMonth;
 
-         // Линейная экстраполяция: если прошло N дней из M, ожидаем revenue * (M/N)
          let projectedRevenue = 0;
+
          if (isCurrentMonth && currentDayOfMonth > 0) {
             const totalDays = getDaysInMonth(year, monthIndex);
-            const projectedTotal = (revenue / currentDayOfMonth) * totalDays;
-            projectedRevenue = Math.max(0, projectedTotal - revenue);
+            const remainingDays = totalDays - currentDayOfMonth;
+
+            if (remainingDays > 0) {
+               // Строим массив дневных доходов [день 1 .. текущий день]
+               const dailyArr: number[] = Array.from(
+                  { length: currentDayOfMonth },
+                  (_, i) => dailyRevenues.get(i + 1) ?? 0,
+               );
+
+               // Детектируем сегменты
+               const segments = detectSegments(dailyArr);
+
+               // Текущий сегмент — последний (содержит currentDayOfMonth - 1)
+               const lastIdx = currentDayOfMonth - 1;
+               const currentSeg =
+                  segments.length > 0
+                     ? segments.find(
+                          (s) => s.startIdx <= lastIdx && s.endIdx >= lastIdx,
+                       ) ?? segments[segments.length - 1]
+                     : null;
+
+               const MIN_ACTIVE_DAYS = 3;
+
+               const computeProjected = (rate: SegmentRate): number => {
+                  return rate.avgPerActiveDay * rate.activeRatio * remainingDays;
+               };
+
+               if (currentSeg) {
+                  const curRate = segmentRate(currentSeg.revenues);
+                  const curActiveDays = currentSeg.revenues.filter(
+                     (v) => v > 0,
+                  ).length;
+
+                  if (curActiveDays >= MIN_ACTIVE_DAYS) {
+                     // Достаточно данных — используем только текущий сегмент
+                     projectedRevenue = computeProjected(curRate);
+                  } else {
+                     // Мало данных — weighted average с предыдущим сегментом
+                     const prevSeg =
+                        segments.length >= 2
+                           ? segments[segments.indexOf(currentSeg) - 1]
+                           : null;
+
+                     if (prevSeg) {
+                        const prevRate = segmentRate(prevSeg.revenues);
+                        const prevActiveDays = prevSeg.revenues.filter(
+                           (v) => v > 0,
+                        ).length;
+
+                        const totalActive = curActiveDays + prevActiveDays;
+                        const wCur = curActiveDays / totalActive;
+                        const wPrev = 1 - wCur;
+
+                        const blendedRate: SegmentRate = {
+                           avgPerActiveDay:
+                              curRate.avgPerActiveDay * wCur +
+                              prevRate.avgPerActiveDay * wPrev,
+                           activeRatio:
+                              curRate.activeRatio * wCur +
+                              prevRate.activeRatio * wPrev,
+                        };
+
+                        projectedRevenue = computeProjected(blendedRate);
+                     } else {
+                        // Нет предыдущего — используем что есть
+                        projectedRevenue = computeProjected(curRate);
+                     }
+                  }
+               }
+
+               projectedRevenue = Math.max(0, projectedRevenue);
+            }
          }
 
          return {
