@@ -14,20 +14,19 @@ export async function GET() {
 
 export async function POST(request: Request) {
    try {
-      // Добавляем reason в payload
-      // reason: 'order_create' | 'order_cancel' | 'manual'
-      const { id, amount, reason } = await request.json();
+      // Принимаем orderId с фронтенда
+      const { orderId, id, amount, reason } = await request.json();
 
       if (!id || typeof amount !== "number") {
          return NextResponse.json({ error: "Invalid payload" }, { status: 400 });
       }
 
-      // Дефолтное значение для совместимости, если фронт еще не обновлен
-      // Если вы делаете ручной запрос через Postman без reason — будет manual
       const actionReason = reason || 'manual';
 
+      // Вызываем новую безопасную функцию
       const { data, error } = await supabase
-         .rpc('update_card_balance', {
+         .rpc('update_card_balance_safe', {
+            p_order_id: orderId || null, // Передаем null, если это ручной запрос без ордера
             p_card_id: id,
             p_amount: amount,
             p_reason: actionReason
@@ -36,6 +35,11 @@ export async function POST(request: Request) {
       if (error) {
          console.error("RPC Error:", error);
          return NextResponse.json({ error: error.message }, { status: 500 });
+      }
+
+      // Обработка случая, когда сработал предохранитель идемпотентности
+      if (data?.warning) {
+         console.warn(`[Idempotency Warning]: ${data.warning} for order ${orderId}`);
       }
 
       return NextResponse.json(data);
