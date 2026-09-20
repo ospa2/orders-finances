@@ -244,7 +244,7 @@ type HoldResult = {
  * BUY ордера добавляют лоты в очередь, SELL списывают с начала очереди.
  * Оставшиеся лоты группируются по цене.
  */
-const HOLD_CORRECTION_USDT = 1180; // реальный холд оказался меньше на эту сумму
+const HOLD_CORRECTION_USDT = 980; // реальный холд оказался меньше на эту сумму
 
 function calcHoldFifo(orders: Order[]): HoldResult {
    const completed = orders
