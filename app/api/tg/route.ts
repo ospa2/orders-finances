@@ -69,14 +69,15 @@ export async function POST(req: NextRequest) {
       status: tgResponse.status,
       headers: { ...corsHeaders, 'Content-Type': 'application/json' },
     });
-  } catch (error: any) {
-    console.error('Proxy POST error:', error);
-    return NextResponse.json({ error: error.message }, { 
-      status: 500,
-      headers: corsHeaders 
-    });
+  } catch (error: unknown) {
+     console.error('Proxy POST error:', error);
+     return NextResponse.json({ error: error as Error }, {
+        status: 500,
+        headers: corsHeaders
+     });
   }
-}
+  }
+
 
 export async function GET(req: NextRequest) {
   const origin = req.headers.get('origin');
@@ -104,11 +105,11 @@ export async function GET(req: NextRequest) {
       status: tgResponse.status,
       headers: { ...corsHeaders, 'Content-Type': 'application/json' },
     });
-  } catch (error: any) {
-    console.error('Proxy GET error:', error);
-    return NextResponse.json({ error: error.message }, { 
-      status: 500,
-      headers: corsHeaders 
-    });
+  } catch (error: unknown) {
+     console.error('Proxy GET error:', error);
+     return NextResponse.json({ error: error as Error }, {
+        status: 500,
+        headers: corsHeaders
+     });
   }
 }
