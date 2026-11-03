@@ -244,7 +244,6 @@ type HoldResult = {
  * BUY ордера добавляют лоты в очередь, SELL списывают с начала очереди.
  * Оставшиеся лоты группируются по цене.
  */
-const HOLD_CORRECTION_USDT = 980; // реальный холд оказался меньше на эту сумму
 
 function calcHoldFifo(orders: Order[]): HoldResult {
    const completed = orders
@@ -271,18 +270,6 @@ function calcHoldFifo(orders: Order[]): HoldResult {
       }
    }
 
-   // Вычитаем поправку по FIFO из самых старых лотов
-   let correction = HOLD_CORRECTION_USDT;
-   while (correction > 1e-9 && queue.length > 0) {
-      const front = queue[0];
-      if (front.amount <= correction + 1e-9) {
-         correction -= front.amount;
-         queue.shift();
-      } else {
-         front.amount -= correction;
-         correction = 0;
-      }
-   }
 
    if (queue.length === 0) {
       return { totalUsdt: 0, avgPrice: 0, groups: [] };
